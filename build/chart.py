@@ -199,3 +199,80 @@ if __name__ == "__main__":
     parser.add_argument("--out", type=Path, default=IMAGE)
     args = parser.parse_args()
     print(f"wrote {draw(analyze.compute(), analyze.load(), args.out, args.with_second, args.second)}")
+
+
+COVERAGE = ROOT / "out" / "coverage.png"
+DISTRIBUTION = ROOT / "out" / "distribution.png"
+
+
+def coverage_chart(data, path=COVERAGE):
+    """Beli ratings against Google reviews, log-log, parity line through the middle.
+
+    Above the line means Beli carries more. The New York points sit well above it and
+    almost everything else sits below, which is the whole finding in one picture."""
+    beli, goog = data["beli_rating_count"], data["user_ratings_total"]
+    mask = ~np.isnan(beli) & ~np.isnan(goog) & (goog > 0) & (beli > 0)
+    x, y = goog[mask], beli[mask]
+    nyc = np.array([m == "NYC" for m, keep in zip(data["markets"], mask) if keep])
+
+    figure, axis = plt.subplots(figsize=(8.6, 6.4), dpi=DPI)
+    lim = [min(x.min(), y.min()) * 0.6, max(x.max(), y.max()) * 1.8]
+    axis.plot(lim, lim, color=AXIS, linewidth=1.5, zorder=1)
+    axis.text(lim[1] * 0.42, lim[1] * 0.60, "same number of ratings",
+              fontsize=NOTE_PT - 1, color=MUTED, rotation=38, ha="center", va="center")
+    scatter(axis, x[~nyc], y[~nyc], MUTED)
+    scatter(axis, x[nyc], y[nyc], ACCENT)
+
+    axis.set_xscale("log"); axis.set_yscale("log")
+    axis.set_xlim(*lim); axis.set_ylim(*lim)
+    axis.set_xlabel("Google reviews", fontsize=LABEL_PT, color=INK_2, labelpad=10)
+    axis.set_ylabel("Beli ratings", fontsize=LABEL_PT, color=INK_2, labelpad=10)
+    axis.tick_params(labelsize=TICK_PT, colors=MUTED, length=0, pad=8)
+    axis.grid(True, color=GRID, linewidth=1, zorder=0)
+    axis.set_axisbelow(True)
+    for side in ("top", "right"):
+        axis.spines[side].set_visible(False)
+    for side in ("left", "bottom"):
+        axis.spines[side].set_color(AXIS); axis.spines[side].set_linewidth(1)
+
+    axis.text(0.03, 0.96, "New York", transform=axis.transAxes, fontsize=NOTE_PT + 3,
+              color=ACCENT, fontweight="bold", va="top")
+    axis.text(0.03, 0.90, "everywhere else", transform=axis.transAxes,
+              fontsize=NOTE_PT + 3, color=MUTED, fontweight="bold", va="top")
+    figure.suptitle("Beli has more ratings than Google — in New York",
+                    fontsize=HEADLINE_PT - 4, fontweight="bold", color=INK,
+                    x=0.045, y=0.97, ha="left", va="top")
+    figure.tight_layout(rect=(0.02, 0.02, 0.99, 0.90))
+    figure.savefig(path, dpi=DPI, facecolor=SURFACE)
+    plt.close(figure)
+    return path
+
+
+def distribution_chart(data, path=DISTRIBUTION):
+    """The two crowd scores as histograms on their own scales.
+
+    Google's 114 restaurants fall into 12 values; Beli's average spreads them wider."""
+    figure, axes = plt.subplots(1, 2, figsize=(11.0, 4.6), dpi=DPI, sharey=True)
+    for axis, key, lo, hi, step, title in (
+            (axes[0], analyze.CLEAN, 1.0, 5.0, 0.1, "Google rating"),
+            (axes[1], "beli_average", 0.0, 10.0, 0.1, "Beli's all-user average")):
+        v = data[key][~np.isnan(data[key])]
+        axis.hist(v, bins=np.arange(lo, hi + step, step), color=ACCENT, zorder=3)
+        axis.set_xlim(lo, hi)
+        axis.set_xlabel(f"{title}  ({len(set(v))} distinct values)",
+                        fontsize=LABEL_PT - 2, color=INK_2, labelpad=10)
+        axis.tick_params(labelsize=TICK_PT - 1, colors=MUTED, length=0, pad=6)
+        axis.grid(True, axis="y", color=GRID, linewidth=1, zorder=0)
+        axis.set_axisbelow(True)
+        for side in ("top", "right"):
+            axis.spines[side].set_visible(False)
+        for side in ("left", "bottom"):
+            axis.spines[side].set_color(AXIS); axis.spines[side].set_linewidth(1)
+    axes[0].set_ylabel("restaurants", fontsize=LABEL_PT - 2, color=INK_2, labelpad=10)
+    figure.suptitle("Same 114 restaurants, each scale drawn in full",
+                    fontsize=HEADLINE_PT - 4, fontweight="bold", color=INK,
+                    x=0.035, y=0.97, ha="left", va="top")
+    figure.tight_layout(rect=(0.01, 0.02, 0.99, 0.86), w_pad=3.0)
+    figure.savefig(path, dpi=DPI, facecolor=SURFACE)
+    plt.close(figure)
+    return path

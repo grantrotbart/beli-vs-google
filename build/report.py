@@ -185,158 +185,83 @@ def kept_rows():
 def sections(result, image_uri):
     fits = result["fits"]
     google = fits.get(analyze.CLEAN)
-    friend = fits.get("friend_score")
     cluster = result["cluster"]
     anchors = result["anchoring"]
-    out = []
-
     cover = result.get("coverage")
     res = result.get("resolution")
+    out = []
 
     out.append(f"""<header>
-<div class="eyebrow">One user&rsquo;s Beli data, checked against Google</div>
-<h1>What 114 restaurants say about the claim that Beli&rsquo;s data is different</h1>
+<div class="eyebrow">114 restaurants, one Beli list</div>
+<h1>Does Beli&rsquo;s data say something Google&rsquo;s doesn&rsquo;t?</h1>
 <p class="byline">{AUTHOR} &middot; {result['generated']}</p>
-<p class="lede">On The Simmer, Judy made a specific argument: that because of who uses
-Beli and how they use it, its ratings are richer and more representative of what people
-actually think than Google or Yelp. I&rsquo;ve used Beli for years, so I pulled the
-Google rating for all 114 restaurants on my list and tested the parts of that claim my
-own data can reach. You&rsquo;ve almost certainly looked at this already. It is one
-user&rsquo;s data, so read it as a mechanism rather than a measurement.</p>
+<p class="lede">On The Simmer you argued that Beli&rsquo;s ratings are richer and more
+representative than Google&rsquo;s or Yelp&rsquo;s. I&rsquo;ve used Beli for years, so I
+pulled the Google rating for all 114 restaurants on my list and checked the parts of that
+I could. You&rsquo;ve almost certainly done this already. It&rsquo;s one user&rsquo;s
+data, so it shows a mechanism, not a measurement.</p>
 </header>""")
 
     out.append(f"""<figure class="figure" style="margin:0">
-<img src="{image_uri}" alt="Scatter plot of Google rating against my Beli score across
-114 restaurants, showing no relationship.">
+<img src="{image_uri}" alt="Google rating against my Beli score for 114 restaurants.
+The points form a narrow vertical band with no slope.">
 </figure>""")
 
+    if google and cluster:
+        out.append(f"""<section>
+<h2>The headline</h2>
+<p class="pull">Google stars explain {headline_pct(google['r2'])} of where a restaurant
+lands in my ranking.</p>
+<p>n&nbsp;=&nbsp;{google['n']}, Spearman &rho;&nbsp;=&nbsp;{google['spearman']:.2f},
+p&nbsp;=&nbsp;{google['p']:.2f}. Not a weak signal. No signal. It stays flat inside every
+price band too, so it isn&rsquo;t an artefact of mixing taco stands with tasting
+menus.</p>
+<p><strong>{cluster['count']} of my restaurants sit at exactly
+{cluster['google_rating']:.1f} on Google.</strong> I rank them from {cluster['min']:.1f}
+to {cluster['max']:.1f}. {cluster['highest']} is my number one. {cluster['lowest']} is
+near the bottom. Google has no way to tell them apart.</p>
+</section>""")
+
     if cover:
+        nyc = [c for c in cover["by_market"] if c["market"] == "NYC"]
+        nyc = nyc[0] if nyc else None
+        top = cover["top"][0]
         rows = [[c["market"], c["n"], f'{c["median"]:.1f}&times;',
                  f'{c["beli_wins"]}/{c["n"]}'] for c in cover["by_market"]]
-        top = cover["top"][0]
         out.append(f"""<section>
-<h2>1. Volume &mdash; and where it comes from</h2>
-<p>The claim that a new restaurant gets 10&ndash;100&times; the ratings on Beli holds,
-but only where Beli has users. Splitting by market is the honest version, and the more
-useful one.</p>
+<h2>Volume, and where it comes from</h2>
+<p>The 10&ndash;100&times; figure holds, but only where Beli has users.</p>
+<figure class="figure"><img src="{data_uri(chart.COVERAGE)}"
+alt="Beli ratings against Google reviews on log scales. New York points sit above the
+parity line, the rest below."></figure>
 {table(["market", "n", "median Beli ratings per Google review", "Beli ahead on"], rows)}
-<p class="pull">In New York, Beli carries a median of
-{[c for c in cover["by_market"] if c["market"] == "NYC"][0]["median"]:.0f}&times; Google&rsquo;s
-rating volume &mdash; and leads on 45 of 46 restaurants.</p>
-<p>The widest single gap on my list is <strong>{top['name']}</strong>:
-{top['beli']:,.0f} ratings on Beli against {top['google']:,.0f} reviews on Google,
-a factor of {top['ratio']:.0f}. Outside New York it inverts, and in Europe Beli has
-almost nothing. That is the shape of a network effect rather than a property of the
-platform &mdash; which is presumably more useful to you than a blended average that
-hides both halves.</p>
+<p>In New York, Beli carries a median {nyc['median']:.0f}&times; Google&rsquo;s volume and
+leads on {nyc['beli_wins']} of {nyc['n']} restaurants. The widest gap is {top['name']}:
+{top['beli']:,.0f} against {top['google']:,.0f}. Outside New York it flips, and in Europe
+there&rsquo;s almost nothing. That&rsquo;s a network effect rather than a property of the
+platform, and the split seems more useful than a blended number hiding both halves.</p>
 </section>""")
 
     if res:
         g, b = res[analyze.CLEAN], res["beli_average"]
         out.append(f"""<section>
-<h2>2. Resolution &mdash; whether the number can separate two restaurants</h2>
-<p>Volume only matters if it buys discrimination. Across {res['n']} restaurants there
-are {res['pairs']:,} possible pairs, and a score that gives two restaurants the same
-value cannot order them at all.</p>
+<h2>Resolution</h2>
+<p>Volume only matters if it buys discrimination. Of the {res['pairs']:,} pairs among
+these restaurants, a score that gives both the same value can&rsquo;t order them.</p>
+<figure class="figure"><img src="{data_uri(chart.DISTRIBUTION)}"
+alt="Histograms of Google ratings and Beli all-user averages, each drawn across its own
+full scale."></figure>
 {table(["crowd score", "distinct values", "tied pairs", "share tied",
-        "largest group sharing one value"],
+        "largest group on one value"],
        [[analyze.LABELS[analyze.CLEAN], g["distinct"], f'{g["tied_pairs"]:,}',
          pct(g["tied_share"]), g["biggest_tie"]],
         [analyze.LABELS["beli_average"], b["distinct"], f'{b["tied_pairs"]:,}',
          pct(b["tied_share"]), b["biggest_tie"]]])}
 <p>Both are averages over users, so this is like for like. Google leaves
-{g["tied_pairs"] / max(b["tied_pairs"], 1):.1f}&times; as many pairs indistinguishable.</p>
-<div class="note"><p>Some of that is granularity: Google reports one decimal on a
-1&ndash;5 scale, so it has fewer slots to begin with. I don&rsquo;t think that rescues
-the number. A product consuming the Google rating cannot rank what the rating does not
-separate, whatever the reason it doesn&rsquo;t.</p></div>
-</section>""")
-
-    if cluster:
-        same = (f" Beli&rsquo;s all-user average spreads those same restaurants across "
-                f"{cluster['average_spread']:.1f} points."
-                if cluster["average_spread"] is not None else "")
-        out.append(f"""<section>
-<h2>What that looks like on one number</h2>
-<p><strong>{cluster['count']} of my restaurants sit at exactly
-{cluster['google_rating']:.1f} on Google.</strong> To anyone reading the star rating they
-are the same restaurant. I rank them from {cluster['min']:.1f} to {cluster['max']:.1f}
-&mdash; {cluster['lowest']} near the bottom of my list, {cluster['highest']} at the very
-top.{same}</p>
-<p>That is not disagreement. Disagreement would be Google rating something highly that I
-rank low. This is Google having no way to express the difference at all.</p>
-</section>""")
-
-    if google:
-        out.append(f"""<section>
-<h2>3. Consequence &mdash; the rating carries no information about my order</h2>
-<p class="pull">Google stars explain {headline_pct(google['r2'])} of the variance in how
-I rank restaurants.</p>
-<p>Across {google['n']} restaurants, Spearman &rho;&nbsp;=&nbsp;{google['spearman']:.2f},
-p&nbsp;=&nbsp;{google['p']:.2f}. Not a weak relationship &mdash; no relationship. And it
-is not an artefact of mixing cheap places with expensive ones: the fit stays flat inside
-every price band, and adding the Google rating to a model that already knows the price
-bracket moves R&sup2; by {result['price']['google_adds'] * 100:+.1f} points.</p>
-<p>Which follows from the two sections above. A measure that collapses
-{g["biggest_tie"] if res else 22} restaurants onto one value, built from a fraction of
-the ratings, cannot carry ordering information it never captured.</p>
-</section>""")
-
-    if cover:
-        nyc = [c for c in cover["by_market"] if c["market"] == "NYC"]
-        nyc = nyc[0]["median"] if nyc else None
-        out.append(f"""<section>
-<h2>Three things I&rsquo;d want to look at with the real data</h2>
-<p>Not recommendations &mdash; I&rsquo;m working from 114 restaurants and you have the
-actual dataset. These are just the questions my numbers raised that I couldn&rsquo;t
-answer.</p>
-
-<h3>Where the data is already the better source</h3>
-<p>The volume advantage isn&rsquo;t a property of the platform, it&rsquo;s a property of
-density: {nyc:.0f}&times; in New York, 0.3&times; in Florida, nothing in Europe. So
-anything built on this data works in some markets today and not others. With the full
-dataset you could find the threshold &mdash; how many active users a metro needs before
-Beli overtakes Google as the better-covered source. That line seems worth knowing before
-deciding where anything ships.</p>
-
-<h3>Resolution looks like the differentiated part, not volume</h3>
-<p>More ratings is a lead competitors can close. Being able to separate restaurants that
-Google puts on the same number is harder to copy, because it comes from the ranking
-mechanic rather than from scale. For anyone who needs an <em>order</em> rather than a
-filter &mdash; a diner choosing between two places tonight, a restaurant asking who it
-actually competes with &mdash; that is the thing a star average cannot provide at any
-volume.</p>
-
-<h3>The edge is widest exactly where Google is weakest</h3>
-<p>Splitting my list by how well covered each restaurant is on Google: for the thinner
-half, Beli carries a median {cover['thin_google']:.1f}&times; Google&rsquo;s ratings; for
-the better-covered half, {cover['thick_google']:.1f}&times;. The differentiation
-concentrates in places Google barely describes &mdash; which is also where a diner has
-the least to go on, so the two line up.</p>
-</section>""")
-
-    out.append("""<section>
-<h2>What I could not test</h2>
-<p>The Yelp figure &mdash; that most reviews are one star or five &mdash; is about the
-distribution of individual reviews, and I can only see published averages, not the
-reviews underneath them. So I have not tested it and I am not claiming to.</p>
-<p>What I can say is that my data is consistent with it. If the underlying reviews were
-as polarised as you described, the averages would pile up high and narrow, which is
-exactly what they do: 98 of my 114 restaurants sit between 4.2 and 4.7.</p>
-</section>""")
-
-    rows = []
-    for key in [analyze.CLEAN] + analyze.ANCHORS:
-        fit = fits.get(key)
-        if fit:
-            rows.append([analyze.LABELS[key], fit["n"], f"{fit['r2']:.3f}",
-                         pct(fit["r2"], 1), f"{fit['spearman']:.2f}"])
-    out.append(f"""<section>
-<h2>Every signal, side by side</h2>
-<p>Everything here explains the same thing: my own score. Only the first row is a clean
-test &mdash; Google&rsquo;s rating never appears while I rank. The other two are on
-screen before I do.</p>
-{table(["predictor", "n", "R&sup2;", "variance explained", "rank correlation"], rows)}
+{g["tied_pairs"] / max(b["tied_pairs"], 1):.1f}&times; as many pairs indistinguishable.
+Some of that is granularity, since one decimal on a 1&ndash;5 scale gives Google fewer
+slots. I don&rsquo;t think that rescues it. A product reading the Google rating
+can&rsquo;t rank what the rating doesn&rsquo;t separate.</p>
 </section>""")
 
     if anchors:
@@ -345,77 +270,92 @@ screen before I do.</p>
                      f'{anchors[key]["big"]} ({pct(anchors[key]["big_share"])})',
                      f'{anchors[key]["big_above"]} up / {anchors[key]["big_below"]} down']
                     for key in anchors]
+        sig_rows = []
+        for key in [analyze.CLEAN] + analyze.ANCHORS:
+            fit = fits.get(key)
+            if fit:
+                sig_rows.append([analyze.LABELS[key], fit["n"], f'{fit["r2"]:.3f}',
+                                 pct(fit["r2"], 1), f'{fit["spearman"]:.2f}'])
         out.append(f"""<section>
 <h2>Am I just echoing what I was shown?</h2>
-<p>These scores are on screen before I rank, so it is the first thing worth checking.
-The gaps say no.</p>
-{table(["vs", "n", "mean gap", "median gap", f"gaps over {analyze.BIG_GAP:.0f}", "direction"],
-       gap_rows)}
-<p>The mean gap is near zero and the large disagreements run both ways &mdash; I place
-things well above and well below the number I was shown, in roughly equal measure. An
-echo does not look like that.</p>
-<div class="note"><p>A holdout would settle it across all your users rather than one:
-hide the scores for a slice of raters and compare the orderings that come out. That is
-the version I can&rsquo;t run from outside.</p></div>
+<p>Beli&rsquo;s own scores do track my ranking, and they&rsquo;re on screen before I rank,
+so it&rsquo;s the first thing worth checking.</p>
+{table(["predictor", "n", "R&sup2;", "variance explained", "rank correlation"], sig_rows)}
+<p>The gaps say no.</p>
+{table(["vs", "n", "mean gap", "median gap", f"gaps over {analyze.BIG_GAP:.0f}",
+        "direction"], gap_rows)}
+<p>Mean gap near zero, and the big disagreements run both ways in roughly equal measure.
+An echo doesn&rsquo;t look like that.</p>
+<div class="note"><p>A holdout would settle it across all your users rather than one.
+Hide the scores for a slice of raters and compare the orderings. That&rsquo;s the version
+I can&rsquo;t run from outside.</p></div>
 </section>""")
 
-    spread_rows = []
-    for key in [analyze.OUTCOME] + [analyze.CLEAN] + analyze.ANCHORS:
-        spread = result["spread"].get(key)
-        if spread:
-            spread_rows.append([analyze.LABELS[key], spread["n"],
-                                f"{spread['min']:.1f}&ndash;{spread['max']:.1f}",
-                                f"{spread['span']:.1f}", pct(spread["scale_used"]),
-                                pct(spread["std_share"]), f"{spread['entropy']:.2f}"])
-    out.append(f"""<section>
-<h2>Spread, with the caveat it needs</h2>
-{table(["measure", "n", "range", "span", "share of its scale", "sd (% of scale)",
-        "entropy (bits)"], spread_rows)}
-<div class="note"><p>Google runs 1&ndash;5 and Beli runs 0&ndash;10, so everything in that
-table is expressed as a share of each measure&rsquo;s own scale rather than in raw points.
-The headline R&sup2; is unaffected either way &mdash; correlation doesn&rsquo;t care about
-units.</p>
-<p>Worth saying plainly: my score is a rank position, so it spreads
-across the scale partly <em>by construction</em>. A ranking produces a top and a bottom
-whatever the underlying taste looks like; an average of star ratings concentrates
-whatever the underlying taste looks like. Most of the gap between those two rows is the
-two instruments, not two populations of people.</p>
-<p>Which is still the interesting part. Ranking is built to extract ordering. Averaging
-is built to collapse it. The first table is the one that shows the ordering carries
-information the average doesn&rsquo;t.</p></div>
+    out.append("""<section>
+<h2>What I couldn&rsquo;t test</h2>
+<p>The Yelp figure, that most reviews are one star or five, is about individual reviews.
+I can only see published averages. So I haven&rsquo;t tested it and I&rsquo;m not
+claiming to.</p>
+<p>My data is consistent with it. Polarised reviews would produce averages piled high and
+narrow, and 98 of my 114 sit between 4.2 and 4.7.</p>
+</section>""")
+
+    if cover:
+        out.append(f"""<section>
+<h2>Three things I&rsquo;d want to look at with the real data</h2>
+<p>Not recommendations. I have 114 restaurants and you have the dataset. These are the
+questions my numbers raised that I couldn&rsquo;t answer.</p>
+
+<h3>Where the data is already the better source</h3>
+<p>The advantage tracks density, not the platform. With the full dataset you could find
+the threshold: how many active users a metro needs before Beli becomes the better-covered
+source. Worth knowing before deciding where anything ships.</p>
+
+<h3>Resolution may be the harder thing to copy</h3>
+<p>More ratings is a lead a competitor can close. Separating restaurants that Google puts
+on the same number comes from the ranking mechanic, not from scale. Anyone who needs an
+order rather than a filter can&rsquo;t get that from a star average at any volume.</p>
+
+<h3>The edge is widest where Google is weakest</h3>
+<p>Split my list by Google coverage: on the thinner half Beli carries a median
+{cover['thin_google']:.1f}&times; Google&rsquo;s ratings, on the better-covered half
+{cover['thick_google']:.1f}&times;. The differentiation concentrates in places Google
+barely describes, which is also where a diner has least to go on.</p>
 </section>""")
 
     return out
 
 
 def method(result, rows):
-    flagged = ""
+    depth = result.get("depth") or {}
+    friends = depth.get("friends") or {}
+    thin = (f" Friend counts are small: median {friends['median']:.0f}, and "
+            f"{friends['none']} restaurants have none. Read that row as a handful of "
+            f"individuals rather than a crowd."
+            if friends else "")
+    manual = ""
     if rows:
-        manual = sum(1 for row in rows if row.get("source") == "manual")
-        if manual:
-            flagged = f" {manual} Google rating(s) were entered by hand rather than by API."
+        count = sum(1 for row in rows if row.get("source") == "manual")
+        if count:
+            manual = f" {count} Google ratings were typed in by hand rather than fetched."
     return f"""<section>
 <h2>Method</h2>
 <ul>
-<li>My own Beli list: name, my score, my rank in the list, and the friend and all-user
-numbers with how many people are behind each.</li>
-<li><strong>Restaurants only.</strong> Bars, bakeries and dessert places are excluded,
-because a pastry and a tasting menu aren&rsquo;t the same judgement and their Google
-ratings don&rsquo;t behave the same way either. It is worth naming that this narrows the
-range of Google ratings a little, and a narrower range pulls a correlation down &mdash;
-which is the direction that happens to suit my argument, so: stated rather than
-buried.</li>
-<li>Google ratings from the Places API (Text Search), matched on name plus city.</li>
-<li>Matches below a name-similarity threshold were held out until checked by eye, so a
-restaurant-name collision can&rsquo;t quietly poison the chart.
-{result['n_kept']} rows survived.{flagged}</li>
-<li>Blank cells mean the number wasn&rsquo;t available, not zero, so the n differs by
-column.</li>
-<li>Regressions are ordinary least squares; Spearman is reported beside every R&sup2;
-because my score is ordinal within my own list.</li>
+<li>My Beli list: name, score, rank, and the friend and all-user numbers with the count
+of people behind each.{thin}</li>
+<li>Google ratings from the Places API, matched on name plus city. Low-confidence
+matches were held out until checked by eye, so a name collision can&rsquo;t quietly
+poison the chart. 114 survived.{manual}</li>
+<li>Restaurants only. Bars, bakeries and dessert places are out, since a pastry and a
+tasting menu aren&rsquo;t the same judgement. That narrows the Google range slightly,
+and a narrower range pulls correlations down, which happens to favour my argument.
+Stating it rather than burying it.</li>
+<li>My score is a rank position, not a number I type, so it&rsquo;s ordinal within my
+own list. That&rsquo;s why Spearman sits beside every R&sup2;.</li>
+<li>Blank cells mean unavailable, not zero, so n differs by column.</li>
 </ul>
-<p>What this is not: a sample of Beli users, a sample of restaurants, or evidence about
-anyone&rsquo;s taste but mine. Only restaurants I chose to eat at are in it.</p>
+<p>What this isn&rsquo;t: a sample of Beli users, a sample of restaurants, or evidence
+about anyone&rsquo;s taste but mine. Only places I chose to eat at are in it.</p>
 </section>"""
 
 

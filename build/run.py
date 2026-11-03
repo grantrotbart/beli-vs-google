@@ -34,7 +34,10 @@ def main(args):
     stats_path = analyze.write_stats(result)
 
     print("\n3/4  the image")
-    image = chart.draw(result, analyze.load(), with_second=args.with_second, second_key=args.second)
+    data = analyze.load()
+    image = chart.draw(result, data, with_second=args.with_second, second_key=args.second)
+    chart.coverage_chart(data)
+    chart.distribution_chart(data)
 
     print("\n4/4  the report")
     report_path = report.build(result)
