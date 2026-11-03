@@ -305,27 +305,23 @@ screen before I do.</p>
 </section>""")
 
     if anchors:
-        gap_rows = [[analyze.LABELS[key], anchors[key]["n"], f"{anchors[key]['mean']:+.2f}",
-                     f"{anchors[key]['median_abs']:.2f}", f"{anchors[key]['std']:.2f}",
-                     f"{anchors[key]['big']} ({pct(anchors[key]['big_share'])})",
-                     f"{anchors[key]['big_above']} up / {anchors[key]['big_below']} down"]
-                    for key in anchors]
         gap_rows = [[analyze.LABELS[key], anchors[key]["n"],
                      f'{anchors[key]["mean"]:+.2f}', f'{anchors[key]["median_abs"]:.2f}',
                      f'{anchors[key]["big"]} ({pct(anchors[key]["big_share"])})',
                      f'{anchors[key]["big_above"]} up / {anchors[key]["big_below"]} down']
                     for key in anchors]
         out.append(f"""<section>
-<h2>One caveat on the Beli columns</h2>
-<p>Those two scores are on screen before I rank a place, so read them as context rather
-than as predictions. Worth noting too that my own score is a rank position, not a number
-I type.</p>
-<p>For what it is worth, I disagree with them often and in both directions:</p>
+<h2>Am I just echoing what I was shown?</h2>
+<p>These scores are on screen before I rank, so it is the first thing worth checking.
+The gaps say no.</p>
 {table(["vs", "n", "mean gap", "median gap", f"gaps over {analyze.BIG_GAP:.0f}", "direction"],
        gap_rows)}
-<div class="note"><p>A holdout would settle it properly &mdash; hide the scores for a
-slice of raters and compare the orderings that come out. That is the one question here
-I can&rsquo;t answer from the outside and you can.</p></div>
+<p>The mean gap is near zero and the large disagreements run both ways &mdash; I place
+things well above and well below the number I was shown, in roughly equal measure. An
+echo does not look like that.</p>
+<div class="note"><p>A holdout would settle it across all your users rather than one:
+hide the scores for a slice of raters and compare the orderings that come out. That is
+the version I can&rsquo;t run from outside.</p></div>
 </section>""")
 
     spread_rows = []
