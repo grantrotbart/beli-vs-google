@@ -1,0 +1,6 @@
+# Already installed globally on this machine (Python 3.14.2). Listed for the record.
+pandas>=2.2
+numpy>=2.0
+scipy>=1.13
+matplotlib>=3.8
+requests>=2.31

@@ -1,0 +1,2110 @@
+{
+ "Rolo's, Ridgewood Queens NY": {
+  "places": [
+   {
+    "id": "ChIJWUhoPQhdwokRYsDwo5qMnMU",
+    "formattedAddress": "8-53 Onderdonk Ave, Ridgewood, NY 11385, USA",
+    "location": {
+     "latitude": 40.7019431,
+     "longitude": -73.903537
+    },
+    "rating": 4.5,
+    "userRatingCount": 1983,
+    "displayName": {
+     "text": "Rolo\u2019s",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Laser Wolf, Williamsburg Brooklyn NY": {
+  "places": [
+   {
+    "id": "ChIJLyS5dYRZwokRlkA0g9eijjs",
+    "formattedAddress": "97 Wythe Ave, Brooklyn, NY 11249, USA",
+    "location": {
+     "latitude": 40.7208328,
+     "longitude": -73.95879359999999
+    },
+    "rating": 4.2,
+    "userRatingCount": 1210,
+    "displayName": {
+     "text": "Laser Wolf Brooklyn",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Theodora, Fort Greene Brooklyn NY": {
+  "places": [
+   {
+    "id": "ChIJJye7jZBbwokRtioAck7uEIg",
+    "formattedAddress": "7 Greene Ave, Brooklyn, NY 11238, USA",
+    "location": {
+     "latitude": 40.6860572,
+     "longitude": -73.9731084
+    },
+    "rating": 4.6,
+    "userRatingCount": 827,
+    "displayName": {
+     "text": "Theodora",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Kazunori, NoMad New York NY": {
+  "places": [
+   {
+    "id": "ChIJsaYZEKZZwokRThIP62r39zQ",
+    "formattedAddress": "15 W 28th St, New York, NY 10001, USA",
+    "location": {
+     "latitude": 40.745188399999996,
+     "longitude": -73.988237
+    },
+    "rating": 4.7,
+    "userRatingCount": 3232,
+    "displayName": {
+     "text": "KazuNori: The Original Hand Roll Bar",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Safta, Five Points Denver CO": {
+  "places": [
+   {
+    "id": "ChIJx-4HPHh5bIcRC3bPV5euPOA",
+    "formattedAddress": "3330 Brighton Blvd #201, Denver, CO 80216, USA",
+    "location": {
+     "latitude": 39.76882,
+     "longitude": -104.98024
+    },
+    "rating": 4.4,
+    "userRatingCount": 2517,
+    "displayName": {
+     "text": "Safta",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Aviv, Mid-Beach Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJTcVvE8e12YgRLrRM14_YJzM",
+    "formattedAddress": "2341 Collins Ave, Miami Beach, FL 33139, USA",
+    "location": {
+     "latitude": 25.7998576,
+     "longitude": -80.127084
+    },
+    "rating": 4.4,
+    "userRatingCount": 296,
+    "displayName": {
+     "text": "AVIV",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Hamburger America, SoHo New York NY": {
+  "places": [
+   {
+    "id": "ChIJF8menphZwokR09y2oKUn8HQ",
+    "formattedAddress": "155 W Houston St, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.7280142,
+     "longitude": -74.00257669999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 3502,
+    "displayName": {
+     "text": "Hamburger America",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "The Sixteen Twelve, Copenhagen Denmark": {
+  "places": [
+   {
+    "id": "ChIJY-4VYZlTUkYRmZP0-kxTxuA",
+    "formattedAddress": "J\u00e6gersborggade 8 KL TH, 2200 K\u00f8benhavn, Denmark",
+    "location": {
+     "latitude": 55.6919857,
+     "longitude": 12.5451002
+    },
+    "rating": 4.4,
+    "userRatingCount": 658,
+    "displayName": {
+     "text": "The Sixteen Twelve",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Yama, Union Square New York NY": {
+  "places": [
+   {
+    "id": "ChIJ0yHhe4BZwokRs5lITzFU-Pc",
+    "formattedAddress": "122 E 17th St, New York, NY 10003, USA",
+    "location": {
+     "latitude": 40.7358677,
+     "longitude": -73.9876687
+    },
+    "rating": 4.2,
+    "userRatingCount": 149,
+    "displayName": {
+     "text": "Yama",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "T\u00e2m T\u00e2m, Downtown Miami FL": {
+  "places": [
+   {
+    "id": "ChIJQS512_W32YgR_x8a_d5iUlQ",
+    "formattedAddress": "99 NW 1st St, Miami, FL 33128, USA",
+    "location": {
+     "latitude": 25.775200299999998,
+     "longitude": -80.1950777
+    },
+    "rating": 4.6,
+    "userRatingCount": 679,
+    "displayName": {
+     "text": "T\u00e2m T\u00e2m",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sakagura, Midtown East New York NY": {
+  "places": [
+   {
+    "id": "ChIJ14y5HwNZwokRxY9i9s7Ugcg",
+    "formattedAddress": "211 E 43rd St B1, New York, NY 10017, USA",
+    "location": {
+     "latitude": 40.751245999999995,
+     "longitude": -73.973155
+    },
+    "rating": 4.5,
+    "userRatingCount": 1493,
+    "displayName": {
+     "text": "Sakagura",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Rule of Thirds, Greenpoint New York NY": {
+  "places": [
+   {
+    "id": "ChIJaQRXYuRZwokRHjAN5MkBizY",
+    "formattedAddress": "171 Banker St, Brooklyn, NY 11222, USA",
+    "location": {
+     "latitude": 40.724744799999996,
+     "longitude": -73.9552327
+    },
+    "rating": 4.3,
+    "userRatingCount": 1754,
+    "displayName": {
+     "text": "Rule of Thirds",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Katz's Delicatessen, Lower East Side New York NY": {
+  "places": [
+   {
+    "id": "ChIJCar0f49ZwokR6ozLV-dHNTE",
+    "formattedAddress": "205 E Houston St, New York, NY 10002, USA",
+    "location": {
+     "latitude": 40.722232999999996,
+     "longitude": -73.98742899999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 56465,
+    "displayName": {
+     "text": "Katz's Delicatessen",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Taqueria El Chato, Greenpoint New York NY": {
+  "places": [
+   {
+    "id": "ChIJpx9oNwBZwokRadMPBkSKnvY",
+    "formattedAddress": "620 Manhattan Ave, Brooklyn, NY 11222, USA",
+    "location": {
+     "latitude": 40.7235891,
+     "longitude": -73.9505516
+    },
+    "rating": 4.7,
+    "userRatingCount": 344,
+    "displayName": {
+     "text": "Taqueria El Chato Greenpoint",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Macchialina, West Avenue Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJIUhk5oq02YgRsQu7AiC8UQU",
+    "formattedAddress": "810 Alton Rd, Miami Beach, FL 33139, USA",
+    "location": {
+     "latitude": 25.778480500000004,
+     "longitude": -80.1410231
+    },
+    "rating": 4.4,
+    "userRatingCount": 1782,
+    "displayName": {
+     "text": "Macchialina",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Wah Fung No.1 Fast Food, Bowery New York NY": {
+  "places": [
+   {
+    "id": "ChIJCZ6p_4dZwokRitXAVOk-zvs",
+    "formattedAddress": "79 Chrystie St, New York, NY 10002, USA",
+    "location": {
+     "latitude": 40.717318899999995,
+     "longitude": -73.9944649
+    },
+    "rating": 4.5,
+    "userRatingCount": 3734,
+    "displayName": {
+     "text": "Wah Fung No.1 Fast Food",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tal Bagels, Yorkville New York NY": {
+  "places": [
+   {
+    "id": "ChIJS7WvVbpYwokRLwaOTl4YhJU",
+    "formattedAddress": "333 East 86th St #1, New York, NY 10028, USA",
+    "location": {
+     "latitude": 40.777539499999996,
+     "longitude": -73.9503479
+    },
+    "rating": 3.9,
+    "userRatingCount": 1007,
+    "displayName": {
+     "text": "Tal Bagels",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Bar Las Golondrinas - Antillano Campos, Triana Seville Spain": {
+  "places": [
+   {
+    "id": "ChIJYZcocAdtEg0RrHsAPdDy_PI",
+    "formattedAddress": "C. Antillano Campos, 26, 41010 Sevilla, Spain",
+    "location": {
+     "latitude": 37.384855300000005,
+     "longitude": -6.0055695
+    },
+    "rating": 4.3,
+    "userRatingCount": 1592,
+    "displayName": {
+     "text": "Bar Las Golondrinas - Antillano Campos",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "Din Tai Fung, Theater District New York NY": {
+  "places": [
+   {
+    "id": "ChIJzRA7agBZwokRbSxOyEGFG5U",
+    "formattedAddress": "1633 Broadway, New York, NY 10019, USA",
+    "location": {
+     "latitude": 40.7619804,
+     "longitude": -73.98395970000001
+    },
+    "rating": 4.3,
+    "userRatingCount": 3132,
+    "displayName": {
+     "text": "Din Tai Fung",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Magnolias, French Quarter Charleston SC": {
+  "places": [
+   {
+    "id": "ChIJs5MtKAx6_ogRInNicW1wtNg",
+    "formattedAddress": "185 E Bay St #200, Charleston, SC 29401, USA",
+    "location": {
+     "latitude": 32.7793212,
+     "longitude": -79.9273719
+    },
+    "rating": 4.7,
+    "userRatingCount": 5404,
+    "displayName": {
+     "text": "Magnolias",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Win Son Bakery, Bowery New York NY": {
+  "places": [
+   {
+    "id": "ChIJU1l5-65ZwokRz4BLoRd9WDs",
+    "formattedAddress": "23 2nd Ave, New York, NY 10003, USA",
+    "location": {
+     "latitude": 40.724599999999995,
+     "longitude": -73.990929
+    },
+    "rating": 4.2,
+    "userRatingCount": 486,
+    "displayName": {
+     "text": "Win Son Bakery",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tinta Y Cafe, Miami Shores FL": {
+  "places": [
+   {
+    "id": "ChIJJzUO8jGx2YgRtFxooJmGdto",
+    "formattedAddress": "9840 NE 2nd Ave, Miami Shores, FL 33138, USA",
+    "location": {
+     "latitude": 25.8658901,
+     "longitude": -80.193694
+    },
+    "rating": 4.2,
+    "userRatingCount": 593,
+    "displayName": {
+     "text": "Tinta Y Cafe - Miami Shores",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Krakatoa Indonesian Cuisine, Parkside Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJgRoBgZ-r2YgRmKispNnVhOk",
+    "formattedAddress": "1910B Hollywood Blvd, Hollywood, FL 33020, USA",
+    "location": {
+     "latitude": 26.011301099999997,
+     "longitude": -80.145483
+    },
+    "rating": 4.8,
+    "userRatingCount": 1025,
+    "displayName": {
+     "text": "Krakatoa Indonesian Cuisine",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Burlingame, Fernandina Beach FL": {
+  "places": [
+   {
+    "id": "ChIJV_c0zPr-5IgRlwoqf5rhHJM",
+    "formattedAddress": "20 S 5th St, Fernandina Beach, FL 32034, USA",
+    "location": {
+     "latitude": 30.6703621,
+     "longitude": -81.4611458
+    },
+    "rating": 4.7,
+    "userRatingCount": 548,
+    "displayName": {
+     "text": "Burlingame",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "DABUSH, Emerald Hills Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJN-lFeoWr2YgR4dyoxSB_cpA",
+    "formattedAddress": "3371 Sheridan St, Hollywood, FL 33021, USA",
+    "location": {
+     "latitude": 26.033659999999998,
+     "longitude": -80.17722189999999
+    },
+    "rating": 4.7,
+    "userRatingCount": 398,
+    "displayName": {
+     "text": "DABUSH",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Crown Shy, Financial District New York NY": {
+  "places": [
+   {
+    "id": "ChIJ__9LNBZawokREnkOiVx7ydc",
+    "formattedAddress": "70 Pine St, New York, NY 10005, USA",
+    "location": {
+     "latitude": 40.70619620000001,
+     "longitude": -74.0075229
+    },
+    "rating": 4.5,
+    "userRatingCount": 1988,
+    "displayName": {
+     "text": "Crown Shy",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "bar alfalfa, Casco Antiguo Seville Spain": {
+  "places": [
+   {
+    "id": "ChIJB5y8PRtsEg0Rn6L45ueUgPI",
+    "formattedAddress": "C. Candilejo, 1, Casco Antiguo, 41004 Sevilla, Spain",
+    "location": {
+     "latitude": 37.3899841,
+     "longitude": -5.9901075
+    },
+    "rating": 4.6,
+    "userRatingCount": 8173,
+    "displayName": {
+     "text": "Bar Alfalfa",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "Bernie's, Greenpoint New York NY": {
+  "places": [
+   {
+    "id": "ChIJ5T7dN_ZZwokRKJxbtcuO9lw",
+    "formattedAddress": "332 Driggs Ave, Brooklyn, NY 11222, USA",
+    "location": {
+     "latitude": 40.721925000000006,
+     "longitude": -73.950593
+    },
+    "rating": 4.5,
+    "userRatingCount": 671,
+    "displayName": {
+     "text": "Bernie\u2019s",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "SweetBerries on 5th Ave, Fifth Avenue Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJ1xDD5yij6IgRQY4e1qLef14",
+    "formattedAddress": "619 NW 5th Ave, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.655339400000003,
+     "longitude": -82.3314067
+    },
+    "rating": 4.6,
+    "userRatingCount": 212,
+    "displayName": {
+     "text": "SweetBerries on 5th Ave",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Estaminet La CH'TITE BRIGITTE, Vieux-Lille Lille France": {
+  "places": [
+   {
+    "id": "ChIJdX4vcf3VwkcRZiA2kCsozuA",
+    "formattedAddress": "10 Rue des Bouchers, 59800 Lille, France",
+    "location": {
+     "latitude": 50.6384841,
+     "longitude": 3.058173
+    },
+    "rating": 4.7,
+    "userRatingCount": 8018,
+    "displayName": {
+     "text": "Estaminet La Ch\u2019Tite Brigitte",
+     "languageCode": "en"
+    }
+   },
+   {
+    "id": "ChIJpXgvOFsrw0cR4rQ3VpSRrJo",
+    "formattedAddress": "61 Rue de la Monnaie, 59800 Lille, France",
+    "location": {
+     "latitude": 50.6412079,
+     "longitude": 3.0623467
+    },
+    "rating": 4.7,
+    "userRatingCount": 5804,
+    "displayName": {
+     "text": "Estaminet LA COUR de la Ch\u2019tite Brigitte rue de la Monnaie LILLE",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Shalom Japan, Southside New York NY": {
+  "places": [
+   {
+    "id": "ChIJ9ev4B-FbwokRhzTqc9KP5-I",
+    "formattedAddress": "310 S 4th St rear, Brooklyn, NY 11211, USA",
+    "location": {
+     "latitude": 40.709173299999996,
+     "longitude": -73.9557774
+    },
+    "rating": 4.3,
+    "userRatingCount": 902,
+    "displayName": {
+     "text": "Shalom Japan",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "El Bagel, Upper East Side Miami FL": {
+  "places": [
+   {
+    "id": "ChIJl9O8d9ez2YgR0exxXnINOlc",
+    "formattedAddress": "6910 Biscayne Blvd, Miami, FL 33138, USA",
+    "location": {
+     "latitude": 25.839184,
+     "longitude": -80.18452909999999
+    },
+    "rating": 4.2,
+    "userRatingCount": 568,
+    "displayName": {
+     "text": "El Bagel",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Nom Wah Philadelphia, Chinatown Philadelphia PA": {
+  "places": [
+   {
+    "id": "ChIJpQjJhizGxokRqolPE6vSP5o",
+    "formattedAddress": "218 N 13th St, Philadelphia, PA 19107, USA",
+    "location": {
+     "latitude": 39.956603699999995,
+     "longitude": -75.1607645
+    },
+    "rating": 4.5,
+    "userRatingCount": 1203,
+    "displayName": {
+     "text": "Nom Wah Philadelphia",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Rodney Scott's BBQ, North-Central Charleston SC": {
+  "places": [
+   {
+    "id": "ChIJ-SnkIVp6_ogR_nJspGxn5mU",
+    "formattedAddress": "1011 King St, Charleston, SC 29403, USA",
+    "location": {
+     "latitude": 32.8034471,
+     "longitude": -79.9512073
+    },
+    "rating": 4.5,
+    "userRatingCount": 7698,
+    "displayName": {
+     "text": "Rodney Scott's BBQ",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Abbal\u00e9 Telavivian Kitchen, South of Fifth Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJA0eGsZ-12YgR0Z4Dm5b1J6I",
+    "formattedAddress": "864 Commerce St, Miami Beach, FL 33139, USA",
+    "location": {
+     "latitude": 25.7688647,
+     "longitude": -80.13660329999999
+    },
+    "rating": 4.6,
+    "userRatingCount": 1374,
+    "displayName": {
+     "text": "Abbal\u00e9 Modern Mediterranean Kitchen - South Beach",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Embers Wood Grill, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJgzK8riaj6IgRCRU7ef0PhQg",
+    "formattedAddress": "3545 SW 34th St Apt A, Gainesville, FL 32608, USA",
+    "location": {
+     "latitude": 29.6211874,
+     "longitude": -82.3720499
+    },
+    "rating": 4.6,
+    "userRatingCount": 1694,
+    "displayName": {
+     "text": "Embers Wood Grill",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Miami Slice, Town Square Miami FL": {
+  "places": [
+   {
+    "id": "ChIJP6qutzix2YgRPt9wrb0gO9M",
+    "formattedAddress": "1335 NE Miami Ct, Miami, FL 33132, USA",
+    "location": {
+     "latitude": 25.787697299999998,
+     "longitude": -80.19297329999999
+    },
+    "rating": 4.2,
+    "userRatingCount": 1404,
+    "displayName": {
+     "text": "Miami Slice",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Hershel's East Side Deli, Center City East Philadelphia PA": {
+  "places": [
+   {
+    "id": "ChIJGVMIWynGxokR1mBrOh_M_V4",
+    "formattedAddress": "1136 Arch Street, Reading, Terminal Market, Philadelphia, PA 19107, USA",
+    "location": {
+     "latitude": 39.953269399999996,
+     "longitude": -75.15894759999999
+    },
+    "rating": 4.6,
+    "userRatingCount": 804,
+    "displayName": {
+     "text": "Hershel's East Side Deli",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Lowland, Charleston SC": {
+  "places": [
+   {
+    "id": "ChIJTTcM5Zx7_ogRlEKsvPVFWHM",
+    "formattedAddress": "36 George St, Charleston, SC 29401, USA",
+    "location": {
+     "latitude": 32.7845371,
+     "longitude": -79.9347805
+    },
+    "rating": 4.7,
+    "userRatingCount": 452,
+    "displayName": {
+     "text": "Lowland",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Mandragora \u017cydowska restauracja, Old Town Lublin Poland": {
+  "places": [
+   {
+    "id": "ChIJX4eucGpXIkcR6VjGfBAfn9M",
+    "formattedAddress": "Rynek 10, 20-112 Lublin, Poland",
+    "location": {
+     "latitude": 51.247807599999994,
+     "longitude": 22.568458399999997
+    },
+    "rating": 4.6,
+    "userRatingCount": 5947,
+    "displayName": {
+     "text": "Mandragora \u017cydowska restauracja",
+     "languageCode": "pl"
+    }
+   }
+  ]
+ },
+ "Mama's TOO! Pizzeria West Village, West Village New York NY": {
+  "places": [
+   {
+    "id": "ChIJ72quYgBZwokRNidaRewKpUg",
+    "formattedAddress": "325 Bleecker St, New York, NY 10014, USA",
+    "location": {
+     "latitude": 40.7332891,
+     "longitude": -74.0040441
+    },
+    "rating": 4.3,
+    "userRatingCount": 2171,
+    "displayName": {
+     "text": "Mama's TOO! Pizzeria West Village",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Carnitas Ramirez, Alphabet City New York NY": {
+  "places": [
+   {
+    "id": "ChIJ41HSUABZwokRhbUqk4qDotA",
+    "formattedAddress": "210 E 3rd St, New York, NY 10009, USA",
+    "location": {
+     "latitude": 40.7224688,
+     "longitude": -73.9827999
+    },
+    "rating": 4.8,
+    "userRatingCount": 574,
+    "displayName": {
+     "text": "Carnitas Ramirez",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Son del North, Lower East Side New York NY": {
+  "places": [
+   {
+    "id": "ChIJXcohm1dZwokR-w-Sv7cYZl8",
+    "formattedAddress": "177 Orchard St, New York, NY 10002, USA",
+    "location": {
+     "latitude": 40.721809799999996,
+     "longitude": -73.9885376
+    },
+    "rating": 4.3,
+    "userRatingCount": 591,
+    "displayName": {
+     "text": "Son del North",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "B\u00e1nh Anh Em, East Village New York NY": {
+  "places": [
+   {
+    "id": "ChIJDyMGAgBZwokRggrgBWarG0o",
+    "formattedAddress": "99 3rd Ave, New York, NY 10003, USA",
+    "location": {
+     "latitude": 40.732263499999995,
+     "longitude": -73.9876172
+    },
+    "rating": 4.4,
+    "userRatingCount": 567,
+    "displayName": {
+     "text": "B\u00e1nh Anh Em",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "OMAKAI sushi, Aventura FL": {
+  "places": [
+   {
+    "id": "ChIJHwKEJACt2YgRPPe3tMry3FE",
+    "formattedAddress": "18831 Biscayne Blvd #220, Aventura, FL 33180, USA",
+    "location": {
+     "latitude": 25.9501091,
+     "longitude": -80.1450137
+    },
+    "rating": 4.8,
+    "userRatingCount": 1537,
+    "displayName": {
+     "text": "OMAKAI sushi",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Ly Ly Vietnam Cookhouse, Yorkville New York NY": {
+  "places": [
+   {
+    "id": "ChIJ2VQUARFZwokRjSMEcK4rT1s",
+    "formattedAddress": "306 E 81st St, New York, NY 10028, USA",
+    "location": {
+     "latitude": 40.77429,
+     "longitude": -73.9537196
+    },
+    "rating": 4.8,
+    "userRatingCount": 619,
+    "displayName": {
+     "text": "Ly Ly Vietnam Cookhouse",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sushi Counter, Alphabet City New York NY": {
+  "places": [
+   {
+    "id": "ChIJoyC4ZUpZwokRUEZGAMeMjsE",
+    "formattedAddress": "523 E 12th St, New York, NY 10009, USA",
+    "location": {
+     "latitude": 40.728794199999996,
+     "longitude": -73.9800987
+    },
+    "rating": 4.6,
+    "userRatingCount": 110,
+    "displayName": {
+     "text": "Sushi Counter",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "OPTO, Flatiron District New York NY": {
+  "places": [
+   {
+    "id": "ChIJYdcGe0xZwokRz-YnbxxJ3sU",
+    "formattedAddress": "35 W 20th St, New York, NY 10011, USA",
+    "location": {
+     "latitude": 40.7407162,
+     "longitude": -73.9928978
+    },
+    "rating": 4.6,
+    "userRatingCount": 225,
+    "displayName": {
+     "text": "OPTO",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Hotbox, Historic District St. Augustine FL": {
+  "places": [
+   {
+    "id": "ChIJuyDHldIn5IgRUowAa2xxSZc",
+    "formattedAddress": "61 San Marco Ave, St. Augustine, FL 32084, USA",
+    "location": {
+     "latitude": 29.901745000000002,
+     "longitude": -81.3156636
+    },
+    "rating": 4.7,
+    "userRatingCount": 64,
+    "displayName": {
+     "text": "Hotbox",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tacos Atarantados Wynwood, Wynwood Art District Miami FL": {
+  "places": [
+   {
+    "id": "ChIJn_UIVHq32YgRVrmvCXqV0QM",
+    "formattedAddress": "218 NW 25th St, Miami, FL 33127, USA",
+    "location": {
+     "latitude": 25.8005507,
+     "longitude": -80.1995802
+    },
+    "rating": 4.3,
+    "userRatingCount": 488,
+    "displayName": {
+     "text": "Tacos Atarantados Wynwood",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "Taquer\u00eda el Chato, South Village New York NY": {
+  "places": [
+   {
+    "id": "ChIJKRqJ1-NZwokRRBz5r9t1hb4",
+    "formattedAddress": "120 MacDougal St, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.729839999999996,
+     "longitude": -74.0004336
+    },
+    "rating": 4.8,
+    "userRatingCount": 226,
+    "displayName": {
+     "text": "Taquer\u00eda el Chato",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Takos Al Pastor, Sol Madrid Spain": {
+  "places": [
+   {
+    "id": "ChIJT25z7H0oQg0RivDmk1vmVlE",
+    "formattedAddress": "C. de la Salud, 13, Centro, 28013 Madrid, Spain",
+    "location": {
+     "latitude": 40.4192816,
+     "longitude": -3.7034366
+    },
+    "rating": 4.5,
+    "userRatingCount": 15707,
+    "displayName": {
+     "text": "Takos Al Pastor",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Hogan's, Stephen Foster Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJSak-bmSk6IgRxlBPVQnsHGk",
+    "formattedAddress": "2327 NW 13th St, Gainesville, FL 32609, USA",
+    "location": {
+     "latitude": 29.675451799999998,
+     "longitude": -82.3379954
+    },
+    "rating": 4.6,
+    "userRatingCount": 1629,
+    "displayName": {
+     "text": "Hogan's",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sanguich, Little Havana Miami FL": {
+  "places": [
+   {
+    "id": "ChIJhw4bDvq22YgRt1rD2Am4AxY",
+    "formattedAddress": "2057 SW 8th St, Miami, FL 33135, USA",
+    "location": {
+     "latitude": 25.7657674,
+     "longitude": -80.22856
+    },
+    "rating": 4.6,
+    "userRatingCount": 4706,
+    "displayName": {
+     "text": "Sanguich",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "J28 Sandwich Bar, Royal Poinciana Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJTzCFH6Cr2YgR_ZlVfMl4XRw",
+    "formattedAddress": "1854 N Young Cir, Hollywood, FL 33020, USA",
+    "location": {
+     "latitude": 26.01183,
+     "longitude": -80.144542
+    },
+    "rating": 4.7,
+    "userRatingCount": 841,
+    "displayName": {
+     "text": "J28 Sandwich Bar",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Kaluz Restaurant Plantation, Plantation FL": {
+  "places": [
+   {
+    "id": "ChIJY59o-zQH2YgRlKK3kMiqqrI",
+    "formattedAddress": "100 N University Dr, Plantation, FL 33324, USA",
+    "location": {
+     "latitude": 26.1224325,
+     "longitude": -80.2523878
+    },
+    "rating": 4.7,
+    "userRatingCount": 2390,
+    "displayName": {
+     "text": "Kaluz Restaurant Plantation",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Las Delicias Del Peru, Boulevard Heights Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJz9X65xWp2YgR-DFhpdqSc70",
+    "formattedAddress": "6335 Johnson St, Hollywood, FL 33024, USA",
+    "location": {
+     "latitude": 26.0177206,
+     "longitude": -80.2145318
+    },
+    "rating": 4.3,
+    "userRatingCount": 987,
+    "displayName": {
+     "text": "Las Delicias Del Peru",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "545\u00b0 B\u00e1nh M\u00ec Caf\u00e9, Davie FL": {
+  "places": [
+   {
+    "id": "ChIJr34AWVOo2YgRl1W95St23Jg",
+    "formattedAddress": "6461 Stirling Rd, Davie, FL 33314, USA",
+    "location": {
+     "latitude": 26.046722499999998,
+     "longitude": -80.2330289
+    },
+    "rating": 4.5,
+    "userRatingCount": 926,
+    "displayName": {
+     "text": "545\u00b0 B\u00e1nh M\u00ec Caf\u00e9",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Vato, Park Slope New York NY": {
+  "places": [
+   {
+    "id": "ChIJkUbei5ZbwokR_vaJUwBknnY",
+    "formattedAddress": "226 7th Ave Fl 1, Brooklyn, NY 11215, USA",
+    "location": {
+     "latitude": 40.670234699999995,
+     "longitude": -73.9789938
+    },
+    "rating": 4.2,
+    "userRatingCount": 295,
+    "displayName": {
+     "text": "Vato",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Peppi's Pizza, Wynwood Miami FL": {
+  "places": [
+   {
+    "id": "ChIJf_RNn06x2YgR33PwgGzsG5E",
+    "formattedAddress": "3620 NE 2nd Ave, Miami, FL 33137, USA",
+    "location": {
+     "latitude": 25.811060899999998,
+     "longitude": -80.191484
+    },
+    "rating": 4.2,
+    "userRatingCount": 475,
+    "displayName": {
+     "text": "Peppi\u2019s Pizza",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Santo Taco, Nolita New York NY": {
+  "places": [
+   {
+    "id": "ChIJg9XtpY1ZwokR8hMIfPF27m4",
+    "formattedAddress": "114 Kenmare St, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.721412,
+     "longitude": -73.9975948
+    },
+    "rating": 4.6,
+    "userRatingCount": 676,
+    "displayName": {
+     "text": "Santo Taco SoHo",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Jamaica House Restaurant, Miami FL": {
+  "places": [
+   {
+    "id": "ChIJudYaNYyu2YgRYRoVecpNnZ4",
+    "formattedAddress": "19555 NW 2nd Ave, Miami, FL 33169, USA",
+    "location": {
+     "latitude": 25.9541667,
+     "longitude": -80.205
+    },
+    "rating": 4,
+    "userRatingCount": 2333,
+    "displayName": {
+     "text": "Jamaica House Restaurant",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Over Under, Downtown Miami FL": {
+  "places": [
+   {
+    "id": "ChIJzwEW8bK32YgRoeQcKaBkwrs",
+    "formattedAddress": "151 E Flagler St, Miami, FL 33131, USA",
+    "location": {
+     "latitude": 25.774428,
+     "longitude": -80.190885
+    },
+    "rating": 4.3,
+    "userRatingCount": 391,
+    "displayName": {
+     "text": "Over Under",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Leon's Bagels, Nolita New York NY": {
+  "places": [
+   {
+    "id": "ChIJKQWE8UZZwokRUFB32gGhH-Q",
+    "formattedAddress": "181 Mulberry St, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.7208784,
+     "longitude": -73.99683329999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 575,
+    "displayName": {
+     "text": "Leon\u2019s Bagels",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Larb Thai-Isan, North Fort Lauderdale FL": {
+  "places": [
+   {
+    "id": "ChIJYxJtZPwD2YgRADNXHItimro",
+    "formattedAddress": "6234 N Federal Hwy, Fort Lauderdale, FL 33308, USA",
+    "location": {
+     "latitude": 26.205277199999998,
+     "longitude": -80.1079632
+    },
+    "rating": 4.7,
+    "userRatingCount": 2003,
+    "displayName": {
+     "text": "Larb Thai-Isan",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Esse Taco, Williamsburg New York NY": {
+  "places": [
+   {
+    "id": "ChIJNcghJthZwokRbXz53Nk9gU4",
+    "formattedAddress": "219 Bedford Ave, Brooklyn, NY 11211, USA",
+    "location": {
+     "latitude": 40.7166492,
+     "longitude": -73.95881000000001
+    },
+    "rating": 4.4,
+    "userRatingCount": 753,
+    "displayName": {
+     "text": "Esse Taco",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "Kabobji, North Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJpdHU_git2YgRsji1TXpUJDA",
+    "formattedAddress": "3055 NE 163rd St, North Miami Beach, FL 33160, USA",
+    "location": {
+     "latitude": 25.927187999999997,
+     "longitude": -80.13960399999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 2411,
+    "displayName": {
+     "text": "Kabobji",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Lor Kebab, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJTSbwGACj6IgR2LUWmRby3qc",
+    "formattedAddress": "12 SW 1st Ave, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.651177999999994,
+     "longitude": -82.3255678
+    },
+    "rating": 4.9,
+    "userRatingCount": 425,
+    "displayName": {
+     "text": "Lor Kebab",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Afternoon, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJUUIDwHWk6IgRwOiokWzq53w",
+    "formattedAddress": "231 NW 10th Ave, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.660905000000003,
+     "longitude": -82.32758539999999
+    },
+    "rating": 4.3,
+    "userRatingCount": 906,
+    "displayName": {
+     "text": "Afternoon Restaurant",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "The Lions Bar & Grill, East Village New York NY": {
+  "places": [
+   {
+    "id": "ChIJMSlMGQBZwokREv99TZ_uyAo",
+    "formattedAddress": "132 1st Ave, New York, NY 10009, USA",
+    "location": {
+     "latitude": 40.7274064,
+     "longitude": -73.98514229999999
+    },
+    "rating": 4.4,
+    "userRatingCount": 196,
+    "displayName": {
+     "text": "The Lions Bar & Grill",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tacos El Bronco, Sunset Park New York NY": {
+  "places": [
+   {
+    "id": "ChIJA4IcJbhawokRcqZKwWCNxkI",
+    "formattedAddress": "4324 4th Ave, Brooklyn, NY 11232, USA",
+    "location": {
+     "latitude": 40.6500716,
+     "longitude": -74.0092176
+    },
+    "rating": 4.3,
+    "userRatingCount": 2744,
+    "displayName": {
+     "text": "Tacos El Bronco",
+     "languageCode": "en"
+    }
+   },
+   {
+    "id": "ChIJzXwG8MZawokRO5ruSmFSEfc",
+    "formattedAddress": "860 5th Ave, Brooklyn, NY 11232, USA",
+    "location": {
+     "latitude": 40.65210690000001,
+     "longitude": -74.0031532
+    },
+    "rating": 4.6,
+    "userRatingCount": 2700,
+    "displayName": {
+     "text": "Tacos El Bronco",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "LOS TACOS No.1, Murray Hill New York NY": {
+  "places": [
+   {
+    "id": "ChIJV2ahN11ZwokRCtz856h7EcQ",
+    "formattedAddress": "125 Park Ave, New York, NY 10017, USA",
+    "location": {
+     "latitude": 40.751501,
+     "longitude": -73.9777457
+    },
+    "rating": 4.7,
+    "userRatingCount": 5037,
+    "displayName": {
+     "text": "LOS TACOS No.1",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Pierogi One, Pompano Beach FL": {
+  "places": [
+   {
+    "id": "ChIJ20OkJAAD2YgR7Jwpq01dX8M",
+    "formattedAddress": "898 N Federal Hwy, Pompano Beach, FL 33062, USA",
+    "location": {
+     "latitude": 26.2401737,
+     "longitude": -80.10216799999999
+    },
+    "rating": 4.7,
+    "userRatingCount": 272,
+    "displayName": {
+     "text": "Pierogi One",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Mildred's Big City Food, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJ9etNPluj6IgRw6FRJ5Ywb1Q",
+    "formattedAddress": "3445 W University Ave, Gainesville, FL 32607, USA",
+    "location": {
+     "latitude": 29.6511283,
+     "longitude": -82.374628
+    },
+    "rating": 4.5,
+    "userRatingCount": 424,
+    "displayName": {
+     "text": "Mildred's Big City Food",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Taqueria Ramirez, Greenpoint New York NY": {
+  "places": [
+   {
+    "id": "ChIJDw8CYIpZwokRm_KQDaRtTK0",
+    "formattedAddress": "94 Franklin St, Brooklyn, NY 11222, USA",
+    "location": {
+     "latitude": 40.7278729,
+     "longitude": -73.9569589
+    },
+    "rating": 4.7,
+    "userRatingCount": 2129,
+    "displayName": {
+     "text": "Taqueria Ramirez",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "JG Melon, Lenox Hill New York NY": {
+  "places": [
+   {
+    "id": "ChIJORutA8BYwokR6obC5YpaamM",
+    "formattedAddress": "1291 3rd Ave, New York, NY 10021, USA",
+    "location": {
+     "latitude": 40.771073799999996,
+     "longitude": -73.9593297
+    },
+    "rating": 4.2,
+    "userRatingCount": 4109,
+    "displayName": {
+     "text": "JG Melon",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Fleisch 41, Nautilus Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJWZjjD4uz2YgRLLIbRP5ngcE",
+    "formattedAddress": "726 Arthur Godfrey Rd, Miami Beach, FL 33140, USA",
+    "location": {
+     "latitude": 25.8137069,
+     "longitude": -80.13113919999999
+    },
+    "rating": 5,
+    "userRatingCount": 814,
+    "displayName": {
+     "text": "Fleisch 41",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Federal Caf\u00e9, Palacio Madrid Spain": {
+  "places": [
+   {
+    "id": "ChIJNZu6xXgoQg0R8WUqZwufjuk",
+    "formattedAddress": "Pl. del Conde de Barajas, 3, Centro, 28005 Madrid, Spain",
+    "location": {
+     "latitude": 40.414338099999995,
+     "longitude": -3.7087646999999997
+    },
+    "rating": 4.1,
+    "userRatingCount": 4612,
+    "displayName": {
+     "text": "Federal Caf\u00e9",
+     "languageCode": "es"
+    }
+   },
+   {
+    "id": "ChIJYTkcFmQoQg0RoIYZwkjoTVc",
+    "formattedAddress": "Pl. de las Comendadoras, 9, Centro, 28015 Madrid, Spain",
+    "location": {
+     "latitude": 40.427076,
+     "longitude": -3.7091597
+    },
+    "rating": 4,
+    "userRatingCount": 4932,
+    "displayName": {
+     "text": "Caf\u00e9 Federal",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Local Provisions, Newberry FL": {
+  "places": [
+   {
+    "id": "ChIJD0l9WIG_6IgR0SKJpZCA9zs",
+    "formattedAddress": "13005 SW 1st Rd #129, Newberry, FL 32669, USA",
+    "location": {
+     "latitude": 29.656333900000003,
+     "longitude": -82.4801329
+    },
+    "rating": 4.2,
+    "userRatingCount": 382,
+    "displayName": {
+     "text": "Local Provisions",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "El Turco Turkish Food, Miami FL": {
+  "places": [
+   {
+    "id": "ChIJ4xqrxNCx2YgRBKYKPKdKaDY",
+    "formattedAddress": "5026 NE 2nd Ave, Miami, FL 33137, USA",
+    "location": {
+     "latitude": 25.8217215,
+     "longitude": -80.1918254
+    },
+    "rating": 4.7,
+    "userRatingCount": 5154,
+    "displayName": {
+     "text": "El Turco Turkish Food",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Dave's Hot Chicken, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJv_yGz5aj6IgR63lYqTmSzlU",
+    "formattedAddress": "3524 SW Archer Rd Ste 110, Gainesville, FL 32608, USA",
+    "location": {
+     "latitude": 29.6244131,
+     "longitude": -82.37585539999999
+    },
+    "rating": 4.7,
+    "userRatingCount": 1444,
+    "displayName": {
+     "text": "Dave's Hot Chicken",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Yalla Beiruty, Dania Beach FL": {
+  "places": [
+   {
+    "id": "ChIJAZ6kaBSr2YgRoRjqHJaChyQ",
+    "formattedAddress": "1104 S Federal Hwy, Dania Beach, FL 33004, USA",
+    "location": {
+     "latitude": 26.037899499999998,
+     "longitude": -80.1436216
+    },
+    "rating": 4.9,
+    "userRatingCount": 853,
+    "displayName": {
+     "text": "Beiruty - Mediterranean Restaurant & Lounge",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Humble Wood Fire Bagel Shop, Porters Community Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJEz_X_5Gj6IgRP94tseHfiag",
+    "formattedAddress": "307 SW 4th Ave, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.647998299999998,
+     "longitude": -82.32854929999999
+    },
+    "rating": 4.3,
+    "userRatingCount": 295,
+    "displayName": {
+     "text": "Humble Wood Fire Bagel Shop",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Mandolin Aegean Bistro, Miami FL": {
+  "places": [
+   {
+    "id": "ChIJOVl231mx2YgR7HvVdFmsUuc",
+    "formattedAddress": "4312 NE 2nd Ave, Miami, FL 33137, USA",
+    "location": {
+     "latitude": 25.815946399999998,
+     "longitude": -80.1916447
+    },
+    "rating": 4.5,
+    "userRatingCount": 4653,
+    "displayName": {
+     "text": "Mandolin Aegean Bistro",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Edith's Sandwich Counter, West Village New York NY": {
+  "places": [
+   {
+    "id": "ChIJ_5uVM7VZwokRtlB8Ukb84E8",
+    "formattedAddress": "64 Charles St, New York, NY 10014, USA",
+    "location": {
+     "latitude": 40.7347702,
+     "longitude": -74.0032413
+    },
+    "rating": 4.6,
+    "userRatingCount": 580,
+    "displayName": {
+     "text": "Edith\u2019s Sandwich Counter",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Xi'an Famous Foods, Chinatown New York NY": {
+  "places": [
+   {
+    "id": "ChIJ4UWmVCZawokRPDcL0zB0dGs",
+    "formattedAddress": "45 Bayard St, New York, NY 10013, USA",
+    "location": {
+     "latitude": 40.7150822,
+     "longitude": -73.997342
+    },
+    "rating": 4.5,
+    "userRatingCount": 2309,
+    "displayName": {
+     "text": "Xi'an Famous Foods \u897f\u5b89\u540d\u5403 | Chinatown",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Darrell's Dog Gone Good Diner, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJlwjIcjaj6IgRgqRKc4jAP4w",
+    "formattedAddress": "3117 SW 34th St Suite 1, Gainesville, FL 32608, USA",
+    "location": {
+     "latitude": 29.6250552,
+     "longitude": -82.3714231
+    },
+    "rating": 4.4,
+    "userRatingCount": 463,
+    "displayName": {
+     "text": "Darrell's Dog Gone Good Diner",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Apocalypse BBQ, West End Miami FL": {
+  "places": [
+   {
+    "id": "ChIJxTjVzMS32YgR8bIolvtnH8g",
+    "formattedAddress": "8695 SW 124th Ave., Miami, FL 33183, USA",
+    "location": {
+     "latitude": 25.687979000000002,
+     "longitude": -80.39359069999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 3145,
+    "displayName": {
+     "text": "Apocalypse BBQ",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sadelle's New York, SoHo New York NY": {
+  "places": [
+   {
+    "id": "ChIJP8URcY5ZwokRhFpdfNcK-FI",
+    "formattedAddress": "463 W Broadway, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.7262701,
+     "longitude": -74.0001695
+    },
+    "rating": 4.2,
+    "userRatingCount": 2311,
+    "displayName": {
+     "text": "Sadelle's New York",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "fontainhas, Dumbo New York NY": {
+  "places": [
+   {
+    "id": "ChIJT8edfwBbwokRTEMjS7mKyno",
+    "formattedAddress": "28 Jay St, Brooklyn, NY 11201, USA",
+    "location": {
+     "latitude": 40.7038367,
+     "longitude": -73.98673149999999
+    },
+    "rating": 4.4,
+    "userRatingCount": 337,
+    "displayName": {
+     "text": "fontainhas + (/du.kaan/)",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Th\u00e1i S\u01a1n, Chinatown New York NY": {
+  "places": [
+   {
+    "id": "ChIJe5DgRidawokRLbT4Eer98rg",
+    "formattedAddress": "89 Baxter St, New York, NY 10013, USA",
+    "location": {
+     "latitude": 40.7168378,
+     "longitude": -73.9996312
+    },
+    "rating": 4.2,
+    "userRatingCount": 1675,
+    "displayName": {
+     "text": "Th\u00e1i S\u01a1n",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Fehrenbacher's Meats & Eats, Porters Community Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJ6Zt0Ao6j6IgRLWVgXa18ikk",
+    "formattedAddress": "411 SW 4th Ave, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.648056899999997,
+     "longitude": -82.3293419
+    },
+    "rating": 4.8,
+    "userRatingCount": 398,
+    "displayName": {
+     "text": "Fehrenbacher's Meats & Eats",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Cafe Voltaire, Gainesville FL": {
+  "places": [
+   {
+    "id": "ChIJ0x1ZLACj6IgRHW3Eyr2MmyY",
+    "formattedAddress": "48 SW 2nd St, Gainesville, FL 32601, USA",
+    "location": {
+     "latitude": 29.651227700000003,
+     "longitude": -82.3267523
+    },
+    "rating": 4.6,
+    "userRatingCount": 98,
+    "displayName": {
+     "text": "Cafe Voltaire",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Husk, Charleston SC": {
+  "places": [
+   {
+    "id": "ChIJzVr0vhF6_ogRpOuUEXBkl1c",
+    "formattedAddress": "76 Queen St, Charleston, SC 29401, USA",
+    "location": {
+     "latitude": 32.777999099999995,
+     "longitude": -79.93212299999999
+    },
+    "rating": 4.5,
+    "userRatingCount": 4492,
+    "displayName": {
+     "text": "Husk",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Ichiran, Midtown South New York NY": {
+  "places": [
+   {
+    "id": "ChIJAduJGa9ZwokR5p0GowLG9P8",
+    "formattedAddress": "132 W 31st St, New York, NY 10001, USA",
+    "location": {
+     "latitude": 40.7482638,
+     "longitude": -73.99050390000001
+    },
+    "rating": 4.5,
+    "userRatingCount": 4878,
+    "displayName": {
+     "text": "Ichiran",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Casa Mazal Restaurante Sefard\u00ed, La Juder\u00eda C\u00f3rdoba Spain": {
+  "places": [
+   {
+    "id": "ChIJLWLjq50gbQ0R4_OMHnDBe4Y",
+    "formattedAddress": "C. Tom\u00e1s Conde, 3, Centro, 14004 C\u00f3rdoba, Spain",
+    "location": {
+     "latitude": 37.8792682,
+     "longitude": -4.7825598
+    },
+    "rating": 4.5,
+    "userRatingCount": 2166,
+    "displayName": {
+     "text": "Casa Mazal Restaurante Sefard\u00ed",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "Dim Sum Garden, Chinatown Philadelphia PA": {
+  "places": [
+   {
+    "id": "ChIJXZy_fSnGxokRQh1T1xvLiiA",
+    "formattedAddress": "1024 Race St, Philadelphia, PA 19107, USA",
+    "location": {
+     "latitude": 39.9554239,
+     "longitude": -75.1568853
+    },
+    "rating": 4.2,
+    "userRatingCount": 4601,
+    "displayName": {
+     "text": "Dim Sum Garden",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Mader's Restaurant, Westown Milwaukee WI": {
+  "places": [
+   {
+    "id": "ChIJtUaPhKcZBYgRbNdkNUgg9Ps",
+    "formattedAddress": "1041 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",
+    "location": {
+     "latitude": 43.0438238,
+     "longitude": -87.9146164
+    },
+    "rating": 4.4,
+    "userRatingCount": 3703,
+    "displayName": {
+     "text": "Mader's Restaurant",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Milwaukee Brat House, Westown Milwaukee WI": {
+  "places": [
+   {
+    "id": "ChIJxSaCuXQZBYgRV7pFT2g0eTE",
+    "formattedAddress": "1013 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",
+    "location": {
+     "latitude": 43.0432973,
+     "longitude": -87.9149207
+    },
+    "rating": 4.5,
+    "userRatingCount": 3196,
+    "displayName": {
+     "text": "Milwaukee Brat House",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "La Sandwicherie North Beach, North Beach Miami Beach FL": {
+  "places": [
+   {
+    "id": "ChIJt3MJM3Cz2YgRNNpMmpThfgk",
+    "formattedAddress": "7349 Collins Ave, Miami Beach, FL 33141, USA",
+    "location": {
+     "latitude": 25.8593421,
+     "longitude": -80.1208264
+    },
+    "rating": 4.6,
+    "userRatingCount": 922,
+    "displayName": {
+     "text": "La Sandwicherie North Beach",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tommy DiNic's, Center City East Philadelphia PA": {
+  "places": [
+   {
+    "id": "ChIJZ3lp2SvGxokRFjf_OhZBCa4",
+    "formattedAddress": "51 N 12th St, Philadelphia, PA 19107, USA",
+    "location": {
+     "latitude": 39.953352699999996,
+     "longitude": -75.1591109
+    },
+    "rating": 4.2,
+    "userRatingCount": 1167,
+    "displayName": {
+     "text": "Tommy DiNic\u2019s",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "El Merkury at the Market, Center City East Philadelphia PA": {
+  "places": [
+   {
+    "id": "ChIJkx2remPHxokR50f1K6nV2Pg",
+    "formattedAddress": "51 N 12th St, Philadelphia, PA 19107, USA",
+    "location": {
+     "latitude": 39.9534295,
+     "longitude": -75.15919099999999
+    },
+    "rating": 3.9,
+    "userRatingCount": 114,
+    "displayName": {
+     "text": "El Merkury at the Market",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Tropical Acres Steakhouse, Fort Lauderdale FL": {
+  "places": [
+   {
+    "id": "ChIJAQBAxzsA2YgR1jF5vhZr1sI",
+    "formattedAddress": "2500 Griffin Rd, Fort Lauderdale, FL 33312, USA",
+    "location": {
+     "latitude": 26.0621698,
+     "longitude": -80.1741578
+    },
+    "rating": 4.5,
+    "userRatingCount": 4391,
+    "displayName": {
+     "text": "Tropical Acres Steakhouse",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Utopia Bagels, Midtown South New York NY": {
+  "places": [
+   {
+    "id": "ChIJUZrwln1ZwokRnl8-cXUsl70",
+    "formattedAddress": "120 E 34th St, New York, NY 10016, USA",
+    "location": {
+     "latitude": 40.746323499999995,
+     "longitude": -73.9799922
+    },
+    "rating": 4.6,
+    "userRatingCount": 1756,
+    "displayName": {
+     "text": "Utopia Bagels",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Bagel Pub, Park Slope New York NY": {
+  "places": [
+   {
+    "id": "ChIJEcYmO11bwokRhMgnihB1wsE",
+    "formattedAddress": "57 7th Ave, Brooklyn, NY 11217, USA",
+    "location": {
+     "latitude": 40.6757549,
+     "longitude": -73.9743022
+    },
+    "rating": 4,
+    "userRatingCount": 499,
+    "displayName": {
+     "text": "Bagel Pub",
+     "languageCode": "en"
+    }
+   },
+   {
+    "id": "ChIJDc-2W_xawokRKF8Zr-dgWCs",
+    "formattedAddress": "287 9th St, Brooklyn, NY 11215, USA",
+    "location": {
+     "latitude": 40.6696817,
+     "longitude": -73.9869006
+    },
+    "rating": 4.2,
+    "userRatingCount": 671,
+    "displayName": {
+     "text": "Bagel Pub",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Caffe Buon Gusto, Lenox Hill New York NY": {
+  "places": [
+   {
+    "id": "ChIJBUeGmL9YwokRNAX5EhAA74o",
+    "formattedAddress": "236 E 77th St, New York, NY 10075, USA",
+    "location": {
+     "latitude": 40.7723459,
+     "longitude": -73.95709049999999
+    },
+    "rating": 4.4,
+    "userRatingCount": 753,
+    "displayName": {
+     "text": "Caffe Buon Gusto",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Gai Chicken & Rice, Midtown East New York NY": {
+  "places": [
+   {
+    "id": "ChIJi6-E_zxZwokRhAvQFl42WPY",
+    "formattedAddress": "158 E 45th St, New York, NY 10017, USA",
+    "location": {
+     "latitude": 40.7527488,
+     "longitude": -73.97342139999999
+    },
+    "rating": 4.3,
+    "userRatingCount": 332,
+    "displayName": {
+     "text": "Gai Chicken & Rice",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Deux Luxe, Nolita New York NY": {
+  "places": [
+   {
+    "id": "ChIJHfEjK2NZwokRf4WuY_AYrdw",
+    "formattedAddress": "384 Broome St, New York, NY 10012, USA",
+    "location": {
+     "latitude": 40.7206081,
+     "longitude": -73.9965332
+    },
+    "rating": 4.6,
+    "userRatingCount": 412,
+    "displayName": {
+     "text": "Deux Luxe",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Bar El Comercio, Alfalfa Seville Spain": {
+  "places": [
+   {
+    "id": "ChIJn7ebyRpsEg0R4mdfa4uHpsw",
+    "formattedAddress": "C. Lineros, 9, Casco Antiguo, 41004 Sevilla, Spain",
+    "location": {
+     "latitude": 37.390779599999995,
+     "longitude": -5.992376
+    },
+    "rating": 4.4,
+    "userRatingCount": 8239,
+    "displayName": {
+     "text": "Bar El Comercio",
+     "languageCode": "es"
+    }
+   }
+  ]
+ },
+ "NK Viet Kitchen - C\u01a1m G\u00e0 Ninh Ki\u1ec1u, Emerald Hills Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJHZADW9ur2YgRBtr80BFUH2s",
+    "formattedAddress": "3373 Sheridan St, Hollywood, FL 33021, USA",
+    "location": {
+     "latitude": 26.03381,
+     "longitude": -80.177112
+    },
+    "rating": 4.3,
+    "userRatingCount": 230,
+    "displayName": {
+     "text": "NK Viet Kitchen- C\u01a1m G\u00e0 Ninh Ki\u1ec1u",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "305 Degrees Burgers Bar, Emerald Hills Hollywood FL": {
+  "places": [
+   {
+    "id": "ChIJM3ynIRyr2YgRXQutb1QzCeE",
+    "formattedAddress": "3393 Sheridan St, Hollywood, FL 33021, USA",
+    "location": {
+     "latitude": 26.034036,
+     "longitude": -80.1773281
+    },
+    "rating": 4.6,
+    "userRatingCount": 381,
+    "displayName": {
+     "text": "305 Degrees Burgers Bar",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Chifa Du Kang (North Miami), Miami FL": {
+  "places": [
+   {
+    "id": "ChIJAX-I6MSt2YgRsCWKaKUMijI",
+    "formattedAddress": "1760 NE Miami Gardens Dr, Miami, FL 33179, USA",
+    "location": {
+     "latitude": 25.944641599999997,
+     "longitude": -80.1648147
+    },
+    "rating": 4.8,
+    "userRatingCount": 931,
+    "displayName": {
+     "text": "Chifa Du Kang (North Miami)",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sufrat Mediterranean Grill, Pembroke Pines FL": {
+  "places": [
+   {
+    "id": "ChIJqe5ORP-n2YgROwXe86-Od1I",
+    "formattedAddress": "10430 Pines Blvd c101 Ste#c101, Pembroke Pines, FL 33026, USA",
+    "location": {
+     "latitude": 26.006656099999997,
+     "longitude": -80.285457
+    },
+    "rating": 4.9,
+    "userRatingCount": 10604,
+    "displayName": {
+     "text": "Sufrat Mediterranean Grill",
+     "languageCode": "en"
+    }
+   }
+  ]
+ },
+ "Sushi Spot - Sashimi Express, 226 E 78th St New York NY": {
+  "places": [
+   {
+    "id": "ChIJqcOaS79YwokR_d_0M_O1xcA",
+    "formattedAddress": "226 E 78th St, New York, NY 10075, USA",
+    "location": {
+     "latitude": 40.7731735,
+     "longitude": -73.95701290000001
+    },
+    "rating": 4.4,
+    "userRatingCount": 301,
+    "displayName": {
+     "text": "Sushi Spot\u201478 Street",
+     "languageCode": "en"
+    }
+   }
+  ]
+ }
+}
