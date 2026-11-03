@@ -62,8 +62,8 @@ BIG_PT = 40
 LABEL_PT = 17
 TICK_PT = 15
 NOTE_PT = 14
-MARKER = 150            # ~17px across in the rendered image
-RING = 2.0              # surface ring, so overlapping points stay countable
+MARKER = 58             # small enough that 114 points stay countable
+RING = 1.2              # surface ring, so overlapping points stay countable
 
 plt.rcParams.update(brand.rcparams())
 

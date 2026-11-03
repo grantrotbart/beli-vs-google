@@ -228,10 +228,19 @@ def coverage(data):
     top = [{"name": names[i], "ratio": float(ratio[i]),
             "beli": float(beli[mask][i]), "google": float(goog[mask][i])}
            for i in order[:5]]
+    # Where is the gap widest? Split by how well covered the restaurant is on Google.
+    order_g = np.argsort(goog[mask])
+    half = len(order_g) // 2
+    thin = float(np.median(ratio[order_g[:half]]))
+    thick = float(np.median(ratio[order_g[half:]]))
+
     return {
         "n": int(mask.sum()),
         "by_market": by_market,
         "top": top,
+        "thin_google": thin,
+        "thick_google": thick,
+        "thin_cutoff": float(goog[mask][order_g[half]]),
         "beli_total": float(beli[mask].sum()),
         "google_total": float(goog[mask].sum()),
     }

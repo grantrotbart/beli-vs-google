@@ -25,6 +25,8 @@ import chart
 ROOT = Path(__file__).resolve().parent.parent
 MATCHED = ROOT / "data" / "matched.csv"
 REPORT = ROOT / "out" / "report.html"
+# GitHub Pages serves /docs as the site root, so the same file lives there too.
+PAGES = ROOT / "docs" / "index.html"
 
 AUTHOR = "Grant Rotbart"
 
@@ -280,6 +282,39 @@ bracket moves R&sup2; by {result['price']['google_adds'] * 100:+.1f} points.</p>
 the ratings, cannot carry ordering information it never captured.</p>
 </section>""")
 
+    if cover:
+        nyc = [c for c in cover["by_market"] if c["market"] == "NYC"]
+        nyc = nyc[0]["median"] if nyc else None
+        out.append(f"""<section>
+<h2>Three things I&rsquo;d want to look at with the real data</h2>
+<p>Not recommendations &mdash; I&rsquo;m working from 114 restaurants and you have the
+actual dataset. These are just the questions my numbers raised that I couldn&rsquo;t
+answer.</p>
+
+<h3>Where the data is already the better source</h3>
+<p>The volume advantage isn&rsquo;t a property of the platform, it&rsquo;s a property of
+density: {nyc:.0f}&times; in New York, 0.3&times; in Florida, nothing in Europe. So
+anything built on this data works in some markets today and not others. With the full
+dataset you could find the threshold &mdash; how many active users a metro needs before
+Beli overtakes Google as the better-covered source. That line seems worth knowing before
+deciding where anything ships.</p>
+
+<h3>Resolution looks like the differentiated part, not volume</h3>
+<p>More ratings is a lead competitors can close. Being able to separate restaurants that
+Google puts on the same number is harder to copy, because it comes from the ranking
+mechanic rather than from scale. For anyone who needs an <em>order</em> rather than a
+filter &mdash; a diner choosing between two places tonight, a restaurant asking who it
+actually competes with &mdash; that is the thing a star average cannot provide at any
+volume.</p>
+
+<h3>The edge is widest exactly where Google is weakest</h3>
+<p>Splitting my list by how well covered each restaurant is on Google: for the thinner
+half, Beli carries a median {cover['thin_google']:.1f}&times; Google&rsquo;s ratings; for
+the better-covered half, {cover['thick_google']:.1f}&times;. The differentiation
+concentrates in places Google barely describes &mdash; which is also where a diner has
+the least to go on, so the two line up.</p>
+</section>""")
+
     out.append("""<section>
 <h2>What I could not test</h2>
 <p>The Yelp figure &mdash; that most reviews are one star or five &mdash; is about the
@@ -446,6 +481,8 @@ def build(result=None, path=REPORT):
 </html>"""
     path.parent.mkdir(exist_ok=True)
     path.write_text(html, encoding="utf-8")
+    PAGES.parent.mkdir(exist_ok=True)
+    PAGES.write_text(html, encoding="utf-8")
     return path
 
 
