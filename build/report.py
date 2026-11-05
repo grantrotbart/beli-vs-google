@@ -222,6 +222,34 @@ to {cluster['max']:.1f}. {cluster['highest']} is my number one. {cluster['lowest
 near the bottom. Google has no way to tell them apart.</p>
 </section>""")
 
+    crowd = fits.get("crowd_vs_google")
+    if crowd and cluster:
+        spread = ""
+        if cluster.get("average_min") is not None:
+            spread = (f" Inside the {cluster['count']} that Google scores "
+                      f"{cluster['google_rating']:.1f}, Beli&rsquo;s users spread them "
+                      f"from {cluster['average_min']:.1f} to "
+                      f"{cluster['average_max']:.1f}.")
+        out.append(f"""<section>
+<h2>And it isn&rsquo;t just me</h2>
+<p>The obvious objection is that this is one person with odd taste. So here is the same
+test with me taken out of it: Google&rsquo;s rating against Beli&rsquo;s all-user
+average, on the same restaurants. Both sides are now crowds.</p>
+<figure class="figure"><img src="{data_uri(chart.CROWD)}"
+alt="Google rating against Beli's all-user average for 113 restaurants, showing no
+relationship."></figure>
+<p class="pull">Google&rsquo;s rating explains {headline_pct(crowd['r2'])} of the
+variance in what Beli&rsquo;s users think.</p>
+<p>Spearman &rho;&nbsp;=&nbsp;{crowd['spearman']:.2f}, p&nbsp;=&nbsp;{crowd['p']:.2f}.
+Thousands of Beli users on one axis, hundreds of thousands of Google reviewers on the
+other, and the two are close to unrelated.{spread}</p>
+<p>The clearest case is on the chart. Google puts <strong>Darrell&rsquo;s Dog Gone Good
+Diner at 4.4 and Laser Wolf at 4.2</strong>, so by that measure the diner is the better
+restaurant. Beli&rsquo;s users have Laser Wolf at 8.9 and Darrell&rsquo;s at 5.5. The
+two populations aren&rsquo;t disagreeing at the margin, they&rsquo;re ordering things
+differently.</p>
+</section>""")
+
     if cover:
         nyc = [c for c in cover["by_market"] if c["market"] == "NYC"]
         nyc = nyc[0] if nyc else None

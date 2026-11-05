@@ -1,6 +1,6 @@
 # Beli vs Google -- the numbers
 
-Generated 2026-11-03 from 114 kept rows. Google ratings via: api.
+Generated 2026-11-04 from 114 kept rows. Google ratings via: api.
 
 ## Headline
 
@@ -49,9 +49,13 @@ Google's rating is not on screen while I rank, and nothing in the ranking flow r
 
 The different scales do not matter here: R2 and Spearman are both scale-invariant, so doubling every Google rating to put it on a 0-10 basis would leave these numbers untouched. Only the slope is in mixed units -- Beli points per Google star.
 
-| predictor     | n   | R2    | variance explained | Spearman rho | slope  | p    |
-|---------------|-----|-------|--------------------|--------------|--------|------|
-| Google rating | 114 | 0.000 | 0.0%               | 0.021        | -0.066 | 0.91 |
+| comparison                               | n   | R2    | variance explained | Spearman rho | p    |
+|------------------------------------------|-----|-------|--------------------|--------------|------|
+| Google rating -> my ranking              | 114 | 0.000 | 0.0%               | 0.021        | 0.91 |
+| Google rating -> Beli's all-user average | 113 | 0.012 | 1.2%               | 0.107        | 0.25 |
+
+The second row is the one with no n=1 in it. Both sides are averages over users, my own rating is one of thousands inside the Beli figure, and nothing either platform shows me affects it.
+
 
 ### Is it just cheap versus expensive?
 

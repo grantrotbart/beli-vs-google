@@ -91,13 +91,13 @@ def pct_label(r2):
     return "<1%" if r2 < 0.005 else f"{round(r2 * 100)}%"
 
 
-def explained(axis, fit, color=ACCENT):
+def explained(axis, fit, color=ACCENT, caption="of the variance\nin my ranking"):
     """Direct label instead of a legend -- the number has to survive the thumbnail."""
     if not fit:
         return
     axis.text(0.04, 0.95, pct_label(fit["r2"]), transform=axis.transAxes,
               fontsize=BIG_PT, fontweight="bold", color=color, ha="left", va="top")
-    axis.text(0.04, 0.845, "of the variance\nin my ranking", transform=axis.transAxes,
+    axis.text(0.04, 0.845, caption, transform=axis.transAxes,
               fontsize=NOTE_PT, color=INK_2, ha="left", va="top", linespacing=1.35)
 
 
@@ -273,6 +273,54 @@ def distribution_chart(data, path=DISTRIBUTION):
                     fontsize=HEADLINE_PT - 4, fontweight="bold", color=INK,
                     x=0.035, y=0.97, ha="left", va="top")
     figure.tight_layout(rect=(0.01, 0.02, 0.99, 0.86), w_pad=3.0)
+    figure.savefig(path, dpi=DPI, facecolor=SURFACE)
+    plt.close(figure)
+    return path
+
+
+CROWD = ROOT / "out" / "crowd.png"
+
+
+def crowd_chart(result, data, path=CROWD):
+    """Google's crowd against Beli's crowd on the same restaurants.
+
+    The same null as the personal chart, but with no n=1 to argue about: both axes are
+    averages over thousands of people. Two named points carry the inversion, because a
+    cloud with no slope is easy to nod past and a pair of restaurants is not."""
+    fit = result["fits"].get("crowd_vs_google")
+    mask = ~np.isnan(data[analyze.CLEAN]) & ~np.isnan(data["beli_average"])
+    x, y = data[analyze.CLEAN][mask], data["beli_average"][mask]
+    names = [n for n, keep in zip(data["names"], mask) if keep]
+
+    figure, axis = plt.subplots(figsize=(9.6, 7.0), dpi=DPI)
+    scatter(axis, x, y, ACCENT)
+    style(axis, "Google rating", (1, 5))
+    axis.set_xticks([1, 2, 3, 4, 5])
+    axis.set_ylabel("Beli's all-user average", fontsize=LABEL_PT, color=INK_2, labelpad=10)
+    axis.set_title("Two crowds, the same 113 restaurants", fontsize=PANEL_PT, color=INK,
+                   fontweight="bold", pad=16, loc="left")
+    if fit:
+        explained(axis, fit, caption="of the variance in\nwhat Beli's users think")
+
+    # Name the inversion: Google puts these in one order, Beli's users the other.
+    want = {"Laser Wolf": (-0.42, 0.55), "Darrell's Dog Gone Good Diner": (-0.52, -0.75)}
+    for label, (dx, dy) in want.items():
+        for i, name in enumerate(names):
+            if name == label:
+                axis.annotate(
+                    label, xy=(x[i], y[i]), xytext=(x[i] + dx, y[i] + dy),
+                    fontsize=NOTE_PT, color=INK, ha="right",
+                    arrowprops=dict(arrowstyle="-", color=MUTED, linewidth=1.2,
+                                    shrinkA=4, shrinkB=5))
+                break
+
+    headline = "Google and Beli's users barely agree on anything"
+    figure.suptitle(headline, fontsize=HEADLINE_PT - 2, fontweight="bold", color=INK,
+                    x=0.045, y=0.97, ha="left", va="top")
+    figure.text(0.045, 0.045,
+                "n = 113 restaurants  ·  both axes are averages over users, not one person",
+                fontsize=NOTE_PT, color=MUTED, ha="left")
+    figure.tight_layout(rect=(0.03, 0.07, 0.99, 0.90))
     figure.savefig(path, dpi=DPI, facecolor=SURFACE)
     plt.close(figure)
     return path

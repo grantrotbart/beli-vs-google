@@ -36,6 +36,7 @@ def main(args):
     print("\n3/4  the image")
     data = analyze.load()
     image = chart.draw(result, data, with_second=args.with_second, second_key=args.second)
+    chart.crowd_chart(result, data)
     chart.coverage_chart(data)
     chart.distribution_chart(data)
 

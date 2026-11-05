@@ -35,6 +35,7 @@ LABELS = {
     "friend_score": "Beli friend score",
     "beli_average": "Beli all-user average",
     "beli_score": "My Beli score",
+    "crowd_vs_google": "Beli's crowd vs Google's",
 }
 # Native scale of each measure. Used to ask what share of its own scale a distribution
 # actually uses -- the fair way to compare a 1-5 star average with a 0-10 ranking.
@@ -137,6 +138,19 @@ def simple_fits(data):
             "spearman_p": float(p_rho),
         }
     return fits
+
+
+def crowd_fit(data):
+    """Google's crowd against Beli's crowd. Neither side is one person."""
+    mask = ~np.isnan(data[CLEAN]) & ~np.isnan(data["beli_average"])
+    if mask.sum() < 20:
+        return None
+    x, y = data[CLEAN][mask], data["beli_average"][mask]
+    line = sps.linregress(x, y)
+    rho, p_rho = sps.spearmanr(x, y)
+    return {"n": int(mask.sum()), "r2": float(line.rvalue ** 2),
+            "slope": float(line.slope), "intercept": float(line.intercept),
+            "p": float(line.pvalue), "spearman": float(rho), "spearman_p": float(p_rho)}
 
 
 def anchoring(data):
@@ -346,6 +360,8 @@ def tightest_cluster(data):
         "spread": float(spread(value)),
         "average_spread": (float(member_averages.max() - member_averages.min())
                            if len(member_averages) >= 2 else None),
+        "average_min": float(member_averages.min()) if len(member_averages) else None,
+        "average_max": float(member_averages.max()) if len(member_averages) else None,
         "lowest": ordered[0][1],
         "highest": ordered[-1][1],
     }
@@ -371,6 +387,9 @@ def review_count_check(data, fits):
 def compute():
     data = load()
     fits = simple_fits(data)
+    crowd = crowd_fit(data)
+    if crowd:
+        fits["crowd_vs_google"] = crowd
     return {
         "generated": date.today().isoformat(),
         "sources": sorted(s for s in data["sources"] if s),
@@ -496,10 +515,20 @@ def write_stats(result, path=STATS):
                   "scale-invariant, so doubling every Google rating to put it on a 0-10 "
                   "basis would leave these numbers untouched. Only the slope is in mixed "
                   "units -- Beli points per Google star.", ""]
-        lines += table(
-            [[LABELS[CLEAN], google["n"], f"{google['r2']:.3f}", pct(google["r2"]),
-              f"{google['spearman']:.3f}", f"{google['slope']:.3f}", f"{google['p']:.2g}"]],
-            ["predictor", "n", "R2", "variance explained", "Spearman rho", "slope", "p"])
+        rows = [[f"{LABELS[CLEAN]} -> my ranking", google["n"], f"{google['r2']:.3f}",
+                 pct(google["r2"]), f"{google['spearman']:.3f}", f"{google['p']:.2g}"]]
+        crowd = fits.get("crowd_vs_google")
+        if crowd:
+            rows.append([f"{LABELS[CLEAN]} -> Beli's all-user average", crowd["n"],
+                         f"{crowd['r2']:.3f}", pct(crowd["r2"]),
+                         f"{crowd['spearman']:.3f}", f"{crowd['p']:.2g}"])
+        lines += table(rows, ["comparison", "n", "R2", "variance explained",
+                              "Spearman rho", "p"])
+        if crowd:
+            lines += ["",
+                      "The second row is the one with no n=1 in it. Both sides are "
+                      "averages over users, my own rating is one of thousands inside the "
+                      "Beli figure, and nothing either platform shows me affects it.", ""]
         lines += [""]
 
     price = result.get("price")
