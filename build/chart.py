@@ -13,9 +13,9 @@ the occupied range would hide it.
 
 The friend-score panel is behind a flag. Beli shows that number before you rank, but you
 answer in better/worse comparisons rather than typing a score, so it is a real finding
-rather than an echo -- it just needs a sentence of mechanism alongside it, which a DM
-image cannot carry. Single panel is the default for that reason, not because the second
-one is wrong.
+rather than an echo -- it just needs a sentence of mechanism alongside it, which a
+standalone image cannot carry. Single panel is the default for that reason, not because
+the second one is wrong.
 
 Design follows the dataviz skill: emphasis form (one accent hue, the rest in the
 de-emphasis gray), single series so no legend, direct labels, recessive grid. Accent
@@ -49,7 +49,7 @@ AXIS = brand.AXIS
 ACCENT = brand.TEAL      # Beli's logo teal, as the emphasis mark
 WASH = brand.WASH        # light teal, for the cluster band
 
-# Sized for legibility at DM-preview width (~400px), where this image is a third of its
+# Sized to stay legible at thumbnail width (~400px), where this image is a third of its
 # real size. Every number below is a point size at 100 dpi.
 WIDTH_ONE = 10.2      # the footnote sets this, not the plot
 WIDTH_TWO = 12.0

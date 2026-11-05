@@ -6,10 +6,9 @@ The report behind the image.
 Reads  data/matched.csv and the analysis in analyze.py
 Writes out/report.html   standalone -- the chart is embedded, so the file travels alone
 
-This is the thing to offer if the DM gets a reply: the image makes the point in five
-seconds, this shows the work. It carries the parts that do not fit in a message -- how
-the data was collected, what was excluded, the anchoring question, and the one
-experiment only Beli can run.
+The charts make the point in a few seconds; this shows the work behind them -- how the
+data was collected, what was excluded, the anchoring question, and the one experiment
+only Beli can run.
 """
 import base64
 import csv

@@ -29,8 +29,8 @@ ratings. `BRIEF.md` is the full argument; this file is just how to run it.
 1. Put your ratings in `data/ratings.csv`
 2. `python build/check.py` — looks the file over before you spend anything on it
 3. `python build/run.py`
-4. `out/beli_vs_google.png` is the image for the DM, `out/report.html` is the report to
-   offer if it gets a reply, and `out/stats.md` is every number behind both
+4. `out/` holds the charts, `out/report.html` the write-up, and `out/stats.md` every
+   number behind them
 
 ### Log across your whole list, not down from the top
 

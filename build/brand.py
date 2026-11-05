@@ -1,8 +1,7 @@
 """
 Beli's colours and type, in one place.
 
-Imported by chart.py and report.py so the image in the DM and the report behind it look
-like the same document.
+Imported by chart.py and report.py so the charts and the report look like one document.
 
 Sampled from Beli's own assets rather than guessed: the logo at beliapp.com is #134F5C
 on white, the app greys sit around #9FA197, and the site sets proxima-nova.

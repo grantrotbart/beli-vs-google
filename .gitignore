@@ -1,7 +1,6 @@
 __pycache__/
 *.pyc
 
-# Internal strategy notes -- outreach plan, draft messages, who to contact.
-# Not for publication.
+# Working notes. Not part of the analysis.
 BRIEF.md
 OUTREACH.md

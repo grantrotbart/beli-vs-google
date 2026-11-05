@@ -214,7 +214,7 @@ def sample_depth(data):
 
 
 def coverage(data):
-    """Judy's claim that Beli carries far more ratings than Google, tested per market.
+    """The claim that Beli carries far more ratings than Google, tested per market.
 
     The blended figure is misleading in both directions, so it is not reported. Beli's
     volume advantage is a function of where its users are: enormous in New York, absent
