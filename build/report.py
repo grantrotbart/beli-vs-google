@@ -390,37 +390,80 @@ require a change to the inside of the app, so it isn&rsquo;t a test I can run, b
 I&rsquo;d be curious to investigate it.</p></div>
 </section>""")
 
-    out.append(f"""<section>
-<h2>What I couldn&rsquo;t test</h2>
-<p>The Yelp figure, that most reviews are one star or five, is about individual reviews.
-I can only see published averages. So I haven&rsquo;t tested it and I&rsquo;m not
-claiming to.</p>
-<p>My data is consistent with it. Polarised reviews would produce averages piled high and
-narrow, and {band['count']} of my {band['n']} sit between {band['low']} and
-{band['high']}.</p>
-</section>""")
-
+    # What the analysis raised but can't settle, merged with the parts of Beli's claim
+    # this data can't reach. Every number here is computed, so it can't drift.
+    friend_fit = fits.get("friend_score")
+    avg_fit = fits.get("beli_average")
+    friends = (result.get("depth") or {}).get("friends") or {}
+    sq = res["beli_on_google_grid"] if res else None
+    follow_up = []
     if cover:
-        out.append(f"""<section>
-<h2>Three things worth looking at with the real data</h2>
-<p>Not recommendations. These are the questions {n} restaurants raised and {n}
-restaurants can&rsquo;t answer.</p>
+        follow_up.append("""<li><strong>Where Beli becomes the better source.</strong> The
+volume advantage tracks density, not the platform. The full dataset would show the
+threshold: how many active users a metro needs before Beli out-rates Google.</li>""")
+        follow_up.append(f"""<li><strong>Where Google is thinnest.</strong> On the half of
+my list with fewer Google reviews, Beli carries a median
+{cover['thin_google']:.1f}&times; Google&rsquo;s ratings. On the better-covered half,
+{cover['thick_google']:.1f}&times;. The edge is widest where a diner has least to go
+on.</li>""")
+    if sq:
+        follow_up.append(f"""<li><strong>Whether ranking beats stars at the same
+resolution.</strong> Put on Google&rsquo;s 41-value scale, Beli&rsquo;s averages still tie
+slightly fewer pairs ({pct(sq['tied_share'], 1)} against
+{pct(res[analyze.CLEAN]['tied_share'], 1)}). With every user&rsquo;s data you could test
+whether pairwise ranking separates restaurants better than star averages once the scale
+is held fixed.</li>""")
 
-<h3>Where the data is already the better source</h3>
-<p>The advantage tracks density, not the platform. The full dataset would show the
-threshold: how many active users a metro needs before Beli becomes the better-covered
-source. That line is worth knowing before deciding where anything ships.</p>
+    beyond = ["""<li><strong>Re-rankings.</strong> My own impression of a restaurant often
+changes after a second visit, and Beli lets you rank a place again. I&rsquo;d want to see
+how often a re-rank moves a restaurant, in which direction, and whether first-visit
+scores are noisier than they look.</li>""",
+              """<li><strong>The written reviews.</strong> Running the text people leave
+through a language model could pull out what a score can&rsquo;t: which dishes people
+order and rate, or whether a low score was an off night rather than the kitchen.</li>"""]
+    if friend_fit and avg_fit:
+        single = (f", and {friends['single']} of the {friend_fit['n']} friend scores I have "
+                  f"come from a single friend" if friends else "")
+        beyond.append(f"""<li><strong>Friend scores for recommendations.</strong> Friend
+scores explain {pct(friend_fit['r2'], 1)} of my ranking, against
+{pct(avg_fit['r2'], 1)} for the all-user average{single}. With more data you could test
+whether weighting friends by how closely their taste matches yours makes them a better
+guide than the crowd.</li>""")
+    beyond.append("""<li><strong>Who&rsquo;s rating.</strong> Beli&rsquo;s users are
+mostly younger, and might perceive restaurants differently than Gen X and older diners.
+Google draws from a broader population, so some of the gap between the two crowds could
+be who&rsquo;s rating rather than how well. Demographic data would separate the
+two.</li>""")
 
-<h3>Resolution may be the harder thing to copy</h3>
-<p>More ratings is a lead a competitor can close. Separating restaurants that Google puts
-on the same number comes from the ranking mechanic, not from scale. Anyone who needs an
-order rather than a filter can&rsquo;t get that from a star average at any volume.</p>
+    out.append(f"""<section>
+<h2>Things I&rsquo;d want to look at with the real data</h2>
+<p>Not recommendations. These are questions {n} restaurants raised and can&rsquo;t answer
+on their own.</p>
 
-<h3>The edge is widest where Google is weakest</h3>
-<p>Split my list by Google coverage: on the thinner half Beli carries a median
-{cover['thin_google']:.1f}&times; Google&rsquo;s ratings, on the better-covered half
-{cover['thick_google']:.1f}&times;. The differentiation concentrates in places Google
-barely describes, which is also where a diner has least to go on.</p>
+<h3>Following up on these results</h3>
+<ul>
+{"".join(follow_up)}
+</ul>
+
+<h3>The rest of Beli&rsquo;s claim</h3>
+<ul>
+<li><strong>Yelp.</strong> I didn&rsquo;t pull Yelp ratings, so every comparison here is
+against Google. The figure that over 70% of Yelp reviews are one or five stars is about
+individual reviews, and I can only see published averages. My data is consistent with
+it: polarised reviews would produce averages piled high and narrow, and
+{band['count']} of my {band['n']} Google ratings sit between {band['low']} and
+{band['high']}.</li>
+<li><strong>The first week.</strong> Beli has said it collects far more ratings than
+Google or Yelp in a restaurant&rsquo;s first week. My data is a snapshot, so it
+can&rsquo;t see timing. With timestamps you could compare how fast each platform builds
+up ratings after an opening, and how soon Beli&rsquo;s average settles near where it
+ends up.</li>
+</ul>
+
+<h3>Beyond the score</h3>
+<ul>
+{"".join(beyond)}
+</ul>
 </section>""")
 
     return out

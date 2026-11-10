@@ -252,33 +252,58 @@ the scores for a slice of raters and compare the orderings that come out. That w
 require a change to the inside of the app, so it isn&rsquo;t a test I can run, but
 I&rsquo;d be curious to investigate it.</p></div>
 </section><section>
-<h2>What I couldn&rsquo;t test</h2>
-<p>The Yelp figure, that most reviews are one star or five, is about individual reviews.
-I can only see published averages. So I haven&rsquo;t tested it and I&rsquo;m not
-claiming to.</p>
-<p>My data is consistent with it. Polarised reviews would produce averages piled high and
-narrow, and 100 of my 117 sit between 4.2 and
-4.7.</p>
-</section><section>
-<h2>Three things worth looking at with the real data</h2>
-<p>Not recommendations. These are the questions 117 restaurants raised and 117
-restaurants can&rsquo;t answer.</p>
+<h2>Things I&rsquo;d want to look at with the real data</h2>
+<p>Not recommendations. These are questions 117 restaurants raised and can&rsquo;t answer
+on their own.</p>
 
-<h3>Where the data is already the better source</h3>
-<p>The advantage tracks density, not the platform. The full dataset would show the
-threshold: how many active users a metro needs before Beli becomes the better-covered
-source. That line is worth knowing before deciding where anything ships.</p>
+<h3>Following up on these results</h3>
+<ul>
+<li><strong>Where Beli becomes the better source.</strong> The
+volume advantage tracks density, not the platform. The full dataset would show the
+threshold: how many active users a metro needs before Beli out-rates Google.</li><li><strong>Where Google is thinnest.</strong> On the half of
+my list with fewer Google reviews, Beli carries a median
+3.8&times; Google&rsquo;s ratings. On the better-covered half,
+1.1&times;. The edge is widest where a diner has least to go
+on.</li><li><strong>Whether ranking beats stars at the same
+resolution.</strong> Put on Google&rsquo;s 41-value scale, Beli&rsquo;s averages still tie
+slightly fewer pairs (10.9% against
+12.4%). With every user&rsquo;s data you could test
+whether pairwise ranking separates restaurants better than star averages once the scale
+is held fixed.</li>
+</ul>
 
-<h3>Resolution may be the harder thing to copy</h3>
-<p>More ratings is a lead a competitor can close. Separating restaurants that Google puts
-on the same number comes from the ranking mechanic, not from scale. Anyone who needs an
-order rather than a filter can&rsquo;t get that from a star average at any volume.</p>
+<h3>The rest of Beli&rsquo;s claim</h3>
+<ul>
+<li><strong>Yelp.</strong> I didn&rsquo;t pull Yelp ratings, so every comparison here is
+against Google. The figure that over 70% of Yelp reviews are one or five stars is about
+individual reviews, and I can only see published averages. My data is consistent with
+it: polarised reviews would produce averages piled high and narrow, and
+100 of my 117 Google ratings sit between 4.2 and
+4.7.</li>
+<li><strong>The first week.</strong> Beli has said it collects far more ratings than
+Google or Yelp in a restaurant&rsquo;s first week. My data is a snapshot, so it
+can&rsquo;t see timing. With timestamps you could compare how fast each platform builds
+up ratings after an opening, and how soon Beli&rsquo;s average settles near where it
+ends up.</li>
+</ul>
 
-<h3>The edge is widest where Google is weakest</h3>
-<p>Split my list by Google coverage: on the thinner half Beli carries a median
-3.8&times; Google&rsquo;s ratings, on the better-covered half
-1.1&times;. The differentiation concentrates in places Google
-barely describes, which is also where a diner has least to go on.</p>
+<h3>Beyond the score</h3>
+<ul>
+<li><strong>Re-rankings.</strong> My own impression of a restaurant often
+changes after a second visit, and Beli lets you rank a place again. I&rsquo;d want to see
+how often a re-rank moves a restaurant, in which direction, and whether first-visit
+scores are noisier than they look.</li><li><strong>The written reviews.</strong> Running the text people leave
+through a language model could pull out what a score can&rsquo;t: which dishes people
+order and rate, or whether a low score was an off night rather than the kitchen.</li><li><strong>Friend scores for recommendations.</strong> Friend
+scores explain 13.7% of my ranking, against
+24.4% for the all-user average, and 25 of the 66 friend scores I have come from a single friend. With more data you could test
+whether weighting friends by how closely their taste matches yours makes them a better
+guide than the crowd.</li><li><strong>Who&rsquo;s rating.</strong> Beli&rsquo;s users are
+mostly younger, and might perceive restaurants differently than Gen X and older diners.
+Google draws from a broader population, so some of the gap between the two crowds could
+be who&rsquo;s rating rather than how well. Demographic data would separate the
+two.</li>
+</ul>
 </section><section>
 <h2>Method</h2>
 <ul>
