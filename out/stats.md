@@ -51,10 +51,10 @@ Google's rating is not on screen while I rank, and nothing in the ranking flow r
 
 The different scales do not matter here: R2 and Spearman are both scale-invariant, so doubling every Google rating to put it on a 0-10 basis would leave these numbers untouched. Only the slope is in mixed units -- Beli points per Google star.
 
-| comparison                               | n   | R2    | variance explained | Spearman rho | p    |
-|------------------------------------------|-----|-------|--------------------|--------------|------|
-| Google rating -> my ranking              | 117 | 0.000 | 0.0%               | 0.022        | 0.96 |
-| Google rating -> Beli's all-user average | 116 | 0.024 | 2.4%               | 0.127        | 0.1  |
+| comparison                               | n   | R2    | variance explained | Spearman rho | Spearman p |
+|------------------------------------------|-----|-------|--------------------|--------------|------------|
+| Google rating -> my ranking              | 117 | 0.000 | 0.0%               | 0.022        | 0.81       |
+| Google rating -> Beli's all-user average | 116 | 0.024 | 2.4%               | 0.127        | 0.17       |
 
 The second row is the one with no n=1 in it. Both sides are averages over users, my own rating is one of thousands inside the Beli figure, and nothing either platform shows me affects it.
 
@@ -79,10 +79,10 @@ The price bracket alone explains 9.8% of where a restaurant lands in my list. **
 
 Both of these are on screen before I rank a place, so they are context rather than predictions. The pairwise mechanic limits how far that can go -- the score is a rank position, not a number I type -- but it does not rule out a tilt on close calls, so the gap table below is the check.
 
-| shown before ranking  | n   | R2    | variance explained | Spearman rho | p       |
-|-----------------------|-----|-------|--------------------|--------------|---------|
-| Beli friend score     | 66  | 0.137 | 13.7%              | 0.306        | 0.0022  |
-| Beli all-user average | 116 | 0.244 | 24.4%              | 0.504        | 1.7e-08 |
+| shown before ranking  | n   | R2    | variance explained | Spearman rho | Spearman p |
+|-----------------------|-----|-------|--------------------|--------------|------------|
+| Beli friend score     | 66  | 0.137 | 13.7%              | 0.306        | 0.013      |
+| Beli all-user average | 116 | 0.244 | 24.4%              | 0.504        | 8.3e-09    |
 
 ## How far I land from the number I was shown
 

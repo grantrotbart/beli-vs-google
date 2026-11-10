@@ -423,7 +423,7 @@ def google_band(data, low=4.2, high=4.7):
             "n": int(len(g))}
 
 
-def pct(r2):
+def pct_words(r2):
     """A rounded 0% reads as a broken number, so small values say so instead."""
     return "less than 1%" if r2 < 0.005 else f"{round(r2 * 100)}%"
 
@@ -433,11 +433,11 @@ def headline(result, with_friends=False):
     google = result["fits"].get(CLEAN)
     if not google:
         return "Not enough Google ratings yet to say anything."
-    line = (f"Google stars explain {pct(google['r2'])} of the variance in how I "
+    line = (f"Google stars explain {pct_words(google['r2'])} of the variance in how I "
             f"actually rank restaurants (n={google['n']}).")
     friend = result["fits"].get("friend_score")
     if with_friends and friend:
-        line += (f" My friends' Beli scores explain {pct(friend['r2'])} "
+        line += (f" My friends' Beli scores explain {pct_words(friend['r2'])} "
                  f"(n={friend['n']}).")
     if google["r2"] >= STRONG:
         line += ("  -- Google tracks my ranking more closely than expected. "
@@ -540,14 +540,14 @@ def write_stats(result, path=STATS):
                   "basis would leave these numbers untouched. Only the slope is in mixed "
                   "units -- Beli points per Google star.", ""]
         rows = [[f"{LABELS[CLEAN]} -> my ranking", google["n"], f"{google['r2']:.3f}",
-                 pct(google["r2"]), f"{google['spearman']:.3f}", f"{google['p']:.2g}"]]
+                 pct(google["r2"]), f"{google['spearman']:.3f}", f"{google['spearman_p']:.2g}"]]
         crowd = fits.get("crowd_vs_google")
         if crowd:
             rows.append([f"{LABELS[CLEAN]} -> Beli's all-user average", crowd["n"],
                          f"{crowd['r2']:.3f}", pct(crowd["r2"]),
-                         f"{crowd['spearman']:.3f}", f"{crowd['p']:.2g}"])
+                         f"{crowd['spearman']:.3f}", f"{crowd['spearman_p']:.2g}"])
         lines += table(rows, ["comparison", "n", "R2", "variance explained",
-                              "Spearman rho", "p"])
+                              "Spearman rho", "Spearman p"])
         if crowd:
             lines += ["",
                       "The second row is the one with no n=1 in it. Both sides are "
@@ -598,8 +598,8 @@ def write_stats(result, path=STATS):
         ]
         lines += table(
             [[LABELS[key], fits[key]["n"], f"{fits[key]['r2']:.3f}", pct(fits[key]["r2"]),
-              f"{fits[key]['spearman']:.3f}", f"{fits[key]['p']:.2g}"] for key in anchored],
-            ["shown before ranking", "n", "R2", "variance explained", "Spearman rho", "p"])
+              f"{fits[key]['spearman']:.3f}", f"{fits[key]['spearman_p']:.2g}"] for key in anchored],
+            ["shown before ranking", "n", "R2", "variance explained", "Spearman rho", "Spearman p"])
         lines += [""]
 
     anchors = result["anchoring"]

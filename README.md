@@ -15,7 +15,7 @@ Three findings, in the order the report makes them:
    spanning rank #1 to rank #107. It leaves 2.7x as many pairs indistinguishable as
    Beli's all-user average does.
 3. **Consequence.** A restaurant's Google rating explains **less than 1%** of where it
-   lands in the ranking (n=117, Spearman 0.02, p=0.96), and the null holds inside every
+   lands in the ranking (n=117, Spearman 0.02, p=0.81), and the null holds inside every
    price band. Run crowd against crowd instead of against one person, Google explains
    **2.4%** of Beli's all-user average.
 

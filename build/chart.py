@@ -113,7 +113,8 @@ def frame(figure, headline, subtitle=None, footnote=None, panel_titles=False):
         figure.text(EDGE_IN / w, 0.22 / h, footnote, fontsize=FOOT_PT, color=FAINT,
                     ha="left", va="bottom")
     figure.subplots_adjust(left=LEFT_IN / w, right=1 - RIGHT_IN / w,
-                           top=y / h, bottom=BOTTOM_IN / h, wspace=0.10)
+                           top=y / h, bottom=(BOTTOM_IN if footnote else BOTTOM_IN - 0.4) / h,
+                           wspace=0.10)
 
 
 def style(axis, xlabel, xlim, ylabel=None, xticks=None):
@@ -238,7 +239,6 @@ def draw(result, data, path=IMAGE, with_second=False, second_key="beli_average")
                else "the same restaurants' Google ratings")
     frame(figure, headline,
           subtitle=f"{n} restaurants on my Beli list, against {against}.",
-          footnote="One user's own ratings, so this shows a mechanism, not a measurement.",
           panel_titles=with_second)
 
     if with_second:

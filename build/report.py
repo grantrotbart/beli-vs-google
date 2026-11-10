@@ -199,8 +199,8 @@ def sections(result, image_uri):
 <p class="lede">Beli argues publicly that its ratings are richer and more representative
 than Google&rsquo;s or Yelp&rsquo;s. I&rsquo;ve used the app for years, so I pulled the
 Google rating for all {n} restaurants on my list and checked the parts of that claim an
-outsider can reach. It&rsquo;s one user&rsquo;s data, so it shows a mechanism, not a
-measurement.</p>
+outsider can reach. It&rsquo;s one user&rsquo;s data (mine), so it shows a mechanism,
+not a measurement, but the results are very interesting nonetheless.</p>
 </header>""")
 
     out.append(f"""<figure class="figure" style="margin:0">
@@ -214,41 +214,59 @@ The points form a narrow vertical band with no slope.">
 <p class="pull">Google stars explain {headline_pct(google['r2'])} of where a restaurant
 lands in my ranking.</p>
 <p>n&nbsp;=&nbsp;{google['n']}, Spearman &rho;&nbsp;=&nbsp;{google['spearman']:.2f},
-p&nbsp;=&nbsp;{google['p']:.2f}. Not a weak signal. No signal. It stays flat inside every
-price band too, so it isn&rsquo;t an artefact of mixing taco stands with tasting
-menus.</p>
+and p&nbsp;=&nbsp;{google['spearman_p']:.2f} indicate no signal between what my Beli
+ranking and Google reviews say about each other. Spearman&rsquo;s &rho; asks whether
+two lists put restaurants in the same order: 1 would mean Google orders them exactly as
+I do, 0 means no relationship at all. The p-value is the chance of seeing at least this
+much overlap if the two were completely unrelated, so at
+{google['spearman_p']:.2f} what little overlap there is looks like coincidence. This
+holds within price bands too, so the result isn&rsquo;t skewed by mixing fast-casual
+spots with special-occasion restaurants.</p>
 <p><strong>{cluster['count']} of my restaurants sit at exactly
-{cluster['google_rating']:.1f} on Google.</strong> I rank them from {cluster['min']:.1f}
-to {cluster['max']:.1f}. {cluster['highest']} is my number one. {cluster['lowest']} is
-near the bottom. Google has no way to tell them apart.</p>
+{cluster['google_rating']:.1f} on Google</strong>, but I rank them from
+{cluster['min']:.1f} to {cluster['max']:.1f}. {cluster['highest']} is my number one while
+{cluster['lowest']} is near the bottom, but according to Google, they&rsquo;re just as
+good.</p>
 </section>""")
 
     crowd = fits.get("crowd_vs_google")
     if crowd and cluster:
         spread = ""
         if cluster.get("average_min") is not None:
-            spread = (f" Inside the {cluster['count']} that Google scores "
+            spread = (f" Inside the same {cluster['count']} that Google scores "
                       f"{cluster['google_rating']:.1f}, Beli&rsquo;s users spread them "
                       f"from {cluster['average_min']:.1f} to "
                       f"{cluster['average_max']:.1f}.")
+        missing = n - crowd["n"]
+        dropped = ""
+        if missing == 1:
+            dropped = (f" ({crowd['n']} of the {n}, since one doesn&rsquo;t have a Beli "
+                       f"average yet)")
+        elif missing > 1:
+            dropped = (f" ({crowd['n']} of the {n}, since {missing} don&rsquo;t have a "
+                       f"Beli average yet)")
         out.append(f"""<section>
 <h2>And it isn&rsquo;t just me</h2>
 <p>The obvious objection is that this is one person with odd taste. So here is the same
 test with me taken out of it: Google&rsquo;s rating against Beli&rsquo;s all-user
-average, on the same restaurants. Both sides are now crowds.</p>
+average, on the same restaurants{dropped}.</p>
 <figure class="figure"><img src="{data_uri(chart.CROWD)}"
 alt="Google rating against Beli's all-user average for {crowd['n']} restaurants, showing no
 relationship."></figure>
 <p class="pull">Google&rsquo;s rating explains {headline_pct(crowd['r2'])} of the
 variance in what Beli&rsquo;s users think.</p>
-<p>Spearman &rho;&nbsp;=&nbsp;{crowd['spearman']:.2f}, p&nbsp;=&nbsp;{crowd['p']:.2f}.
-Thousands of Beli users on one axis, hundreds of thousands of Google reviewers on the
-other, and the two are close to unrelated.{spread}</p>
+<p>Spearman &rho;&nbsp;=&nbsp;{crowd['spearman']:.2f},
+p&nbsp;=&nbsp;{crowd['spearman_p']:.2f}. A &rho; that close to 0 means the two crowds
+barely agree on which restaurants are better than which. A p-value of
+{crowd['spearman_p']:.2f} means even that small overlap could easily be chance; the
+usual bar for calling something real is 0.05. Thousands of Beli users on one axis,
+hundreds of thousands of Google reviewers on the other, and the two are close to
+unrelated.{spread}</p>
 <p>The clearest case is on the chart. Google puts <strong>Darrell&rsquo;s Dog Gone Good
 Diner at 4.4 and Laser Wolf at 4.2</strong>, so by that measure the diner is the better
-restaurant. Beli&rsquo;s users have Laser Wolf at 8.9 and Darrell&rsquo;s at 5.5. The
-two populations aren&rsquo;t disagreeing at the margin, they&rsquo;re ordering things
-differently.</p>
+restaurant. Beli&rsquo;s users have Laser Wolf at 8.9 and Darrell&rsquo;s at 5.5. That
+isn&rsquo;t a close call tipping the other way: the two crowds put these restaurants in
+opposite order, and Beli&rsquo;s users split them by more than three points.</p>
 </section>""")
 
     if cover:
