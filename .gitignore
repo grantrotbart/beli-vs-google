@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Raw Google Places responses. Kept locally so re-runs cost nothing, but not
+# redistributed: Google's terms don't allow republishing Places content.
+data/places_cache.json

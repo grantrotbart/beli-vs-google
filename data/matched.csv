@@ -1,0 +1,115 @@
+name,city,market,category,price_level,cuisine,rank,beli_score,friend_score,friend_count,beli_average,beli_rating_count,google_name,google_address,google_rating,user_ratings_total,match_score,source,runner_up,keep
+Rolo's,Ridgewood Queens NY,NYC,Restaurants,3.0,"American, Contemporary, Burgers",1.0,10.0,8.9,4.0,9.1,20700.0,Rolo’s,"8-53 Onderdonk Ave, Ridgewood, NY 11385, USA",4.5,1983,1.0,api,,1
+Laser Wolf,Williamsburg Brooklyn NY,NYC,Restaurants,3.0,"Middle Eastern, Israeli, Mediterranean",2.0,10.0,9.4,5.0,8.9,44512.0,Laser Wolf Brooklyn,"97 Wythe Ave, Brooklyn, NY 11249, USA",4.2,1210,0.69,api,,1
+Theodora,Fort Greene Brooklyn NY,NYC,Restaurants,3.0,"Mediterranean, Seafood",3.0,9.9,9.7,4.0,9.3,26105.0,Theodora,"7 Greene Ave, Brooklyn, NY 11238, USA",4.6,827,1.0,api,,1
+Kazunori,NoMad New York NY,NYC,Restaurants,3.0,"Japanese, Sushi, Omakase",4.0,9.9,9.1,3.0,8.4,51815.0,KazuNori: The Original Hand Roll Bar,"15 W 28th St, New York, NY 10001, USA",4.7,3232,0.457,api,,1
+Safta,Five Points Denver CO,Other US,Restaurants,3.0,"Mediterranean, Middle Eastern, Israeli",5.0,9.9,,0.0,8.6,6811.0,Safta,"3330 Brighton Blvd #201, Denver, CO 80216, USA",4.4,2517,1.0,api,,1
+Aviv,Mid-Beach Miami Beach FL,South Florida,Restaurants,4.0,Israeli,6.0,9.9,,0.0,8.7,1388.0,AVIV,"2341 Collins Ave, Miami Beach, FL 33139, USA",4.4,296,1.0,api,,1
+Hamburger America,SoHo New York NY,NYC,Restaurants,2.0,"Burgers, American",7.0,9.8,8.5,1.0,7.7,26035.0,Hamburger America,"155 W Houston St, New York, NY 10012, USA",4.5,3502,1.0,api,,1
+The Sixteen Twelve,Copenhagen Denmark,Europe,Restaurants,2.0,Brunch,8.0,9.8,7.9,1.0,7.8,249.0,The Sixteen Twelve,"Jægersborggade 8 KL TH, 2200 København, Denmark",4.4,658,1.0,api,,1
+Yama,Union Square New York NY,NYC,Restaurants,3.0,"Japanese, Sushi",9.0,9.8,9.8,1.0,7.5,3128.0,Yama,"122 E 17th St, New York, NY 10003, USA",4.2,149,1.0,api,,1
+Tâm Tâm,Downtown Miami FL,South Florida,Restaurants,3.0,Vietnamese,10.0,9.8,,0.0,8.8,4122.0,Tâm Tâm,"99 NW 1st St, Miami, FL 33128, USA",4.6,679,1.0,api,,1
+Sakagura,Midtown East New York NY,NYC,Restaurants,4.0,"Japanese, Izakaya, Bar",11.0,9.8,8.8,2.0,8.1,5903.0,Sakagura,"211 E 43rd St B1, New York, NY 10017, USA",4.5,1493,1.0,api,,1
+Rule of Thirds,Greenpoint New York NY,NYC,Restaurants,3.0,"Izakaya, Japanese, Brunch",12.0,9.8,8.6,4.0,8.1,42290.0,Rule of Thirds,"171 Banker St, Brooklyn, NY 11222, USA",4.3,1754,1.0,api,,1
+Katz's Delicatessen,Lower East Side New York NY,NYC,Restaurants,2.0,"Jewish, Delicatessen, Sandwiches",13.0,9.6,7.4,8.0,7.3,135883.0,Katz's Delicatessen,"205 E Houston St, New York, NY 10002, USA",4.5,56465,1.0,api,,1
+Taqueria El Chato,Greenpoint New York NY,NYC,Restaurants,2.0,"Mexican, Tacos, Taqueria",14.0,9.6,9.4,4.0,8.4,4355.0,Taqueria El Chato Greenpoint,"620 Manhattan Ave, Brooklyn, NY 11222, USA",4.7,344,0.756,api,,1
+Macchialina,West Avenue Miami Beach FL,South Florida,Restaurants,3.0,Italian,15.0,9.6,9.7,2.0,8.7,3775.0,Macchialina,"810 Alton Rd, Miami Beach, FL 33139, USA",4.4,1782,1.0,api,,1
+Wah Fung No.1 Fast Food,Bowery New York NY,NYC,Restaurants,1.0,"Chinese, Cantonese, Barbecue",16.0,9.5,8.2,2.0,7.9,18076.0,Wah Fung No.1 Fast Food,"79 Chrystie St, New York, NY 10002, USA",4.5,3734,1.0,api,,1
+Tal Bagels,Yorkville New York NY,NYC,Restaurants,1.0,"Bagels, Delicatessen, Bakery",17.0,9.5,6.5,1.0,6.9,2241.0,Tal Bagels,"333 East 86th St #1, New York, NY 10028, USA",3.9,1007,1.0,api,,1
+Bar Las Golondrinas - Antillano Campos,Triana Seville Spain,Europe,Restaurants,1.0,Spanish,18.0,9.5,,0.0,8.5,41.0,Bar Las Golondrinas - Antillano Campos,"C. Antillano Campos, 26, 41010 Sevilla, Spain",4.3,1592,1.0,api,,1
+Din Tai Fung,Theater District New York NY,NYC,Restaurants,3.0,"Taiwanese, Chinese, Dim Sum",19.0,9.4,9.4,8.0,8.4,83148.0,Din Tai Fung,"1633 Broadway, New York, NY 10019, USA",4.3,3132,1.0,api,,1
+Magnolias,French Quarter Charleston SC,Other US,Restaurants,3.0,"American, Southern",20.0,9.4,9.2,1.0,8.1,3458.0,Magnolias,"185 E Bay St #200, Charleston, SC 29401, USA",4.7,5404,1.0,api,,1
+Win Son Bakery,Bowery New York NY,NYC,Restaurants,2.0,"Taiwanese, Bakery",21.0,9.4,9.0,4.0,8.2,25085.0,Win Son Bakery,"23 2nd Ave, New York, NY 10003, USA",4.2,486,1.0,api,,1
+Tinta Y Cafe,Miami Shores FL,South Florida,Restaurants,2.0,"Sandwiches, Cuban, Bakery",22.0,9.3,9.6,1.0,8.7,326.0,Tinta Y Cafe - Miami Shores,"9840 NE 2nd Ave, Miami Shores, FL 33138, USA",4.2,593,0.519,api,,1
+Krakatoa Indonesian Cuisine,Parkside Hollywood FL,South Florida,Restaurants,2.0,Indonesian,23.0,9.3,,0.0,8.3,197.0,Krakatoa Indonesian Cuisine,"1910B Hollywood Blvd, Hollywood, FL 33020, USA",4.8,1025,1.0,api,,1
+Burlingame,Fernandina Beach FL,North Florida,Restaurants,2.0,Seafood,24.0,9.3,,0.0,8.8,136.0,Burlingame,"20 S 5th St, Fernandina Beach, FL 32034, USA",4.7,548,1.0,api,,1
+DABUSH,Emerald Hills Hollywood FL,South Florida,Restaurants,2.0,Israeli,25.0,9.3,,0.0,8.3,61.0,DABUSH,"3371 Sheridan St, Hollywood, FL 33021, USA",4.7,398,1.0,api,,1
+Crown Shy,Financial District New York NY,NYC,Restaurants,4.0,"American, Contemporary",26.0,9.3,9.6,4.0,8.6,24881.0,Crown Shy,"70 Pine St, New York, NY 10005, USA",4.5,1988,1.0,api,,1
+bar alfalfa,Casco Antiguo Seville Spain,Europe,Restaurants,1.0,"Tapas, Spanish, Fusion",27.0,9.3,,0.0,8.4,117.0,Bar Alfalfa,"C. Candilejo, 1, Casco Antiguo, 41004 Sevilla, Spain",4.6,8173,1.0,api,,1
+Bernie's,Greenpoint New York NY,NYC,Restaurants,3.0,"American, Bar",28.0,9.1,9.9,2.0,8.8,15935.0,Bernie’s,"332 Driggs Ave, Brooklyn, NY 11222, USA",4.5,671,1.0,api,,1
+SweetBerries on 5th Ave,Fifth Avenue Gainesville FL,North Florida,Restaurants,1.0,American,29.0,9.1,7.1,3.0,7.3,205.0,SweetBerries on 5th Ave,"619 NW 5th Ave, Gainesville, FL 32601, USA",4.6,212,1.0,api,,1
+Estaminet La CH'TITE BRIGITTE,Vieux-Lille Lille France,Europe,Restaurants,,French,30.0,9.1,,0.0,8.0,61.0,Estaminet La Ch’Tite Brigitte,"10 Rue des Bouchers, 59800 Lille, France",4.7,8018,1.0,api,Estaminet LA COUR de la Ch’tite Brigitte rue de la Monnaie LILLE,1
+Shalom Japan,Southside New York NY,NYC,Restaurants,3.0,"Japanese, Jewish, Fusion",31.0,9.1,8.7,2.0,7.5,5165.0,Shalom Japan,"310 S 4th St rear, Brooklyn, NY 11211, USA",4.3,902,1.0,api,,1
+El Bagel,Upper East Side Miami FL,South Florida,Restaurants,2.0,Bagels,32.0,9.1,9.5,2.0,7.5,2305.0,El Bagel,"6910 Biscayne Blvd, Miami, FL 33138, USA",4.2,568,1.0,api,,1
+Nom Wah Philadelphia,Chinatown Philadelphia PA,Other US,Restaurants,2.0,"Chinese, Dim Sum",33.0,9.1,,0.0,7.5,2333.0,Nom Wah Philadelphia,"218 N 13th St, Philadelphia, PA 19107, USA",4.5,1203,1.0,api,,1
+Rodney Scott's BBQ,North-Central Charleston SC,Other US,Restaurants,2.0,"Barbecue, Southern, American",34.0,9.1,3.9,1.0,7.4,2303.0,Rodney Scott's BBQ,"1011 King St, Charleston, SC 29403, USA",4.5,7698,1.0,api,,1
+Sushi Spot - Sashimi Express,226 E 78th St New York NY,NYC,Restaurants,1.0,"Japanese, Sushi",35.0,9.1,8.2,2.0,7.5,1243.0,Sushi Spot—78 Street,"226 E 78th St, New York, NY 10075, USA",4.4,301,0.609,api,,1
+Abbalé Telavivian Kitchen,South of Fifth Miami Beach FL,South Florida,Restaurants,3.0,Israeli,36.0,9.1,10.0,1.0,8.3,2203.0,Abbalé Modern Mediterranean Kitchen - South Beach,"864 Commerce St, Miami Beach, FL 33139, USA",4.6,1374,0.543,api,,1
+Embers Wood Grill,Gainesville FL,North Florida,Restaurants,3.0,Steakhouse,37.0,9.1,9.6,2.0,8.4,652.0,Embers Wood Grill,"3545 SW 34th St Apt A, Gainesville, FL 32608, USA",4.6,1694,1.0,api,,1
+Miami Slice,Town Square Miami FL,South Florida,Restaurants,2.0,Pizza,38.0,9.1,8.0,1.0,8.2,5584.0,Miami Slice,"1335 NE Miami Ct, Miami, FL 33132, USA",4.2,1404,1.0,api,,1
+Hershel's East Side Deli,Center City East Philadelphia PA,Other US,Restaurants,2.0,"Delicatessen, Sandwiches, Jewish",39.0,9.1,,0.0,8.2,2321.0,Hershel's East Side Deli,"1136 Arch Street, Reading, Terminal Market, Philadelphia, PA 19107, USA",4.6,804,1.0,api,,1
+Lowland,Charleston SC,Other US,Restaurants,3.0,Southern,40.0,9.1,8.9,1.0,8.8,1558.0,Lowland,"36 George St, Charleston, SC 29401, USA",4.7,452,1.0,api,,1
+Mandragora żydowska restauracja,Old Town Lublin Poland,Europe,Restaurants,2.0,Jewish,41.0,9.1,10.0,1.0,7.5,25.0,Mandragora żydowska restauracja,"Rynek 10, 20-112 Lublin, Poland",4.6,5947,1.0,api,,1
+Mama's TOO! Pizzeria West Village,West Village New York NY,NYC,Restaurants,2.0,"Italian, American, Pizza",42.0,9.1,7.9,6.0,8.2,47813.0,Mama's TOO! Pizzeria West Village,"325 Bleecker St, New York, NY 10014, USA",4.3,2171,1.0,api,,1
+Carnitas Ramirez,Alphabet City New York NY,NYC,Restaurants,2.0,"Mexican, Tacos, Taqueria",43.0,9.1,6.5,3.0,8.5,11985.0,Carnitas Ramirez,"210 E 3rd St, New York, NY 10009, USA",4.8,574,1.0,api,,1
+Son del North,Lower East Side New York NY,NYC,Restaurants,2.0,Mexican,44.0,9.1,8.3,8.0,8.0,22997.0,Son del North,"177 Orchard St, New York, NY 10002, USA",4.3,591,1.0,api,,1
+Bánh Anh Em,East Village New York NY,NYC,Restaurants,2.0,"Vietnamese, Banh Mi",45.0,9.1,8.3,3.0,8.9,17946.0,Bánh Anh Em,"99 3rd Ave, New York, NY 10003, USA",4.4,567,1.0,api,,1
+OMAKAI sushi,Aventura FL,South Florida,Restaurants,3.0,"Japanese, Omakase",46.0,9.1,,0.0,8.1,509.0,OMAKAI sushi,"18831 Biscayne Blvd #220, Aventura, FL 33180, USA",4.8,1537,1.0,api,,1
+Ly Ly Vietnam Cookhouse,Yorkville New York NY,NYC,Restaurants,3.0,Vietnamese,47.0,9.1,7.4,2.0,8.2,6507.0,Ly Ly Vietnam Cookhouse,"306 E 81st St, New York, NY 10028, USA",4.8,619,1.0,api,,1
+Sushi Counter,Alphabet City New York NY,NYC,Restaurants,1.0,"Sushi, Japanese",48.0,9.1,,0.0,7.3,3357.0,Sushi Counter,"523 E 12th St, New York, NY 10009, USA",4.6,110,1.0,api,,1
+OPTO,Flatiron District New York NY,NYC,Restaurants,4.0,Mediterranean,49.0,9.1,,0.0,8.7,10666.0,OPTO,"35 W 20th St, New York, NY 10011, USA",4.6,225,1.0,api,,1
+Hotbox,Historic District St. Augustine FL,North Florida,Restaurants,3.0,Hawaiian,50.0,9.1,,0.0,8.3,28.0,Hotbox,"61 San Marco Ave, St. Augustine, FL 32084, USA",4.7,64,1.0,api,,1
+Tacos Atarantados Wynwood,Wynwood Art District Miami FL,South Florida,Restaurants,2.0,"Mexican, Tacos",51.0,9.1,8.6,1.0,8.3,490.0,Tacos Atarantados Wynwood,"218 NW 25th St, Miami, FL 33127, USA",4.3,488,1.0,api,,1
+Taquería el Chato,South Village New York NY,NYC,Restaurants,2.0,"Taqueria, Tacos, Mexican",52.0,9.1,8.4,2.0,8.2,2300.0,Taquería el Chato,"120 MacDougal St, New York, NY 10012, USA",4.8,226,1.0,api,,1
+Takos Al Pastor,Sol Madrid Spain,Europe,Restaurants,1.0,"Mexican, Taqueria",53.0,8.3,8.9,3.0,8.4,5279.0,Takos Al Pastor,"C. de la Salud, 13, Centro, 28013 Madrid, Spain",4.5,15707,1.0,api,,1
+Hogan's,Stephen Foster Gainesville FL,North Florida,Restaurants,1.0,Sandwiches,54.0,8.3,8.1,2.0,7.5,116.0,Hogan's,"2327 NW 13th St, Gainesville, FL 32609, USA",4.6,1629,1.0,api,,1
+Sanguich,Little Havana Miami FL,South Florida,Restaurants,1.0,"Cuban, Sandwiches",55.0,8.3,,0.0,7.8,4710.0,Sanguich,"2057 SW 8th St, Miami, FL 33135, USA",4.6,4706,1.0,api,,1
+J28 Sandwich Bar,Royal Poinciana Hollywood FL,South Florida,Restaurants,1.0,Sandwiches,56.0,8.3,,0.0,7.2,22.0,J28 Sandwich Bar,"1854 N Young Cir, Hollywood, FL 33020, USA",4.7,841,1.0,api,,1
+Kaluz Restaurant Plantation,Plantation FL,South Florida,Restaurants,4.0,American,57.0,8.3,9.2,1.0,7.6,241.0,Kaluz Restaurant Plantation,"100 N University Dr, Plantation, FL 33324, USA",4.7,2390,1.0,api,,1
+Las Delicias Del Peru,Boulevard Heights Hollywood FL,South Florida,Restaurants,2.0,Peruvian,58.0,8.3,,0.0,,,Las Delicias Del Peru,"6335 Johnson St, Hollywood, FL 33024, USA",4.3,987,1.0,api,,1
+545° Bánh Mì Café,Davie FL,South Florida,Restaurants,1.0,"Bubble Tea, Sandwiches, Vietnamese",59.0,8.3,,0.0,7.7,240.0,545° Bánh Mì Café,"6461 Stirling Rd, Davie, FL 33314, USA",4.5,926,1.0,api,,1
+Vato,Park Slope New York NY,NYC,Restaurants,2.0,"Mexican, Bakery, Cafe",60.0,8.1,,0.0,8.2,2951.0,Vato,"226 7th Ave Fl 1, Brooklyn, NY 11215, USA",4.2,295,1.0,api,,1
+Peppi's Pizza,Wynwood Miami FL,South Florida,Restaurants,2.0,"Pizza, Cheesesteaks, Sandwiches",61.0,8.1,,0.0,8.2,433.0,Peppi’s Pizza,"3620 NE 2nd Ave, Miami, FL 33137, USA",4.2,475,1.0,api,,1
+Santo Taco,Nolita New York NY,NYC,Restaurants,2.0,"Mexican, Tacos, Taqueria",62.0,8.1,8.6,4.0,8.0,8799.0,Santo Taco SoHo,"114 Kenmare St, New York, NY 10012, USA",4.6,676,0.8,api,,1
+Jamaica House Restaurant,Miami FL,South Florida,Restaurants,2.0,Jamaican,63.0,8.1,,0.0,8.7,21.0,Jamaica House Restaurant,"19555 NW 2nd Ave, Miami, FL 33169, USA",4,2333,1.0,api,,1
+Over Under,Downtown Miami FL,South Florida,Restaurants,2.0,Cocktail Bar,64.0,8.1,,0.0,7.9,750.0,Over Under,"151 E Flagler St, Miami, FL 33131, USA",4.3,391,1.0,api,,1
+Leon's Bagels,Nolita New York NY,NYC,Restaurants,2.0,"Bagels, Breakfast, Sandwiches",65.0,8.1,7.9,1.0,7.6,8606.0,Leon’s Bagels,"181 Mulberry St, New York, NY 10012, USA",4.5,575,1.0,api,,1
+Larb Thai-Isan,North Fort Lauderdale FL,South Florida,Restaurants,2.0,Thai,66.0,7.9,,0.0,8.8,1489.0,Larb Thai-Isan,"6234 N Federal Hwy, Fort Lauderdale, FL 33308, USA",4.7,2003,1.0,api,,1
+Esse Taco,Williamsburg New York NY,NYC,Restaurants,2.0,"Mexican, Tacos, Taqueria",67.0,7.9,8.7,4.0,7.9,9840.0,Esse Taco,"219 Bedford Ave, Brooklyn, NY 11211, USA",4.4,753,1.0,api,,1
+Kabobji,North Miami Beach FL,South Florida,Restaurants,2.0,"Middle Eastern, Lebanese",68.0,7.9,,0.0,7.7,209.0,Kabobji,"3055 NE 163rd St, North Miami Beach, FL 33160, USA",4.5,2411,1.0,api,,1
+Lor Kebab,Gainesville FL,North Florida,Restaurants,2.0,"Persian, Kebab, Iranian",69.0,7.8,,0.0,7.3,73.0,Lor Kebab,"12 SW 1st Ave, Gainesville, FL 32601, USA",4.9,425,1.0,api,,1
+Afternoon,Gainesville FL,North Florida,Restaurants,3.0,"Breakfast, Brunch",70.0,7.8,,0.0,7.4,1271.0,Afternoon Restaurant,"231 NW 10th Ave, Gainesville, FL 32601, USA",4.3,906,1.0,api,,1
+The Lions Bar & Grill,East Village New York NY,NYC,Restaurants,2.0,"American, Burgers, Bar Food",71.0,7.8,7.5,5.0,8.6,17766.0,The Lions Bar & Grill,"132 1st Ave, New York, NY 10009, USA",4.4,196,1.0,api,,1
+Tacos El Bronco,Sunset Park New York NY,NYC,Restaurants,1.0,"Taqueria, Mexican",72.0,7.7,,0.0,8.0,1144.0,Tacos El Bronco,"4324 4th Ave, Brooklyn, NY 11232, USA",4.3,2744,1.0,api,Tacos El Bronco,1
+LOS TACOS No.1,Murray Hill New York NY,NYC,Restaurants,2.0,"Mexican, Taqueria, Tacos",73.0,7.7,8.8,5.0,8.2,15380.0,LOS TACOS No.1,"125 Park Ave, New York, NY 10017, USA",4.7,5037,1.0,api,,1
+Pierogi One,Pompano Beach FL,Other US,Restaurants,1.0,Polish,74.0,7.7,,0.0,7.1,7.0,Pierogi One,"898 N Federal Hwy, Pompano Beach, FL 33062, USA",4.7,272,1.0,api,,1
+Mildred's Big City Food,Gainesville FL,North Florida,Restaurants,2.0,American,75.0,7.7,,0.0,7.3,113.0,Mildred's Big City Food,"3445 W University Ave, Gainesville, FL 32607, USA",4.5,424,1.0,api,,1
+Taqueria Ramirez,Greenpoint New York NY,NYC,Restaurants,1.0,"Mexican, Tacos, Taqueria",76.0,7.7,8.9,6.0,8.6,32431.0,Taqueria Ramirez,"94 Franklin St, Brooklyn, NY 11222, USA",4.7,2129,1.0,api,,1
+JG Melon,Lenox Hill New York NY,NYC,Restaurants,2.0,"American, Burgers",77.0,7.7,7.8,5.0,7.6,46659.0,JG Melon,"1291 3rd Ave, New York, NY 10021, USA",4.2,4109,1.0,api,,1
+Fleisch 41,Nautilus Miami Beach FL,South Florida,Restaurants,,Jewish,78.0,7.7,,0.0,7.1,8.0,Fleisch 41,"726 Arthur Godfrey Rd, Miami Beach, FL 33140, USA",5,814,1.0,api,,1
+Federal Café,Palacio Madrid Spain,Europe,Restaurants,2.0,"Cafe, Coffee Shop",79.0,7.5,,0.0,7.5,1855.0,Federal Café,"Pl. del Conde de Barajas, 3, Centro, 28005 Madrid, Spain",4.1,4612,1.0,api,Café Federal,1
+Local Provisions,Newberry FL,North Florida,Restaurants,2.0,American,80.0,7.5,5.1,1.0,6.9,49.0,Local Provisions,"13005 SW 1st Rd #129, Newberry, FL 32669, USA",4.2,382,1.0,api,,1
+El Turco Turkish Food,Miami FL,South Florida,Restaurants,2.0,"Middle Eastern, Turkish",81.0,7.4,8.6,1.0,7.7,935.0,El Turco Turkish Food,"5026 NE 2nd Ave, Miami, FL 33137, USA",4.7,5154,1.0,api,,1
+Dave's Hot Chicken,Gainesville FL,North Florida,Restaurants,2.0,"American, Fried Chicken, Fast Food",82.0,7.4,7.5,1.0,6.5,317.0,Dave's Hot Chicken,"3524 SW Archer Rd Ste 110, Gainesville, FL 32608, USA",4.7,1444,1.0,api,,1
+Yalla Beiruty,Dania Beach FL,South Florida,Restaurants,,Lebanese,83.0,7.4,,0.0,8.6,16.0,Beiruty - Mediterranean Restaurant & Lounge,"1104 S Federal Hwy, Dania Beach, FL 33004, USA",4.9,853,0.341,api,,1
+Humble Wood Fire Bagel Shop,Porters Community Gainesville FL,North Florida,Restaurants,1.0,"Breakfast, Bagels",84.0,7.4,6.9,6.0,7.2,658.0,Humble Wood Fire Bagel Shop,"307 SW 4th Ave, Gainesville, FL 32601, USA",4.3,295,1.0,api,,1
+Mandolin Aegean Bistro,Miami FL,South Florida,Restaurants,3.0,"Greek, Mediterranean, Turkish",85.0,7.4,9.5,3.0,8.7,14371.0,Mandolin Aegean Bistro,"4312 NE 2nd Ave, Miami, FL 33137, USA",4.5,4653,1.0,api,,1
+Edith's Sandwich Counter,West Village New York NY,NYC,Restaurants,2.0,"Jewish, Sandwiches",86.0,7.4,8.9,4.0,8.1,18037.0,Edith’s Sandwich Counter,"64 Charles St, New York, NY 10014, USA",4.6,580,1.0,api,,1
+Xi'an Famous Foods,Chinatown New York NY,NYC,Restaurants,2.0,"Chinese, Noodles",87.0,7.4,8.7,2.0,7.7,10947.0,Xi'an Famous Foods 西安名吃 | Chinatown,"45 Bayard St, New York, NY 10013, USA",4.5,2309,0.783,api,,1
+Darrell's Dog Gone Good Diner,Gainesville FL,North Florida,Restaurants,,Breakfast,88.0,7.4,3.7,1.0,5.5,38.0,Darrell's Dog Gone Good Diner,"3117 SW 34th St Suite 1, Gainesville, FL 32608, USA",4.4,463,1.0,api,,1
+Apocalypse BBQ,West End Miami FL,South Florida,Restaurants,2.0,"Barbecue, American",89.0,7.4,,0.0,8.3,1532.0,Apocalypse BBQ,"8695 SW 124th Ave., Miami, FL 33183, USA",4.5,3145,1.0,api,,1
+Sadelle's New York,SoHo New York NY,NYC,Restaurants,3.0,"Brunch, Jewish",90.0,7.1,8.9,2.0,7.9,38865.0,Sadelle's New York,"463 W Broadway, New York, NY 10012, USA",4.2,2311,1.0,api,,1
+fontainhas,Dumbo New York NY,NYC,Restaurants,3.0,"Indian, Cafe, Tea",91.0,7.1,,0.0,8.2,2562.0,fontainhas + (/du.kaan/),"28 Jay St, Brooklyn, NY 11201, USA",4.4,337,0.714,api,,1
+Thái Sơn,Chinatown New York NY,NYC,Restaurants,1.0,"Vietnamese, Pho",92.0,7.1,8.9,1.0,7.5,2837.0,Thái Sơn,"89 Baxter St, New York, NY 10013, USA",4.2,1675,1.0,api,,1
+Fehrenbacher's Meats & Eats,Porters Community Gainesville FL,North Florida,Restaurants,3.0,"Meat, Delicatessen, Sandwiches",93.0,7.1,,0.0,7.6,234.0,Fehrenbacher's Meats & Eats,"411 SW 4th Ave, Gainesville, FL 32601, USA",4.8,398,1.0,api,,1
+Cafe Voltaire,Gainesville FL,North Florida,Restaurants,3.0,"French, Cafe",94.0,7.0,7.1,1.0,7.3,189.0,Cafe Voltaire,"48 SW 2nd St, Gainesville, FL 32601, USA",4.6,98,1.0,api,,1
+Husk,Charleston SC,Other US,Restaurants,3.0,"American, Southern, Contemporary",95.0,7.0,8.5,2.0,8.5,5429.0,Husk,"76 Queen St, Charleston, SC 29401, USA",4.5,4492,1.0,api,,1
+Ichiran,Midtown South New York NY,NYC,Restaurants,2.0,"Japanese, Ramen, Noodles",96.0,7.0,9.9,1.0,8.1,28896.0,Ichiran,"132 W 31st St, New York, NY 10001, USA",4.5,4878,1.0,api,,1
+Casa Mazal Restaurante Sefardí,La Judería Córdoba Spain,Europe,Restaurants,2.0,"Spanish, Jewish",97.0,7.0,,0.0,7.5,52.0,Casa Mazal Restaurante Sefardí,"C. Tomás Conde, 3, Centro, 14004 Córdoba, Spain",4.5,2166,1.0,api,,1
+Dim Sum Garden,Chinatown Philadelphia PA,Other US,Restaurants,1.0,"Chinese, Dim Sum, Asian",98.0,7.0,8.4,1.0,7.2,11837.0,Dim Sum Garden,"1024 Race St, Philadelphia, PA 19107, USA",4.2,4601,1.0,api,,1
+Mader's Restaurant,Westown Milwaukee WI,Other US,Restaurants,3.0,German,99.0,7.0,,0.0,6.7,727.0,Mader's Restaurant,"1041 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",4.4,3703,1.0,api,,1
+Milwaukee Brat House,Westown Milwaukee WI,Other US,Restaurants,2.0,"German, Midwestern",100.0,7.0,,0.0,6.8,947.0,Milwaukee Brat House,"1013 N Doctor M.L.K. Jr Dr, Milwaukee, WI 53203, USA",4.5,3196,1.0,api,,1
+La Sandwicherie North Beach,North Beach Miami Beach FL,South Florida,Restaurants,1.0,Sandwiches,101.0,7.0,,0.0,7.3,304.0,La Sandwicherie North Beach,"7349 Collins Ave, Miami Beach, FL 33141, USA",4.6,922,1.0,api,,1
+Tommy DiNic's,Center City East Philadelphia PA,Other US,Restaurants,1.0,"Sandwiches, American",102.0,6.8,,0.0,7.3,2565.0,Tommy DiNic’s,"51 N 12th St, Philadelphia, PA 19107, USA",4.2,1167,1.0,api,,1
+El Merkury at the Market,Center City East Philadelphia PA,Other US,Restaurants,2.0,"Latin American, Guatemalan",103.0,6.7,,0.0,6.8,576.0,El Merkury at the Market,"51 N 12th St, Philadelphia, PA 19107, USA",3.9,114,1.0,api,,1
+Tropical Acres Steakhouse,Fort Lauderdale FL,South Florida,Restaurants,2.0,Steakhouse,104.0,6.7,4.9,1.0,7.5,100.0,Tropical Acres Steakhouse,"2500 Griffin Rd, Fort Lauderdale, FL 33312, USA",4.5,4391,1.0,api,,1
+Utopia Bagels,Midtown South New York NY,NYC,Restaurants,1.0,"Bagels, Sandwiches, Breakfast",105.0,6.4,8.5,4.0,7.6,14896.0,Utopia Bagels,"120 E 34th St, New York, NY 10016, USA",4.6,1756,1.0,api,,1
+Bagel Pub,Park Slope New York NY,NYC,Restaurants,2.0,"Bagels, Breakfast",106.0,6.1,6.8,1.0,7.5,2875.0,Bagel Pub,"57 7th Ave, Brooklyn, NY 11217, USA",4,499,1.0,api,Bagel Pub,1
+Caffe Buon Gusto,Lenox Hill New York NY,NYC,Restaurants,3.0,Italian,107.0,5.8,9.3,6.0,8.2,9051.0,Caffe Buon Gusto,"236 E 77th St, New York, NY 10075, USA",4.4,753,1.0,api,,1
+Gai Chicken & Rice,Midtown East New York NY,NYC,Restaurants,1.0,"Chicken, Fried Chicken, Chinese",108.0,5.5,,0.0,6.7,1410.0,Gai Chicken & Rice,"158 E 45th St, New York, NY 10017, USA",4.3,332,1.0,api,,1
+Deux Luxe,Nolita New York NY,NYC,Restaurants,2.0,"Burgers, Gluten Free",109.0,5.2,2.6,1.0,7.5,2731.0,Deux Luxe,"384 Broome St, New York, NY 10012, USA",4.6,412,1.0,api,,1
+Bar El Comercio,Alfalfa Seville Spain,Europe,Restaurants,1.0,"Dessert, Bar, Tapas",110.0,4.9,,0.0,7.9,923.0,Bar El Comercio,"C. Lineros, 9, Casco Antiguo, 41004 Sevilla, Spain",4.4,8239,1.0,api,,1
+NK Viet Kitchen - Cơm Gà Ninh Kiều,Emerald Hills Hollywood FL,South Florida,Restaurants,2.0,Vietnamese,111.0,4.9,,0.0,6.9,49.0,NK Viet Kitchen- Cơm Gà Ninh Kiều,"3373 Sheridan St, Hollywood, FL 33021, USA",4.3,230,1.0,api,,1
+305 Degrees Burgers Bar,Emerald Hills Hollywood FL,South Florida,Restaurants,2.0,"Burgers, American",112.0,4.9,,0.0,6.1,12.0,305 Degrees Burgers Bar,"3393 Sheridan St, Hollywood, FL 33021, USA",4.6,381,1.0,api,,1
+Chifa Du Kang (North Miami),Miami FL,South Florida,Restaurants,2.0,"Peruvian, Chinese",113.0,4.0,,0.0,7.0,21.0,Chifa Du Kang (North Miami),"1760 NE Miami Gardens Dr, Miami, FL 33179, USA",4.8,931,1.0,api,,1
+Sufrat Mediterranean Grill,Pembroke Pines FL,South Florida,Restaurants,1.0,Mediterranean,114.0,3.7,,0.0,7.6,164.0,Sufrat Mediterranean Grill,"10430 Pines Blvd c101 Ste#c101, Pembroke Pines, FL 33026, USA",4.9,10604,1.0,api,,1
