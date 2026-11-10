@@ -140,6 +140,23 @@ td.lead { font-weight: 600; color: var(--teal-text); }
 }
 ul { margin: 0 0 1rem; padding-left: 1.15rem; max-width: 65ch; }
 li { margin-bottom: 0.5rem; }
+details.rows > summary {
+  display: flex; align-items: baseline; gap: 0.75rem; cursor: pointer;
+  list-style: none; padding: 0.15rem 0; border-radius: 6px;
+}
+details.rows > summary::-webkit-details-marker { display: none; }
+details.rows > summary h2 { display: inline; margin: 0; }
+details.rows > summary::before {
+  content: ""; flex: none; width: 0.55rem; height: 0.55rem; align-self: center;
+  border-right: 2px solid var(--teal-text); border-bottom: 2px solid var(--teal-text);
+  transform: rotate(-45deg); transition: transform 0.15s ease;
+}
+details.rows[open] > summary::before { transform: rotate(45deg); }
+details.rows > summary .count { color: var(--muted); font-size: 0.9rem; }
+details.rows > summary:hover h2 { color: var(--teal-text); }
+details.rows > summary:focus-visible { outline: 2px solid var(--teal-text); outline-offset: 4px; }
+details.rows[open] > summary { margin-bottom: 0.8rem; }
+@media (prefers-reduced-motion: reduce) { details.rows > summary::before { transition: none; } }
 hr { border: none; border-top: 1px solid var(--rule); margin: 0; }
 footer { color: var(--muted); font-size: 0.85rem; }
 @media (max-width: 30rem) { body { font-size: 16px; } .page { padding-block: 2.5rem 3.5rem; } }
@@ -277,7 +294,8 @@ opposite order, and Beli&rsquo;s users split them by more than three points.</p>
                  f'{c["beli_wins"]}/{c["n"]}'] for c in cover["by_market"]]
         out.append(f"""<section>
 <h2>Volume, and where it comes from</h2>
-<p>The 10&ndash;100&times; figure holds, but only where Beli has users.</p>
+<p>Beli&rsquo;s founder claimed that Beli also has 10&ndash;100&times; more reviews to
+work with than other platforms. This figure holds, but only where Beli has users.</p>
 <figure class="figure"><img src="{data_uri(chart.COVERAGE)}"
 alt="Beli ratings against Google reviews on log scales. New York points sit above the
 parity line, the rest below."></figure>
@@ -431,12 +449,16 @@ def data_table(rows):
             row.get("google_rating") or "&mdash;",
             row.get("user_ratings_total") or "&mdash;",
         ])
+    # Collapsed by default: it's reference material, and at this length it would
+    # otherwise be most of the page.
     return f"""<section>
-<h2>Every row</h2>
+<details class="rows">
+<summary><h2>Every row</h2><span class="count">{len(body)} restaurants</span></summary>
 {table(["restaurant", "city", "my score", "friends", "all users",
         "google", "google reviews"], body,
        caption="Sorted by my score. Grey figures are how many people are behind that "
                "score. Dashes are numbers the app didn't have.")}
+</details>
 </section>"""
 
 
