@@ -213,6 +213,12 @@ def sample_depth(data):
     return out
 
 
+def small_markets_note(small):
+    """One line for the markets too thin to get a median of their own."""
+    parts = [f"{m['market']} ({m['n']})" for m in small]
+    return "Too few restaurants to break out: " + ", ".join(parts) + "."
+
+
 def coverage(data):
     """The claim that Beli carries far more ratings than Google, tested per market.
 
@@ -227,10 +233,12 @@ def coverage(data):
     names = [n for n, keep in zip(data["names"], mask) if keep]
     markets = [m for m, keep in zip(data["markets"], mask) if keep]
 
-    by_market = []
+    by_market, small = [], []
     for name in sorted(set(markets)):
         sel = np.array([m == name for m in markets])
-        if sel.sum() >= 5:
+        if sel.sum() < 5:
+            small.append({"market": name, "n": int(sel.sum())})
+        else:
             by_market.append({
                 "market": name, "n": int(sel.sum()),
                 "median": float(np.median(ratio[sel])),
@@ -251,6 +259,7 @@ def coverage(data):
     return {
         "n": int(mask.sum()),
         "by_market": by_market,
+        "small_markets": small,
         "top": top,
         "thin_google": thin,
         "thick_google": thick,
@@ -403,7 +412,20 @@ def compute():
         "resolution": distinguishing(data),
         "cluster": tightest_cluster(data),
         "review_check": review_count_check(data, fits),
+        "google_band": google_band(data),
     }
+
+
+def google_band(data, low=4.2, high=4.7):
+    """How many Google ratings sit in the narrow band where most of them pile up."""
+    g = data[CLEAN][~np.isnan(data[CLEAN])]
+    return {"low": low, "high": high, "count": int(((g >= low) & (g <= high)).sum()),
+            "n": int(len(g))}
+
+
+def pct(r2):
+    """A rounded 0% reads as a broken number, so small values say so instead."""
+    return "less than 1%" if r2 < 0.005 else f"{round(r2 * 100)}%"
 
 
 def headline(result, with_friends=False):
@@ -411,11 +433,11 @@ def headline(result, with_friends=False):
     google = result["fits"].get(CLEAN)
     if not google:
         return "Not enough Google ratings yet to say anything."
-    line = (f"Google stars explain {round(google['r2'] * 100)}% of the variance in how I "
+    line = (f"Google stars explain {pct(google['r2'])} of the variance in how I "
             f"actually rank restaurants (n={google['n']}).")
     friend = result["fits"].get("friend_score")
     if with_friends and friend:
-        line += (f" My friends' Beli scores explain {round(friend['r2'] * 100)}% "
+        line += (f" My friends' Beli scores explain {pct(friend['r2'])} "
                  f"(n={friend['n']}).")
     if google["r2"] >= STRONG:
         line += ("  -- Google tracks my ranking more closely than expected. "
@@ -456,6 +478,8 @@ def write_stats(result, path=STATS):
             [[row["market"], row["n"], f"{row['median']:.1f}x",
               f"{row['beli_wins']}/{row['n']}"] for row in cover["by_market"]],
             ["market", "n", "median Beli ratings per Google review", "Beli ahead on"])
+        if cover["small_markets"]:
+            lines += ["", small_markets_note(cover["small_markets"])]
         lines += [
             "",
             "The widest gaps, all of them in New York:",

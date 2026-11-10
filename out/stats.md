@@ -1,10 +1,10 @@
 # Beli vs Google -- the numbers
 
-Generated 2026-11-10 from 114 kept rows. Google ratings via: api.
+Generated 2026-11-10 from 117 kept rows. Google ratings via: api, manual.
 
 ## Headline
 
-> Google stars explain 0% of the variance in how I actually rank restaurants (n=114).
+> Google stars explain less than 1% of the variance in how I actually rank restaurants (n=117).
 
 ## 1. Volume: does Beli actually carry more ratings?
 
@@ -15,8 +15,10 @@ Tested per market, because the blended number is misleading both ways.
 | NYC           | 46 | 12.3x                                 | 45/46         |
 | Other US      | 13 | 1.9x                                  | 8/13          |
 | South Florida | 31 | 0.3x                                  | 10/31         |
-| North Florida | 14 | 0.3x                                  | 3/14          |
+| North Florida | 15 | 0.3x                                  | 3/15          |
 | Europe        | 9  | 0.0x                                  | 0/9           |
+
+Too few restaurants to break out: Central Florida (2).
 
 The widest gaps, all of them in New York:
 
@@ -32,12 +34,12 @@ So the 10-100x figure holds where Beli has density and inverts where it does not
 
 ## 2. Resolution: can the number tell two restaurants apart?
 
-Across 113 restaurants there are 6,328 possible pairs. A score that gives two restaurants the same value cannot order them.
+Across 116 restaurants there are 6,670 possible pairs. A score that gives two restaurants the same value cannot order them.
 
 | crowd score           | distinct values | tied pairs | share tied | largest group on one value |
 |-----------------------|-----------------|------------|------------|----------------------------|
-| Google rating         | 12              | 795        | 12.6%      | 22                         |
-| Beli all-user average | 28              | 297        | 4.7%       | 13                         |
+| Google rating         | 12              | 826        | 12.4%      | 22                         |
+| Beli all-user average | 29              | 309        | 4.6%       | 13                         |
 
 Both are averages over users, so this is a fair comparison. Google leaves 2.7x as many pairs indistinguishable, and its largest collision puts **22 restaurants on one number**.
 
@@ -51,8 +53,8 @@ The different scales do not matter here: R2 and Spearman are both scale-invarian
 
 | comparison                               | n   | R2    | variance explained | Spearman rho | p    |
 |------------------------------------------|-----|-------|--------------------|--------------|------|
-| Google rating -> my ranking              | 114 | 0.000 | 0.0%               | 0.021        | 0.91 |
-| Google rating -> Beli's all-user average | 113 | 0.012 | 1.2%               | 0.107        | 0.25 |
+| Google rating -> my ranking              | 117 | 0.000 | 0.0%               | 0.022        | 0.96 |
+| Google rating -> Beli's all-user average | 116 | 0.024 | 2.4%               | 0.127        | 0.1  |
 
 The second row is the one with no n=1 in it. Both sides are averages over users, my own rating is one of thousands inside the Beli figure, and nothing either platform shows me affects it.
 
@@ -64,14 +66,14 @@ The obvious objection to a null result: a taco stand and a tasting menu are not 
 | price band | n  | R2    | variance explained | Spearman rho |
 |------------|----|-------|--------------------|--------------|
 | $          | 24 | 0.026 | 2.6%               | -0.004       |
-| $$         | 53 | 0.000 | 0.0%               | 0.013        |
+| $$         | 56 | 0.000 | 0.0%               | 0.008        |
 | $$$        | 28 | 0.003 | 0.3%               | -0.064       |
 
-And holding price fixed: price alone explains 9.6% of my ranking; price plus Google explains 9.7%. **Google adds +0.1 percentage points** (n=110).
+And holding price fixed: price alone explains 9.8% of my ranking; price plus Google explains 9.9%. **Google adds +0.1 percentage points** (n=113).
 
 So the null is not a mixing artifact. Google's rating is uninformative about my ordering inside each price band and across all of them.
 
-The price bracket alone explains 9.6% of where a restaurant lands in my list. **The price bracket is a better guide to my ranking than the Google rating is.**
+The price bracket alone explains 9.8% of where a restaurant lands in my list. **The price bracket is a better guide to my ranking than the Google rating is.**
 
 ## Shown to me before I rank
 
@@ -80,7 +82,7 @@ Both of these are on screen before I rank a place, so they are context rather th
 | shown before ranking  | n   | R2    | variance explained | Spearman rho | p       |
 |-----------------------|-----|-------|--------------------|--------------|---------|
 | Beli friend score     | 66  | 0.137 | 13.7%              | 0.306        | 0.0022  |
-| Beli all-user average | 113 | 0.254 | 25.4%              | 0.513        | 1.2e-08 |
+| Beli all-user average | 116 | 0.244 | 24.4%              | 0.504        | 1.7e-08 |
 
 ## How far I land from the number I was shown
 
@@ -89,26 +91,26 @@ Large disagreements in **both** directions are the evidence that the ordering is
 | vs                    | n   | mean gap | median gap size | sd   | within 0.5 | gaps over 2 | direction     | biggest |
 |-----------------------|-----|----------|-----------------|------|------------|-------------|---------------|---------|
 | Beli friend score     | 66  | +0.21    | 0.90            | 1.53 | 33.3%      | 11 (16.7%)  | 7 up / 4 down | 5.2     |
-| Beli all-user average | 113 | +0.30    | 0.90            | 1.18 | 29.2%      | 10 (8.8%)   | 5 up / 5 down | 3.9     |
+| Beli all-user average | 116 | +0.28    | 0.90            | 1.18 | 28.4%      | 10 (8.6%)   | 5 up / 5 down | 3.9     |
 
 A mean gap near zero, a wide sd and large gaps both ways is the pattern that rules anchoring out. What it cannot do is prove the tilt is zero -- only a holdout can, and only Beli can run one.
 
 ## How many people are behind those numbers
 
-Friend counts: median **1**, max 8. 48 restaurant(s) have no friend rating at all, 25 rest on a **single friend**, and 27 have three or more.
+Friend counts: median **1**, max 8. 51 restaurant(s) have no friend rating at all, 25 rest on a **single friend**, and 27 have three or more.
 
 A friend score drawn from one friend is one person's opinion wearing a crowd's name. Where that is most of the sample, the friend-score correlation is really a correlation with a handful of individuals, and the writeup should say so rather than call it a social signal.
 
-Beli rating counts: median **2,300**, from 7 to 135,883. 36 restaurant(s) have fewer than 500 ratings. At the thinnest, my own rating is about 14.3% of that average.
+Beli rating counts: median **2,222**, from 7 to 135,883. 39 restaurant(s) have fewer than 500 ratings. At the thinnest, my own rating is about 14.3% of that average.
 
 ## Spread
 
 | measure               | n   | min  | max   | range | share of its scale | std (raw) | std (% of scale) | entropy (bits) |
 |-----------------------|-----|------|-------|-------|--------------------|-----------|------------------|----------------|
-| My Beli score         | 114 | 3.70 | 10.00 | 6.30  | 63.0%              | 1.36      | 13.6%            | 1.96           |
-| Google rating         | 114 | 3.90 | 5.00  | 1.10  | 27.5%              | 0.22      | 5.5%             | 1.20           |
+| My Beli score         | 117 | 3.70 | 10.00 | 6.30  | 63.0%              | 1.35      | 13.5%            | 1.96           |
+| Google rating         | 117 | 3.90 | 5.00  | 1.10  | 27.5%              | 0.23      | 5.6%             | 1.22           |
 | Beli friend score     | 66  | 2.60 | 10.00 | 7.40  | 74.0%              | 1.51      | 15.1%            | 2.13           |
-| Beli all-user average | 113 | 5.50 | 9.30  | 3.80  | 38.0%              | 0.67      | 6.7%             | 1.49           |
+| Beli all-user average | 116 | 5.50 | 9.30  | 3.80  | 38.0%              | 0.67      | 6.7%             | 1.50           |
 
 Google runs 1-5 and Beli runs 0-10, so **the raw std column is not comparable across rows** -- it is there for reference only. Compare the two percentage columns instead. Entropy is over 10 bins spanning each measure's own native scale, so each bin is a tenth of its own range and the figures line up.
 
@@ -124,7 +126,7 @@ Beli's all-user average spreads those same restaurants across 2.3 points.
 
 ## Review count vs disagreement
 
-Spearman rho = 0.035 (p = 0.71, n = 114) between a restaurant's Google review count and how far my rating sits from what its Google rating predicts. Negative means Google agrees with me more where it has more reviews.
+Spearman rho = 0.053 (p = 0.57, n = 117) between a restaurant's Google review count and how far my rating sits from what its Google rating predicts. Negative means Google agrees with me more where it has more reviews.
 
 ## Caveats that belong in the writeup
 

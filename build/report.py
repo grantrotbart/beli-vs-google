@@ -189,20 +189,22 @@ def sections(result, image_uri):
     cover = result.get("coverage")
     res = result.get("resolution")
     out = []
+    n = result["n_kept"]
+    band = result["google_band"]
 
     out.append(f"""<header>
-<div class="eyebrow">114 restaurants, one Beli list</div>
+<div class="eyebrow">{n} restaurants, one Beli list</div>
 <h1>Does Beli&rsquo;s data say something Google&rsquo;s doesn&rsquo;t?</h1>
 <p class="byline">{AUTHOR} &middot; {result['generated']}</p>
 <p class="lede">Beli argues publicly that its ratings are richer and more representative
 than Google&rsquo;s or Yelp&rsquo;s. I&rsquo;ve used the app for years, so I pulled the
-Google rating for all 114 restaurants on my list and checked the parts of that claim an
+Google rating for all {n} restaurants on my list and checked the parts of that claim an
 outsider can reach. It&rsquo;s one user&rsquo;s data, so it shows a mechanism, not a
 measurement.</p>
 </header>""")
 
     out.append(f"""<figure class="figure" style="margin:0">
-<img src="{image_uri}" alt="Google rating against my Beli score for 114 restaurants.
+<img src="{image_uri}" alt="Google rating against my Beli score for {n} restaurants.
 The points form a narrow vertical band with no slope.">
 </figure>""")
 
@@ -235,7 +237,7 @@ near the bottom. Google has no way to tell them apart.</p>
 test with me taken out of it: Google&rsquo;s rating against Beli&rsquo;s all-user
 average, on the same restaurants. Both sides are now crowds.</p>
 <figure class="figure"><img src="{data_uri(chart.CROWD)}"
-alt="Google rating against Beli's all-user average for 113 restaurants, showing no
+alt="Google rating against Beli's all-user average for {crowd['n']} restaurants, showing no
 relationship."></figure>
 <p class="pull">Google&rsquo;s rating explains {headline_pct(crowd['r2'])} of the
 variance in what Beli&rsquo;s users think.</p>
@@ -262,6 +264,7 @@ differently.</p>
 alt="Beli ratings against Google reviews on log scales. New York points sit above the
 parity line, the rest below."></figure>
 {table(["market", "n", "median Beli ratings per Google review", "Beli ahead on"], rows)}
+{f'<p class="note">{analyze.small_markets_note(cover["small_markets"])}</p>' if cover["small_markets"] else ""}
 <p>In New York, Beli carries a median {nyc['median']:.0f}&times; Google&rsquo;s volume and
 leads on {nyc['beli_wins']} of {nyc['n']} restaurants. The widest gap is {top['name']}:
 {top['beli']:,.0f} against {top['google']:,.0f}. Outside New York it flips, and in Europe
@@ -318,19 +321,20 @@ the scores for a slice of raters and compare the orderings that come out. That v
 needs the inside of the app, so it isn&rsquo;t a test I can run.</p></div>
 </section>""")
 
-    out.append("""<section>
+    out.append(f"""<section>
 <h2>What I couldn&rsquo;t test</h2>
 <p>The Yelp figure, that most reviews are one star or five, is about individual reviews.
 I can only see published averages. So I haven&rsquo;t tested it and I&rsquo;m not
 claiming to.</p>
 <p>My data is consistent with it. Polarised reviews would produce averages piled high and
-narrow, and 98 of my 114 sit between 4.2 and 4.7.</p>
+narrow, and {band['count']} of my {band['n']} sit between {band['low']} and
+{band['high']}.</p>
 </section>""")
 
     if cover:
         out.append(f"""<section>
 <h2>Three things worth looking at with the real data</h2>
-<p>Not recommendations. These are the questions 114 restaurants raised and 114
+<p>Not recommendations. These are the questions {n} restaurants raised and {n}
 restaurants can&rsquo;t answer.</p>
 
 <h3>Where the data is already the better source</h3>
@@ -361,10 +365,12 @@ def method(result, rows):
             f"individuals rather than a crowd."
             if friends else "")
     manual = ""
+    fetched = sum(1 for row in rows or [] if row.get("source") == "api")
     if rows:
         count = sum(1 for row in rows if row.get("source") == "manual")
         if count:
-            manual = f" {count} Google ratings were typed in by hand rather than fetched."
+            manual = (f" {count} more were read off Google Maps by hand rather than "
+                      f"fetched.")
     return f"""<section>
 <h2>Method</h2>
 <ul>
@@ -372,7 +378,7 @@ def method(result, rows):
 of people behind each.{thin}</li>
 <li>Google ratings from the Places API, matched on name plus city. Low-confidence
 matches were held out until checked by eye, so a name collision can&rsquo;t quietly
-poison the chart. 114 survived.{manual}</li>
+poison the chart. {fetched} survived.{manual}</li>
 <li>Restaurants only. Bars, bakeries and dessert places are out, since a pastry and a
 tasting menu aren&rsquo;t the same judgement. That narrows the Google range slightly,
 and a narrower range pulls correlations down, which happens to favour my argument.

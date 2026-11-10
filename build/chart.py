@@ -62,7 +62,7 @@ TICK_PT = 14
 NOTE_PT = 14
 FOOT_PT = 12
 WRAP_PER_INCH = 4.4     # bold headline characters per figure inch
-MARKER = 58             # small enough that 114 points stay countable
+MARKER = 58             # small enough that ~120 points stay countable
 RING = 1.2              # surface ring, so overlapping points stay countable
 
 EDGE_IN = 0.45          # headline, subtitle and footnote all start here

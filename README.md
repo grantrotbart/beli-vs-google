@@ -4,7 +4,7 @@
 
 Beli's pitch is that its ratings are more representative of what people actually think
 than Google's or Yelp's. This tests the parts of that claim one user's data can reach:
-**114 restaurants ranked on Beli, against the same restaurants' Google ratings.**
+**117 restaurants ranked on Beli, against the same restaurants' Google ratings.**
 
 Three findings, in the order the report makes them:
 
@@ -12,12 +12,12 @@ Three findings, in the order the report makes them:
    leads on 45 of 46 restaurants. Outside New York that inverts. The per-market split is
    the honest version of the 10-100x claim.
 2. **Resolution.** Google's rating puts **22 of these restaurants on the same number**,
-   spanning rank #1 to rank #104. It leaves 2.7x as many pairs indistinguishable as
+   spanning rank #1 to rank #107. It leaves 2.7x as many pairs indistinguishable as
    Beli's all-user average does.
 3. **Consequence.** A restaurant's Google rating explains **less than 1%** of where it
-   lands in the ranking (n=114, Spearman 0.02, p=0.91), and the null holds inside every
+   lands in the ranking (n=117, Spearman 0.02, p=0.96), and the null holds inside every
    price band. Run crowd against crowd instead of against one person, Google explains
-   **1.2%** of Beli's all-user average.
+   **2.4%** of Beli's all-user average.
 
 One user's list, so this is a mechanism rather than a measurement. The
 [report](https://grantrotbart.github.io/beli-vs-google/) is the write-up (`out/report.html`
@@ -51,8 +51,8 @@ allow republishing Places responses. `matched.csv` carries the fields the analys
 ## Method notes
 
 **Sampling.** Beli sorts the Been list by score, so taking the top N would truncate the
-range and leave nothing to explain. These 114 are the full list, evenly spread from rank
-1 to rank 114, scores 3.7 to 10.0.
+range and leave nothing to explain. These 117 are the full list, evenly spread from rank
+1 to rank 117, scores 3.7 to 10.0.
 
 **Three Beli scores are shown before ranking.** The rec score, friend score and all-user
 average appear on screen before a restaurant is placed. That would be fatal if the score
@@ -76,7 +76,7 @@ favour the thesis. The per-price-band table in `stats.md` shows the null holds a
 ## Reproducing it
 
 ```bash
-python build/check.py --list-size 114
+python build/check.py --list-size 117
 ```
 
 ```bash
