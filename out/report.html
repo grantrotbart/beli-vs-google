@@ -233,16 +233,24 @@ being more discerning. It still matters in practice: a product reading the Googl
 can&rsquo;t rank what the rating doesn&rsquo;t separate, whatever the reason.</p>
 </section><section>
 <h2>Am I just echoing what I was shown?</h2>
-<p>Beli&rsquo;s own scores do track my ranking, and they&rsquo;re on screen before I rank,
-so it&rsquo;s the first thing worth checking.</p>
-<div class="scroll"><table><thead><tr><th>predictor</th><th>n</th><th>R&sup2;</th><th>variance explained</th><th>rank correlation</th></tr></thead><tbody><tr><td class="lead">Google rating</td><td>117</td><td>0.000</td><td>0.0%</td><td>0.02</td></tr><tr><td class="lead">Beli friend score</td><td>66</td><td>0.137</td><td>13.7%</td><td>0.31</td></tr><tr><td class="lead">Beli all-user average</td><td>116</td><td>0.244</td><td>24.4%</td><td>0.50</td></tr></tbody></table></div>
-<p>The gaps say no.</p>
-<div class="scroll"><table><thead><tr><th>vs</th><th>n</th><th>mean gap</th><th>median gap</th><th>gaps over 2</th><th>direction</th></tr></thead><tbody><tr><td class="lead">Beli friend score</td><td>66</td><td>+0.21</td><td>0.90</td><td>11 (17%)</td><td>7 up / 4 down</td></tr><tr><td class="lead">Beli all-user average</td><td>116</td><td>+0.28</td><td>0.90</td><td>10 (9%)</td><td>5 up / 5 down</td></tr></tbody></table></div>
-<p>Mean gap near zero, and the big disagreements run both ways in roughly equal measure.
-An echo doesn&rsquo;t look like that.</p>
+<p>A user can see average scores and friend scores before they rank a restaurant, and get
+an idea of what their score might end up being as they compare it to others, so
+it&rsquo;s worth checking.</p>
+<div class="scroll"><table><thead><tr><th>predictor</th><th>n</th><th>R&sup2;</th><th>variance explained</th><th>rank correlation</th></tr></thead><tbody><tr><td class="lead">Google rating</td><td>117</td><td>0.000</td><td>&lt;0.1%</td><td>0.02</td></tr><tr><td class="lead">Beli friend score</td><td>66</td><td>0.137</td><td>13.7%</td><td>0.31</td></tr><tr><td class="lead">Beli all-user average</td><td>116</td><td>0.244</td><td>24.4%</td><td>0.50</td></tr></tbody></table></div>
+<div class="scroll"><table><thead><tr><th>vs</th><th>n</th><th>median gap</th><th>gaps over 2</th><th>a copier&rsquo;s gaps over 2</th><th>pairs in opposite order</th></tr></thead><tbody><tr><td class="lead">Beli friend score</td><td>66</td><td>0.90</td><td>11 (7 up, 4 down)</td><td>3</td><td>38%</td></tr><tr><td class="lead">Beli all-user average</td><td>116</td><td>0.90</td><td>10 (5 up, 5 down)</td><td>1</td><td>30%</td></tr></tbody></table></div>
+<p>10 restaurants land more than
+2 points from Beli&rsquo;s average, 5 above and
+5 below. My score is a rank position spread wider than the averages, so
+some gap appears even for someone who copied the order they were shown, but that copier
+would produce 1. And I put 30% of pairs in the
+opposite order from Beli&rsquo;s users, against 0% for a copier and 50% for a coin flip.
+So my ranking isn&rsquo;t an echo of what I was shown. What this can&rsquo;t rule out is
+a smaller nudge on close calls, since the agreement that&rsquo;s left could be anchoring
+or simply shared taste.</p>
 <div class="note"><p>A holdout would settle it across every user rather than one. Hide
-the scores for a slice of raters and compare the orderings that come out. That version
-needs the inside of the app, so it isn&rsquo;t a test I can run.</p></div>
+the scores for a slice of raters and compare the orderings that come out. That would
+require a change to the inside of the app, so it isn&rsquo;t a test I can run, but
+I&rsquo;d be curious to investigate it.</p></div>
 </section><section>
 <h2>What I couldn&rsquo;t test</h2>
 <p>The Yelp figure, that most reviews are one star or five, is about individual reviews.

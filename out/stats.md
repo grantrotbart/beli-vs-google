@@ -87,14 +87,16 @@ Both of these are on screen before I rank a place, so they are context rather th
 
 ## How far I land from the number I was shown
 
-Large disagreements in **both** directions are the evidence that the ordering is mine. An anchored rater rarely produces them.
+Each check is set against a rater who copied the shown order exactly. My score is a rank position stretched across the scale, so some gap appears even for that copier; the column says how much.
 
-| vs                    | n   | mean gap | median gap size | sd   | within 0.5 | gaps over 2 | direction     | biggest |
-|-----------------------|-----|----------|-----------------|------|------------|-------------|---------------|---------|
-| Beli friend score     | 66  | +0.21    | 0.90            | 1.53 | 33.3%      | 11 (16.7%)  | 7 up / 4 down | 5.2     |
-| Beli all-user average | 116 | +0.28    | 0.90            | 1.18 | 28.4%      | 10 (8.6%)   | 5 up / 5 down | 3.9     |
+| vs                    | n   | mean gap | median gap size | gaps over 2 | direction     | copier's gaps over 2 | pairs in opposite order | biggest |
+|-----------------------|-----|----------|-----------------|-------------|---------------|----------------------|-------------------------|---------|
+| Beli friend score     | 66  | +0.21    | 0.90            | 11 (16.7%)  | 7 up / 4 down | 3                    | 723 of 1,886 (38.3%)    | 5.2     |
+| Beli all-user average | 116 | +0.28    | 0.90            | 10 (8.6%)   | 5 up / 5 down | 1                    | 1,788 of 5,903 (30.3%)  | 3.9     |
 
-A mean gap near zero, a wide sd and large gaps both ways is the pattern that rules anchoring out. What it cannot do is prove the tilt is zero -- only a holdout can, and only Beli can run one.
+The mean gap is identical for the copier by construction -- it depends on which scores exist, not on which restaurant gets which -- so it is reported but is not evidence either way.
+
+A copier would put 0% of pairs in opposite order and two unrelated orderings about 50%. The large gaps beyond the copier's and the share of reversed pairs show the ordering is not an echo. They cannot prove the tilt on close calls is zero, and the agreement that remains could be anchoring or shared taste. Only a holdout separates those, and only Beli can run one.
 
 ## How many people are behind those numbers
 

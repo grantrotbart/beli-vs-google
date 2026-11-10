@@ -157,17 +157,41 @@ def anchoring(data):
     """How far my score lands from each number the app showed me first.
 
     The score is never typed, so an anchor cannot be copied straight through. What it
-    could still do is tilt individual better/worse calls. A tilt like that shows up as
-    gaps bunched on zero with few large, two-sided disagreements -- so that is what gets
-    counted. Large gaps in both directions are the evidence against it."""
+    could still do is tilt individual better/worse calls. Two checks, each against a
+    rater who copied the shown order exactly: how many large disagreements there are
+    beyond what my stretched scale produces on its own, and how often the two put a pair
+    of restaurants in opposite order. Both can show I'm not echoing the number. Neither
+    can rule out a smaller nudge on close calls; only a holdout can."""
     out = {}
     for key in ANCHORS:
         mask = ~np.isnan(data[key]) & ~np.isnan(data[OUTCOME])
         if mask.sum() < 3:
             continue
-        delta = data[OUTCOME][mask] - data[key][mask]
+        mine, shown = data[OUTCOME][mask], data[key][mask]
+        delta = mine - shown
         big = np.abs(delta) > BIG_GAP
+
+        # Baseline: someone who copied the shown order exactly. My score is a rank
+        # position stretched across the scale, so some gap appears even then; this is
+        # how much. The copier keeps my set of scores but hands them out in the shown
+        # order, so its mean gap is identical to mine by construction. The mean gap
+        # therefore says nothing about anchoring, and isn't used as evidence.
+        slot = np.argsort(np.argsort(shown, kind="stable"), kind="stable")
+        copier = np.sort(mine)[slot] - shown
+
+        # Order disagreement among pairs that both scores separate: 0 for a copier,
+        # about half for two unrelated orderings.
+        a = np.sign(mine[:, None] - mine[None, :])
+        b = np.sign(shown[:, None] - shown[None, :])
+        upper = np.triu(np.ones_like(a, dtype=bool), k=1) & (a != 0) & (b != 0)
+        ordered = int(upper.sum())
+        opposite = int((upper & (a != b)).sum())
+
         out[key] = {
+            "copier_big": int((np.abs(copier) > BIG_GAP).sum()),
+            "ordered_pairs": ordered,
+            "opposite_pairs": opposite,
+            "opposite_share": opposite / ordered if ordered else float("nan"),
             "n": int(mask.sum()),
             "mean": float(delta.mean()),
             "median_abs": float(np.median(np.abs(delta))),
@@ -629,24 +653,35 @@ def write_stats(result, path=STATS):
         lines += [
             "## How far I land from the number I was shown",
             "",
-            "Large disagreements in **both** directions are the evidence that the "
-            "ordering is mine. An anchored rater rarely produces them.",
+            "Each check is set against a rater who copied the shown order exactly. "
+            "My score is a rank position stretched across the scale, so some gap "
+            "appears even for that copier; the column says how much.",
             "",
         ]
         lines += table(
             [[LABELS[key], anchors[key]["n"], f"{anchors[key]['mean']:+.2f}",
-              f"{anchors[key]['median_abs']:.2f}", f"{anchors[key]['std']:.2f}",
-              pct(anchors[key]["within_half"]),
+              f"{anchors[key]['median_abs']:.2f}",
               f"{anchors[key]['big']} ({pct(anchors[key]['big_share'])})",
               f"{anchors[key]['big_above']} up / {anchors[key]['big_below']} down",
+              anchors[key]["copier_big"],
+              f"{anchors[key]['opposite_pairs']:,} of {anchors[key]['ordered_pairs']:,} "
+              f"({pct(anchors[key]['opposite_share'])})",
               f"{anchors[key]['max_gap']:.1f}"]
              for key in anchors],
-            ["vs", "n", "mean gap", "median gap size", "sd", "within 0.5",
-             f"gaps over {BIG_GAP:.0f}", "direction", "biggest"])
+            ["vs", "n", "mean gap", "median gap size", f"gaps over {BIG_GAP:.0f}",
+             "direction", f"copier's gaps over {BIG_GAP:.0f}", "pairs in opposite order",
+             "biggest"])
         lines += ["",
-                  "A mean gap near zero, a wide sd and large gaps both ways is the pattern "
-                  "that rules anchoring out. What it cannot do is prove the tilt is "
-                  "zero -- only a holdout can, and only Beli can run one.", ""]
+                  "The mean gap is identical for the copier by construction -- it depends "
+                  "on which scores exist, not on which restaurant gets which -- so it is "
+                  "reported but is not evidence either way.",
+                  "",
+                  "A copier would put 0% of pairs in opposite order and two unrelated "
+                  "orderings about 50%. The large gaps beyond the copier's and the share of "
+                  "reversed pairs show the ordering is not an echo. They cannot prove the "
+                  "tilt on close calls is zero, and the agreement that remains could be "
+                  "anchoring or shared taste. Only a holdout separates those, and only "
+                  "Beli can run one.", ""]
 
     depth = result.get("depth") or {}
     if depth:

@@ -59,9 +59,12 @@ range and leave nothing to explain. These 117 are the full list, evenly spread f
 average appear on screen before a restaurant is placed. That would be fatal if the score
 were typed, but it isn't: ranking is a sequence of better / worse / too tough
 comparisons against already-ranked restaurants, and the 0-10 falls out of the resulting
-position. `stats.md` reports those columns with a gap table measuring how far the final
-placement lands from each number shown, and how many disagreements exceed two points in
-each direction. Large gaps in both directions are the evidence against anchoring.
+position. `stats.md` checks each shown score against a rater who copied its order
+exactly: how many disagreements exceed two points beyond what the stretched rank scale
+produces on its own (10 against the copier's 1, for the all-user average), and how often
+the two put a pair of restaurants in opposite order (30%, where a copier is 0% and
+unrelated orderings about 50%). That shows the ranking isn't an echo. It can't rule out
+a smaller nudge on close calls; only a holdout can.
 
 Google's rating appears nowhere in the ranking flow, which is why it carries the
 headline.

@@ -349,29 +349,45 @@ can&rsquo;t rank what the rating doesn&rsquo;t separate, whatever the reason.</p
 
     if anchors:
         gap_rows = [[analyze.LABELS[key], anchors[key]["n"],
-                     f'{anchors[key]["mean"]:+.2f}', f'{anchors[key]["median_abs"]:.2f}',
-                     f'{anchors[key]["big"]} ({pct(anchors[key]["big_share"])})',
-                     f'{anchors[key]["big_above"]} up / {anchors[key]["big_below"]} down']
+                     f'{anchors[key]["median_abs"]:.2f}',
+                     f'{anchors[key]["big"]} ({anchors[key]["big_above"]} up, '
+                     f'{anchors[key]["big_below"]} down)',
+                     anchors[key]["copier_big"],
+                     pct(anchors[key]["opposite_share"])]
                     for key in anchors]
         sig_rows = []
         for key in [analyze.CLEAN] + analyze.ANCHORS:
             fit = fits.get(key)
             if fit:
+                explained = "&lt;0.1%" if fit["r2"] < 0.0005 else pct(fit["r2"], 1)
                 sig_rows.append([analyze.LABELS[key], fit["n"], f'{fit["r2"]:.3f}',
-                                 pct(fit["r2"], 1), f'{fit["spearman"]:.2f}'])
+                                 explained, f'{fit["spearman"]:.2f}'])
+        avg = anchors.get("beli_average")
+        evidence = ""
+        if avg:
+            evidence = f"""<p>{avg['big']} restaurants land more than
+{analyze.BIG_GAP:.0f} points from Beli&rsquo;s average, {avg['big_above']} above and
+{avg['big_below']} below. My score is a rank position spread wider than the averages, so
+some gap appears even for someone who copied the order they were shown, but that copier
+would produce {avg['copier_big']}. And I put {pct(avg['opposite_share'])} of pairs in the
+opposite order from Beli&rsquo;s users, against 0% for a copier and 50% for a coin flip.
+So my ranking isn&rsquo;t an echo of what I was shown. What this can&rsquo;t rule out is
+a smaller nudge on close calls, since the agreement that&rsquo;s left could be anchoring
+or simply shared taste.</p>"""
         out.append(f"""<section>
 <h2>Am I just echoing what I was shown?</h2>
-<p>Beli&rsquo;s own scores do track my ranking, and they&rsquo;re on screen before I rank,
-so it&rsquo;s the first thing worth checking.</p>
+<p>A user can see average scores and friend scores before they rank a restaurant, and get
+an idea of what their score might end up being as they compare it to others, so
+it&rsquo;s worth checking.</p>
 {table(["predictor", "n", "R&sup2;", "variance explained", "rank correlation"], sig_rows)}
-<p>The gaps say no.</p>
-{table(["vs", "n", "mean gap", "median gap", f"gaps over {analyze.BIG_GAP:.0f}",
-        "direction"], gap_rows)}
-<p>Mean gap near zero, and the big disagreements run both ways in roughly equal measure.
-An echo doesn&rsquo;t look like that.</p>
+{table(["vs", "n", "median gap", f"gaps over {analyze.BIG_GAP:.0f}",
+        f"a copier&rsquo;s gaps over {analyze.BIG_GAP:.0f}", "pairs in opposite order"],
+       gap_rows)}
+{evidence}
 <div class="note"><p>A holdout would settle it across every user rather than one. Hide
-the scores for a slice of raters and compare the orderings that come out. That version
-needs the inside of the app, so it isn&rsquo;t a test I can run.</p></div>
+the scores for a slice of raters and compare the orderings that come out. That would
+require a change to the inside of the app, so it isn&rsquo;t a test I can run, but
+I&rsquo;d be curious to investigate it.</p></div>
 </section>""")
 
     out.append(f"""<section>
