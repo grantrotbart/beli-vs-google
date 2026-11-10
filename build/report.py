@@ -157,6 +157,10 @@ details.rows > summary:hover h2 { color: var(--teal-text); }
 details.rows > summary:focus-visible { outline: 2px solid var(--teal-text); outline-offset: 4px; }
 details.rows[open] > summary { margin-bottom: 0.8rem; }
 @media (prefers-reduced-motion: reduce) { details.rows > summary::before { transition: none; } }
+.caption { color: var(--muted); font-size: 0.85rem; margin: 0 0 0.5rem; max-width: none; }
+.scroll-top { overflow-x: auto; overflow-y: hidden; margin-bottom: 0.25rem; }
+.scroll-top > div { height: 1px; }
+.scroll-top[hidden] { display: none; }
 hr { border: none; border-top: 1px solid var(--rule); margin: 0; }
 footer { color: var(--muted); font-size: 0.85rem; }
 @media (max-width: 30rem) { body { font-size: 16px; } .page { padding-block: 2.5rem 3.5rem; } }
@@ -428,37 +432,67 @@ about anyone&rsquo;s taste but mine. Only places I chose to eat at are in it.</p
 </section>"""
 
 
+def whole(value):
+    """Counts arrive from the CSV as floats ("4.0"). People are whole, so show them so."""
+    try:
+        return f"{float(value):,.0f}"
+    except (TypeError, ValueError):
+        return None
+
+
 def data_table(rows):
     if not rows:
         return ""
     body = []
     for row in sorted(rows, key=lambda r: -float(r["beli_score"])):
         friends = row.get("friend_score") or "&mdash;"
-        if friends != "&mdash;" and (row.get("friend_count") or "").strip():
-            friends += f' <span style="color:var(--muted)">({row["friend_count"]})</span>'
+        count = whole(row.get("friend_count"))
+        if friends != "&mdash;" and count:
+            friends += f' <span style="color:var(--muted)">({count})</span>'
         crowd = row.get("beli_average") or "&mdash;"
-        if crowd != "&mdash;" and (row.get("beli_rating_count") or "").strip():
-            try:
-                crowd += (f' <span style="color:var(--muted)">'
-                          f'({float(row["beli_rating_count"]):,.0f})</span>')
-            except ValueError:
-                pass
+        count = whole(row.get("beli_rating_count"))
+        if crowd != "&mdash;" and count:
+            crowd += f' <span style="color:var(--muted)">({count})</span>'
         body.append([
             row["name"], row.get("city", ""), row["beli_score"],
             friends, crowd,
             row.get("google_rating") or "&mdash;",
-            row.get("user_ratings_total") or "&mdash;",
+            whole(row.get("user_ratings_total")) or "&mdash;",
         ])
     # Collapsed by default: it's reference material, and at this length it would
-    # otherwise be most of the page.
+    # otherwise be most of the page. The table is wider than the column on most
+    # screens, so a second scrollbar sits above it: with 117 rows the native one is
+    # a long way down.
     return f"""<section>
 <details class="rows">
 <summary><h2>Every row</h2><span class="count">{len(body)} restaurants</span></summary>
+<p class="caption">Sorted by my score. Grey figures are how many people are behind that
+score. Dashes are numbers the app didn&rsquo;t have.</p>
+<div class="scroll-top" aria-hidden="true"><div></div></div>
 {table(["restaurant", "city", "my score", "friends", "all users",
-        "google", "google reviews"], body,
-       caption="Sorted by my score. Grey figures are how many people are behind that "
-               "score. Dashes are numbers the app didn't have.")}
+        "google", "google reviews"], body)}
 </details>
+<script>
+(() => {{
+  const details = document.querySelector("details.rows");
+  const top = details.querySelector(".scroll-top");
+  const spacer = top.firstElementChild;
+  const body = details.querySelector(".scroll");
+  // Copy only when they differ, so the echoed scroll event ends the loop by itself.
+  const mirror = (from, to) => () => {{
+    if (to.scrollLeft !== from.scrollLeft) to.scrollLeft = from.scrollLeft;
+  }};
+  const size = () => {{
+    spacer.style.width = body.scrollWidth + "px";
+    top.hidden = body.scrollWidth <= body.clientWidth + 1;
+  }};
+  top.addEventListener("scroll", mirror(top, body), {{ passive: true }});
+  body.addEventListener("scroll", mirror(body, top), {{ passive: true }});
+  details.addEventListener("toggle", size);
+  window.addEventListener("resize", size);
+  size();
+}})();
+</script>
 </section>"""
 
 
