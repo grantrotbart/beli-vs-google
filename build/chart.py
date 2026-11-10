@@ -360,27 +360,42 @@ def coverage_chart(data, path=COVERAGE):
 # ---- resolution ------------------------------------------------------------------
 
 def distribution_chart(data, path=DISTRIBUTION):
-    """The two crowd scores as histograms, each across its own full scale."""
-    figure, axes = plt.subplots(1, 2, figsize=(11.0, 5.4), dpi=DPI, sharey=True)
-    counts = {}
-    for axis, key, lo, hi, label in (
-            (axes[0], analyze.CLEAN, 1.0, 5.0, "Google rating"),
-            (axes[1], "beli_average", 0.0, 10.0, "Beli's all-user average")):
-        v = data[key][~np.isnan(data[key])]
-        counts[key] = len(set(v))
-        axis.hist(v, bins=np.arange(lo, hi + 0.1, 0.1), color=ACCENT, zorder=3)
-        axis.set_xlim(lo, hi)
-        axis.set_xlabel(f"{label}  ·  {counts[key]} distinct values",
-                        fontsize=LABEL_PT - 1, color=INK_2, labelpad=10)
+    """The two crowd scores as histograms, each across its own full scale.
+
+    Google's average can't fall below one star, so its axis starts at 1; a Beli score
+    can go to 0. Each panel says how many values its scale allows, because most of the
+    difference in ties comes from that, not from the users."""
+    figure, axes = plt.subplots(1, 2, figsize=(11.0, 5.8), dpi=DPI, sharey=True)
+    panels = (
+        (axes[0], analyze.CLEAN, 1.0, 5.0, "Google: 1 to 5 stars", [1, 2, 3, 4, 5]),
+        (axes[1], "beli_average", 0.0, 10.0, "Beli: 0 to 10", [0, 2, 4, 6, 8, 10]),
+    )
+    used = {}
+    for axis, key, lo, hi, title, ticks in panels:
+        v = np.round(data[key][~np.isnan(data[key])], 1)
+        used[key] = len(np.unique(v))
+        possible = int(round((hi - lo) * 10)) + 1
+        # One bar per possible value, centred on it, so no rating sits on a bin edge.
+        edges = np.arange(lo - 0.05, hi + 0.1, 0.1)
+        axis.hist(v, bins=edges, color=ACCENT, zorder=3)
+        axis.set_xlim(lo - 0.05, hi + 0.05)
+        axis.set_xticks(ticks)
+        axis.set_xlabel(f"one decimal  ·  {possible} possible values, {used[key]} used",
+                        fontsize=LABEL_PT - 2, color=INK_2, labelpad=10)
         chrome(axis, grid_axis="y")
+        panel_title(axis, title)
     axes[0].set_ylabel("restaurants", fontsize=LABEL_PT - 1, color=INK_2, labelpad=10)
 
+    beli = data["beli_average"][~np.isnan(data["beli_average"])]
+    squeezed = len(np.unique(np.round(1 + 0.4 * beli, 1)))
     n = int((~np.isnan(data[analyze.CLEAN])).sum())
     frame(figure,
-          f"Google packs {n} restaurants into {counts[analyze.CLEAN]} values",
-          subtitle="Each score drawn across its full scale, on the same restaurants.",
-          footnote="Google reports one decimal on 1-5, so part of the bunching is "
-                   "granularity.")
+          f"Google packs {n} restaurants into {used[analyze.CLEAN]} values",
+          subtitle="Each platform's average across its full scale. A Google average "
+                   "can't fall below 1 star.",
+          footnote=f"Mostly granularity: squeezed onto Google's 41 slots, Beli's averages "
+                   f"would use {squeezed} values.",
+          panel_titles=True)
     figure.subplots_adjust(wspace=0.08)
     figure.savefig(path, dpi=DPI, facecolor=SURFACE)
     plt.close(figure)

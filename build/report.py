@@ -314,24 +314,37 @@ platform, and the split seems more useful than a blended number hiding both halv
 
     if res:
         g, b = res[analyze.CLEAN], res["beli_average"]
+        sq = res["beli_on_google_grid"]
+        slots = res["slots"]
+        raw_gap = g["tied_pairs"] / max(b["tied_pairs"], 1)
+        fair_gap = g["tied_pairs"] / max(sq["tied_pairs"], 1)
         out.append(f"""<section>
 <h2>Resolution</h2>
-<p>Volume only matters if it buys discrimination. Of the {res['pairs']:,} pairs among
-these restaurants, a score that gives both the same value can&rsquo;t order them.</p>
+<p>More ratings only help if they let you tell restaurants apart. Of the
+{res['pairs']:,} pairs among these restaurants, any pair a score gives the same value is
+a pair it can&rsquo;t put in order.</p>
 <figure class="figure"><img src="{data_uri(chart.DISTRIBUTION)}"
-alt="Histograms of Google ratings and Beli all-user averages, each drawn across its own
-full scale."></figure>
-{table(["crowd score", "distinct values", "tied pairs", "share tied",
+alt="Histograms of Google ratings on a 1 to 5 scale and Beli all-user averages on a 0 to
+10 scale, each drawn across its full scale."></figure>
+{table(["crowd score", "possible values", "values used", "tied pairs", "share tied",
         "largest group on one value"],
-       [[analyze.LABELS[analyze.CLEAN], g["distinct"], f'{g["tied_pairs"]:,}',
-         pct(g["tied_share"]), g["biggest_tie"]],
-        [analyze.LABELS["beli_average"], b["distinct"], f'{b["tied_pairs"]:,}',
-         pct(b["tied_share"]), b["biggest_tie"]]])}
+       [[analyze.LABELS[analyze.CLEAN], slots[analyze.CLEAN], g["distinct"],
+         f'{g["tied_pairs"]:,}', pct(g["tied_share"], 1), g["biggest_tie"]],
+        [analyze.LABELS["beli_average"], slots["beli_average"], b["distinct"],
+         f'{b["tied_pairs"]:,}', pct(b["tied_share"], 1), b["biggest_tie"]],
+        ["Beli&rsquo;s average on Google&rsquo;s scale", slots[analyze.CLEAN],
+         sq["distinct"], f'{sq["tied_pairs"]:,}', pct(sq["tied_share"], 1),
+         sq["biggest_tie"]]])}
 <p>Both are averages over users, so this is like for like. Google leaves
-{g["tied_pairs"] / max(b["tied_pairs"], 1):.1f}&times; as many pairs indistinguishable.
-Some of that is granularity, since one decimal on a 1&ndash;5 scale gives Google fewer
-slots. I don&rsquo;t think that rescues it. A product reading the Google rating
-can&rsquo;t rank what the rating doesn&rsquo;t separate.</p>
+{raw_gap:.1f}&times; as many pairs indistinguishable. Most of that is granularity: Google
+publishes one decimal on a 1&ndash;5 scale, which allows {slots[analyze.CLEAN]} possible
+values, while Beli&rsquo;s one decimal on 0&ndash;10 allows {slots['beli_average']}.
+Squeeze Beli&rsquo;s averages onto Google&rsquo;s {slots[analyze.CLEAN]} slots (the last
+row) and they still tie fewer pairs, {pct(sq["tied_share"], 1)} against
+{pct(g["tied_share"], 1)}, but the gap shrinks to {fair_gap:.1f}&times;.</p>
+<p>So the difference here is mostly the scale each platform publishes, not its users
+being more discerning. It still matters in practice: a product reading the Google rating
+can&rsquo;t rank what the rating doesn&rsquo;t separate, whatever the reason.</p>
 </section>""")
 
     if anchors:

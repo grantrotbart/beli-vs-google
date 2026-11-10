@@ -289,6 +289,19 @@ def distinguishing(data):
             "tied_share": tied / pairs,
             "biggest_tie": int(counts.max()),
         }
+    # Granularity control. Google publishes one decimal on 1-5 (41 possible values),
+    # Beli one decimal on 0-10 (101). Mapping Beli's averages linearly onto Google's
+    # grid and re-rounding asks how much of the tie gap is just the number of slots.
+    squeezed = np.round(1 + 0.4 * data["beli_average"][both], 1)
+    values, counts = np.unique(squeezed, return_counts=True)
+    tied = int(sum(c * (c - 1) // 2 for c in counts))
+    out["beli_on_google_grid"] = {
+        "distinct": int(len(values)),
+        "tied_pairs": tied,
+        "tied_share": tied / pairs,
+        "biggest_tie": int(counts.max()),
+    }
+    out["slots"] = {CLEAN: 41, "beli_average": 101}
     out["n"] = n
     out["pairs"] = pairs
     return out
@@ -507,24 +520,33 @@ def write_stats(result, path=STATS):
             f"A score that gives two restaurants the same value cannot order them.",
             "",
         ]
+        sq = res["beli_on_google_grid"]
         lines += table(
-            [[LABELS[CLEAN], g["distinct"], f"{g['tied_pairs']:,}", pct(g["tied_share"]),
-              g["biggest_tie"]],
-             [LABELS["beli_average"], b["distinct"], f"{b['tied_pairs']:,}",
-              pct(b["tied_share"]), b["biggest_tie"]]],
-            ["crowd score", "distinct values", "tied pairs", "share tied",
+            [[LABELS[CLEAN], res["slots"][CLEAN], g["distinct"], f"{g['tied_pairs']:,}",
+              pct(g["tied_share"]), g["biggest_tie"]],
+             [LABELS["beli_average"], res["slots"]["beli_average"], b["distinct"],
+              f"{b['tied_pairs']:,}", pct(b["tied_share"]), b["biggest_tie"]],
+             ["Beli average on Google's 1-5 grid", res["slots"][CLEAN], sq["distinct"],
+              f"{sq['tied_pairs']:,}", pct(sq["tied_share"]), sq["biggest_tie"]]],
+            ["crowd score", "possible values", "values used", "tied pairs", "share tied",
              "largest group on one value"])
         lines += [
             "",
-            f"Both are averages over users, so this is a fair comparison. Google leaves "
+            f"Both are averages over users, so this is like for like. Google leaves "
             f"{g['tied_pairs'] / max(b['tied_pairs'], 1):.1f}x as many pairs "
             f"indistinguishable, and its largest collision puts **{g['biggest_tie']} "
             f"restaurants on one number**.",
             "",
-            "Part of that is granularity -- Google reports one decimal on a 1-5 scale, so "
-            "it has fewer slots to begin with. That is not a defence of the number: a "
-            "product consuming the Google rating cannot rank what the rating does not "
-            "separate, whatever the reason.",
+            f"**Most of that is granularity.** Google publishes one decimal on 1-5 "
+            f"({res['slots'][CLEAN]} possible values); Beli one decimal on 0-10 "
+            f"({res['slots']['beli_average']}). Mapping Beli's averages linearly onto "
+            f"Google's grid (1 + 0.4 x score, re-rounded) leaves {sq['tied_pairs']:,} tied "
+            f"pairs, so on equal slots Google ties "
+            f"{g['tied_pairs'] / max(sq['tied_pairs'], 1):.1f}x as many, not "
+            f"{g['tied_pairs'] / max(b['tied_pairs'], 1):.1f}x. The practical point "
+            f"stands -- a product consuming the Google rating cannot rank what it does "
+            f"not separate -- but the advantage is mostly the published scale, not the "
+            f"users behind it.",
             "",
         ]
 

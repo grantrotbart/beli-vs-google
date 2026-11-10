@@ -36,14 +36,15 @@ So the 10-100x figure holds where Beli has density and inverts where it does not
 
 Across 116 restaurants there are 6,670 possible pairs. A score that gives two restaurants the same value cannot order them.
 
-| crowd score           | distinct values | tied pairs | share tied | largest group on one value |
-|-----------------------|-----------------|------------|------------|----------------------------|
-| Google rating         | 12              | 826        | 12.4%      | 22                         |
-| Beli all-user average | 29              | 309        | 4.6%       | 13                         |
+| crowd score                       | possible values | values used | tied pairs | share tied | largest group on one value |
+|-----------------------------------|-----------------|-------------|------------|------------|----------------------------|
+| Google rating                     | 41              | 12          | 826        | 12.4%      | 22                         |
+| Beli all-user average             | 101             | 29          | 309        | 4.6%       | 13                         |
+| Beli average on Google's 1-5 grid | 41              | 14          | 730        | 10.9%      | 21                         |
 
-Both are averages over users, so this is a fair comparison. Google leaves 2.7x as many pairs indistinguishable, and its largest collision puts **22 restaurants on one number**.
+Both are averages over users, so this is like for like. Google leaves 2.7x as many pairs indistinguishable, and its largest collision puts **22 restaurants on one number**.
 
-Part of that is granularity -- Google reports one decimal on a 1-5 scale, so it has fewer slots to begin with. That is not a defence of the number: a product consuming the Google rating cannot rank what the rating does not separate, whatever the reason.
+**Most of that is granularity.** Google publishes one decimal on 1-5 (41 possible values); Beli one decimal on 0-10 (101). Mapping Beli's averages linearly onto Google's grid (1 + 0.4 x score, re-rounded) leaves 730 tied pairs, so on equal slots Google ties 1.1x as many, not 2.7x. The practical point stands -- a product consuming the Google rating cannot rank what it does not separate -- but the advantage is mostly the published scale, not the users behind it.
 
 ## 3. Consequence: Google's number predicts nothing about my order
 

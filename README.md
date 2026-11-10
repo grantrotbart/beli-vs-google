@@ -13,7 +13,8 @@ Three findings, in the order the report makes them:
    the honest version of the 10-100x claim.
 2. **Resolution.** Google's rating puts **22 of these restaurants on the same number**,
    spanning rank #1 to rank #107. It leaves 2.7x as many pairs indistinguishable as
-   Beli's all-user average does.
+   Beli's all-user average does, but most of that is scale: Google publishes 41 possible
+   values (1-5, one decimal) against Beli's 101 (0-10). On equal slots the gap is 1.1x.
 3. **Consequence.** A restaurant's Google rating explains **less than 1%** of where it
    lands in the ranking (n=117, Spearman 0.02, p=0.81), and the null holds inside every
    price band. Run crowd against crowd instead of against one person, Google explains
