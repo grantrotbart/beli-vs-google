@@ -437,8 +437,8 @@ two.</li>""")
 
     out.append(f"""<section>
 <h2>Things I&rsquo;d want to look at with the real data</h2>
-<p>Not recommendations. These are questions {n} restaurants raised and can&rsquo;t answer
-on their own.</p>
+<p>These are the questions I asked myself as I worked through the analysis, but
+can&rsquo;t answer with the limited data I have.</p>
 
 <h3>Following up on these results</h3>
 <ul>

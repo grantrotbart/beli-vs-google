@@ -1,6 +1,6 @@
 # Beli vs Google -- the numbers
 
-Generated 2026-11-10 from 117 kept rows. Google ratings via: api, manual.
+Generated 2026-11-11 from 117 kept rows. Google ratings via: api, manual.
 
 ## Headline
 
