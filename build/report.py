@@ -81,10 +81,6 @@ body {
   gap: 2.5rem;
 }
 header { display: flex; flex-direction: column; gap: 0.75rem; }
-.eyebrow {
-  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); font-weight: 600;
-}
 h1 {
   font-size: clamp(1.9rem, 5vw, 2.7rem); line-height: 1.12; margin: 0;
   letter-spacing: -0.02em; text-wrap: balance; font-weight: 700;
@@ -213,7 +209,6 @@ def sections(result, image_uri):
     n = result["n_kept"]
 
     out.append(f"""<header>
-<div class="eyebrow">{n} restaurants, one Beli list</div>
 <h1>Does Beli&rsquo;s data say something Google&rsquo;s doesn&rsquo;t?</h1>
 <p class="byline">{AUTHOR} &middot; {result['generated']}</p>
 <p class="lede">Beli argues publicly that its ratings are richer and more representative
