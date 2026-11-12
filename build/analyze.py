@@ -430,6 +430,122 @@ def review_count_check(data, fits):
     return {"n": int(mask.sum()), "spearman": float(rho), "p": float(p)}
 
 
+# Assumed spread of a single review, needed because only averages are visible. Google is
+# a 1-5 star scale, Beli 0-10. The alternative set gives the same answers to two
+# decimals; stats.md says so.
+REVIEW_SD = {CLEAN: 1.0, "beli_average": 1.5}
+REVIEW_SD_ALT = {CLEAN: 1.3, "beli_average": 2.0}
+BOOTSTRAP = 5000
+
+
+def weighted_r(x, y, w):
+    w = w / w.sum()
+    mx, my = (w * x).sum(), (w * y).sum()
+    cov = (w * (x - mx) * (y - my)).sum()
+    return float(cov / np.sqrt((w * (x - mx) ** 2).sum() * (w * (y - my) ** 2).sum()))
+
+
+def thirds(values, x, y, extra=None):
+    """Spearman inside each third of the data, split on `values`."""
+    cuts = np.quantile(values, [1 / 3, 2 / 3])
+    group = np.digitize(values, cuts)
+    rows = []
+    for g in range(3):
+        sel = group == g
+        rho, p = sps.spearmanr(x[sel], y[sel])
+        row = {"lo": float(values[sel].min()), "hi": float(values[sel].max()),
+               "n": int(sel.sum()), "rho": float(rho), "p": float(p)}
+        if extra is not None:
+            row["nyc"] = int(extra[sel].sum())
+        rows.append(row)
+    return rows
+
+
+def interaction_p(x, y, volume, control=None):
+    """p-value on google x log(volume): does agreement rise with volume?"""
+    gc = x - x.mean()
+    lv = np.log10(volume)
+    lv = lv - lv.mean()
+    cols = [np.ones(len(y)), gc, lv, gc * lv]
+    if control is not None:
+        c = control.astype(float)
+        cols += [c, gc * c]
+    X = np.column_stack(cols)
+    beta, *_ = np.linalg.lstsq(X, y, rcond=None)
+    resid = y - X @ beta
+    dof = len(y) - X.shape[1]
+    cov = (resid @ resid / dof) * np.linalg.inv(X.T @ X)
+    t = beta[3] / np.sqrt(cov[3, 3])
+    return float(2 * sps.t.sf(abs(t), dof))
+
+
+def volume_check(data):
+    """Does the number of ratings behind each average change the correlations?
+
+    An average from 7 ratings is noisier than one from 100,000, and noise pulls a
+    correlation toward zero. Three checks: the correlation inside each third by volume
+    (if thin samples were hiding a relationship, it would rise with volume), a
+    correlation weighted by how precise each restaurant's averages are, and a formal
+    test of whether agreement rises with volume. For the crowd comparison, volume and
+    New York are tangled, so the test is also run with a New York control."""
+    out = {}
+    rng = np.random.default_rng(0)
+    g, ng = data[CLEAN], data["user_ratings_total"]
+
+    # My ranking against Google: only Google's side is a noisy average.
+    m = ~np.isnan(g) & ~np.isnan(ng) & ~np.isnan(data[OUTCOME]) & (ng > 0)
+    if m.sum() >= 30:
+        x, y, n = g[m], data[OUTCOME][m], ng[m]
+        out["personal"] = {"n": int(m.sum()), "thirds": thirds(n, x, y),
+                           "r": float(np.corrcoef(x, y)[0, 1]),
+                           "weighted_r": weighted_r(x, y, n.astype(float))}
+
+    # Google against Beli's users: both sides are noisy averages.
+    b, nb = data["beli_average"], data["beli_rating_count"]
+    m = (~np.isnan(g) & ~np.isnan(ng) & ~np.isnan(b) & ~np.isnan(nb)
+         & (ng > 0) & (nb > 0))
+    if m.sum() >= 30:
+        x, y, n1, n2 = g[m], b[m], ng[m], nb[m]
+        nyc = np.array([mk == "NYC" for mk, keep in zip(data["markets"], m) if keep])
+        thinner = np.minimum(n1, n2)
+
+        def weights(sd):
+            return 1 / ((sd[CLEAN] ** 2 / n1) / x.var()
+                        + (sd["beli_average"] ** 2 / n2) / y.var())
+
+        w = weights(REVIEW_SD)
+        boot = []
+        for _ in range(BOOTSTRAP):
+            i = rng.integers(0, len(x), len(x))
+            boot.append(weighted_r(x[i], y[i], w[i]))
+        lo, hi = np.percentile(boot, [2.5, 97.5])
+
+        # Correction for attenuation: how much the noise in each average has shrunk r.
+        rel_x = 1 - np.mean(REVIEW_SD[CLEAN] ** 2 / n1) / x.var()
+        rel_y = 1 - np.mean(REVIEW_SD["beli_average"] ** 2 / n2) / y.var()
+        r = float(np.corrcoef(x, y)[0, 1])
+        nyc_rho = sps.spearmanr(x[nyc], y[nyc]) if nyc.sum() >= 10 else None
+        rest_rho = sps.spearmanr(x[~nyc], y[~nyc]) if (~nyc).sum() >= 10 else None
+        out["crowd"] = {
+            "n": int(m.sum()),
+            "thirds": thirds(thinner, x, y, extra=nyc),
+            "r": r,
+            "weighted_r": weighted_r(x, y, w),
+            "weighted_r_alt": weighted_r(x, y, weights(REVIEW_SD_ALT)),
+            "weighted_ci": (float(lo), float(hi)),
+            "disattenuated_r": float(r / np.sqrt(rel_x * rel_y)),
+            "reliability": (float(rel_x), float(rel_y)),
+            "trend_p": interaction_p(x, y, thinner),
+            "trend_p_nyc": interaction_p(x, y, thinner, control=nyc),
+            "nyc": ({"n": int(nyc.sum()), "rho": float(nyc_rho[0]), "p": float(nyc_rho[1])}
+                    if nyc_rho else None),
+            "rest": ({"n": int((~nyc).sum()), "rho": float(rest_rho[0]),
+                      "p": float(rest_rho[1])} if rest_rho else None),
+            "min_count": int(min(n1.min(), n2.min())),
+        }
+    return out
+
+
 def compute():
     data = load()
     fits = simple_fits(data)
@@ -449,6 +565,7 @@ def compute():
         "resolution": distinguishing(data),
         "cluster": tightest_cluster(data),
         "review_check": review_count_check(data, fits),
+        "volume": volume_check(data),
         "google_band": google_band(data),
     }
 
@@ -763,6 +880,60 @@ def write_stats(result, path=STATS):
                   f"n = {check['n']}) between a restaurant's Google review count and how far "
                   "my rating sits from what its Google rating predicts. Negative means Google "
                   "agrees with me more where it has more reviews.", ""]
+
+    vol = result.get("volume") or {}
+    if vol:
+        lines += ["## Does review volume change the correlations?", "",
+                  "An average from a handful of ratings is noisier than one from thousands, "
+                  "and noise pulls a correlation toward zero. If thin samples were hiding a "
+                  "relationship, it would show up as higher agreement where volume is high.",
+                  ""]
+    if vol.get("personal"):
+        per = vol["personal"]
+        lines += ["**Google against my ranking**, split into thirds by Google review "
+                  "count. Only Google's side is an average here; mine has no sampling noise.",
+                  ""]
+        lines += table(
+            [[f"{t['lo']:,.0f}-{t['hi']:,.0f}", t["n"], f"{t['rho']:+.2f}", f"{t['p']:.2f}"]
+             for t in per["thirds"]],
+            ["Google reviews", "n", "Spearman rho", "p"])
+        lines += ["",
+                  f"Weighting each restaurant by its review count gives r = "
+                  f"{per['weighted_r']:+.3f} (unweighted {per['r']:+.3f}). The null is not "
+                  f"an artefact of thinly reviewed places.", ""]
+    if vol.get("crowd"):
+        c = vol["crowd"]
+        lines += ["**Google against Beli's all-user average**, split into thirds by the "
+                  "ratings behind the thinner of the two averages. Both sides are averages "
+                  f"here, and Beli's go as low as {c['min_count']} ratings.", ""]
+        lines += table(
+            [[f"{t['lo']:,.0f}-{t['hi']:,.0f}", t["n"], t["nyc"], f"{t['rho']:+.2f}",
+              f"{t['p']:.2f}"] for t in c["thirds"]],
+            ["ratings behind the thinner average", "n", "of which NYC", "Spearman rho", "p"])
+        lo, hi = c["weighted_ci"]
+        lines += ["",
+                  f"- Weighted by the precision of both averages: r = {c['weighted_r']:+.3f} "
+                  f"(R2 {pct(c['weighted_r'] ** 2)}), 95% bootstrap interval "
+                  f"{lo:+.2f} to {hi:+.2f}, against r = {c['r']:+.3f} unweighted. Weights "
+                  f"assume a single review spreads {REVIEW_SD[CLEAN]} star on Google and "
+                  f"{REVIEW_SD['beli_average']} points on Beli; assuming "
+                  f"{REVIEW_SD_ALT[CLEAN]} and {REVIEW_SD_ALT['beli_average']} gives "
+                  f"r = {c['weighted_r_alt']:+.3f}.",
+                  f"- Corrected for attenuation: r = {c['disattenuated_r']:+.3f}. The "
+                  f"averages are reliable overall (Google {c['reliability'][0]:.2f}, Beli "
+                  f"{c['reliability'][1]:.2f}), so noise explains little of the gap.",
+                  f"- Does agreement rise with volume? Interaction of Google rating with "
+                  f"log volume: p = {c['trend_p']:.2f}, or p = {c['trend_p_nyc']:.2f} with a "
+                  f"New York control. "
+                  + ("Not a reliable trend." if min(c['trend_p'], c['trend_p_nyc']) >= 0.05
+                     else "A reliable trend."),
+                  ]
+        if c.get("nyc") and c.get("rest"):
+            lines += [f"- Volume and New York are tangled: the thinnest third is mostly "
+                      f"outside New York. Within New York rho = {c['nyc']['rho']:+.2f} "
+                      f"(n = {c['nyc']['n']}); elsewhere {c['rest']['rho']:+.2f} "
+                      f"(n = {c['rest']['n']})."]
+        lines += [""]
 
     lines += [
         "## Caveats that belong in the writeup",

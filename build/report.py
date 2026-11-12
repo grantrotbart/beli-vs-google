@@ -207,6 +207,10 @@ def sections(result, image_uri):
     res = result.get("resolution")
     out = []
     n = result["n_kept"]
+    vol = result.get("volume") or {}
+
+    def signed(x):
+        return f"+{x:.2f}" if x >= 0 else f"&minus;{abs(x):.2f}"
 
     out.append(f"""<header>
 <h1>Does Beli&rsquo;s data say something Google&rsquo;s doesn&rsquo;t?</h1>
@@ -224,6 +228,22 @@ The points form a narrow vertical band with no slope.">
 </figure>""")
 
     if google and cluster:
+        # Review volume: if thinly reviewed places were hiding a relationship, the
+        # best-reviewed third would show it.
+        volume_line = ""
+        per = vol.get("personal")
+        if per:
+            t = per["thirds"]
+            rhos = f"{signed(t[0]['rho'])}, {signed(t[1]['rho'])} and {signed(t[2]['rho'])}"
+            if all(row["p"] >= 0.05 for row in t):
+                volume_line = (f" It holds at every review volume as well. Split into "
+                               f"thirds by how many Google reviews a restaurant has, "
+                               f"&rho; is {rhos}, and none is significant. If thinly "
+                               f"reviewed places were hiding a relationship, the "
+                               f"best-reviewed third would show it.")
+            else:
+                volume_line = (f" Split into thirds by how many Google reviews a "
+                               f"restaurant has, &rho; is {rhos}.")
         out.append(f"""<section>
 <h2>The headline</h2>
 <p class="pull">Google stars explain {headline_pct(google['r2'])} of where a restaurant
@@ -236,7 +256,7 @@ I do, 0 means no relationship at all. The p-value is the chance of seeing at lea
 much overlap if the two were completely unrelated, so at
 {google['spearman_p']:.2f} what little overlap there is looks like coincidence. This
 holds within price bands too, so the result isn&rsquo;t skewed by mixing fast-casual
-spots with special-occasion restaurants.</p>
+spots with special-occasion restaurants.{volume_line}</p>
 <p><strong>{cluster['count']} of my restaurants sit at exactly
 {cluster['google_rating']:.1f} on Google</strong>, but I rank them from
 {cluster['min']:.1f} to {cluster['max']:.1f}. {cluster['highest']} is my number one while
@@ -260,6 +280,39 @@ good.</p>
         elif missing > 1:
             dropped = (f" ({crowd['n']} of the {n}, since {missing} don&rsquo;t have a "
                        f"Beli average yet)")
+        # Both sides are averages here, so volume can matter. Weighted share, the split
+        # by thirds, and whether the rise is reliable -- with New York named, because
+        # volume and New York travel together.
+        vol_block = ""
+        c = vol.get("crowd")
+        if c:
+            rows = [[f"{t['lo']:,.0f}&ndash;{t['hi']:,.0f}", t["n"], t["nyc"],
+                     signed(t["rho"])] for t in c["thirds"]]
+            lo, hi = c["weighted_ci"]
+            rising = all(a["rho"] < b["rho"] for a, b in zip(c["thirds"], c["thirds"][1:]))
+            lead = ("Agreement also rises a little in the restaurants with the most ratings:"
+                    if rising else
+                    "Agreement doesn&rsquo;t rise consistently with the number of ratings:")
+            thin = c["thirds"][0]
+            if c["trend_p"] >= 0.05:
+                verdict = (f"But that trend isn&rsquo;t statistically reliable "
+                           f"(p&nbsp;=&nbsp;{c['trend_p']:.2f}), and volume travels with New "
+                           f"York: only {thin['nyc']} of the {thin['n']} thinnest are there. "
+                           f"So it&rsquo;s a hint rather than a finding. Even at their "
+                           f"closest, the two crowds only loosely agree.")
+            else:
+                verdict = (f"That trend is statistically reliable "
+                           f"(p&nbsp;=&nbsp;{c['trend_p']:.2f}), though volume travels with "
+                           f"New York: only {thin['nyc']} of the {thin['n']} thinnest are "
+                           f"there.")
+            vol_block = f"""<p>Review volume matters more here, because both sides are
+averages and some of Beli&rsquo;s rest on as few as {c['min_count']} ratings. Weighting
+each restaurant by how many ratings sit behind its two averages moves Google&rsquo;s share
+from {headline_pct(crowd['r2'])} to about {headline_pct(c['weighted_r'] ** 2)}, with a
+wide 95% interval of {headline_pct(max(lo, 0) ** 2)} to {headline_pct(hi ** 2)}. {lead}</p>
+{table(["ratings behind the thinner average", "restaurants", "in New York", "&rho;"],
+       rows)}
+<p>{verdict}</p>"""
         out.append(f"""<section>
 <h2>And it isn&rsquo;t just me</h2>
 <p>The obvious objection is that this is one person with odd taste. So here is the same
@@ -282,6 +335,7 @@ Diner at 4.4 and Laser Wolf at 4.2</strong>, so by that measure the diner is the
 restaurant. Beli&rsquo;s users have Laser Wolf at 8.9 and Darrell&rsquo;s at 5.5. That
 isn&rsquo;t a close call tipping the other way: the two crowds put these restaurants in
 opposite order, and Beli&rsquo;s users split them by more than three points.</p>
+{vol_block}
 </section>""")
 
     if cover:

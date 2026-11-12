@@ -131,6 +131,33 @@ Beli's all-user average spreads those same restaurants across 2.3 points.
 
 Spearman rho = 0.053 (p = 0.57, n = 117) between a restaurant's Google review count and how far my rating sits from what its Google rating predicts. Negative means Google agrees with me more where it has more reviews.
 
+## Does review volume change the correlations?
+
+An average from a handful of ratings is noisier than one from thousands, and noise pulls a correlation toward zero. If thin samples were hiding a relationship, it would show up as higher agreement where volume is high.
+
+**Google against my ranking**, split into thirds by Google review count. Only Google's side is an average here; mine has no sampling noise.
+
+| Google reviews | n  | Spearman rho | p    |
+|----------------|----|--------------|------|
+| 64-575         | 39 | +0.21        | 0.20 |
+| 580-1,782      | 39 | -0.28        | 0.08 |
+| 1,983-56,465   | 39 | +0.14        | 0.40 |
+
+Weighting each restaurant by its review count gives r = -0.152 (unweighted -0.005). The null is not an artefact of thinly reviewed places.
+
+**Google against Beli's all-user average**, split into thirds by the ratings behind the thinner of the two averages. Both sides are averages here, and Beli's go as low as 7 ratings.
+
+| ratings behind the thinner average | n  | of which NYC | Spearman rho | p    |
+|------------------------------------|----|--------------|--------------|------|
+| 7-241                              | 39 | 5            | +0.17        | 0.30 |
+| 249-923                            | 38 | 20           | +0.24        | 0.15 |
+| 935-56,465                         | 39 | 21           | +0.27        | 0.09 |
+
+- Weighted by the precision of both averages: r = +0.184 (R2 3.4%), 95% bootstrap interval +0.01 to +0.42, against r = +0.154 unweighted. Weights assume a single review spreads 1.0 star on Google and 1.5 points on Beli; assuming 1.3 and 2.0 gives r = +0.185.
+- Corrected for attenuation: r = +0.160. The averages are reliable overall (Google 0.97, Beli 0.96), so noise explains little of the gap.
+- Does agreement rise with volume? Interaction of Google rating with log volume: p = 0.19, or p = 0.24 with a New York control. Not a reliable trend.
+- Volume and New York are tangled: the thinnest third is mostly outside New York. Within New York rho = +0.32 (n = 46); elsewhere +0.09 (n = 70).
+
 ## Caveats that belong in the writeup
 
 - One user's ratings. This is a mechanism, not a measurement.

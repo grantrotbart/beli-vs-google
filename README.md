@@ -17,8 +17,10 @@ Three findings, in the order the report makes them:
    values (1-5, one decimal) against Beli's 101 (0-10). On equal slots the gap is 1.1x.
 3. **Consequence.** A restaurant's Google rating explains **less than 1%** of where it
    lands in the ranking (n=117, Spearman 0.02, p=0.81), and the null holds inside every
-   price band. Run crowd against crowd instead of against one person, Google explains
-   **2.4%** of Beli's all-user average.
+   price band and at every review volume. Run crowd against crowd instead of against one
+   person, Google explains **2.4%** of Beli's all-user average, or about 3.4% weighted by
+   how many ratings sit behind each average. Agreement rises slightly with volume, but
+   not reliably (p=0.19), and volume is tangled with New York.
 
 One user's list, so this is a mechanism rather than a measurement. The
 [report](https://grantrotbart.github.io/beli-vs-google/) is the write-up (`out/report.html`

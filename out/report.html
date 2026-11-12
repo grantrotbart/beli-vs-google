@@ -165,7 +165,7 @@ I do, 0 means no relationship at all. The p-value is the chance of seeing at lea
 much overlap if the two were completely unrelated, so at
 0.81 what little overlap there is looks like coincidence. This
 holds within price bands too, so the result isn&rsquo;t skewed by mixing fast-casual
-spots with special-occasion restaurants.</p>
+spots with special-occasion restaurants. It holds at every review volume as well. Split into thirds by how many Google reviews a restaurant has, &rho; is +0.21, &minus;0.28 and +0.14, and none is significant. If thinly reviewed places were hiding a relationship, the best-reviewed third would show it.</p>
 <p><strong>22 of my restaurants sit at exactly
 4.5 on Google</strong>, but I rank them from
 6.7 to 10.0. Rolo's is my number one while
@@ -193,6 +193,13 @@ Diner at 4.4 and Laser Wolf at 4.2</strong>, so by that measure the diner is the
 restaurant. Beli&rsquo;s users have Laser Wolf at 8.9 and Darrell&rsquo;s at 5.5. That
 isn&rsquo;t a close call tipping the other way: the two crowds put these restaurants in
 opposite order, and Beli&rsquo;s users split them by more than three points.</p>
+<p>Review volume matters more here, because both sides are
+averages and some of Beli&rsquo;s rest on as few as 7 ratings. Weighting
+each restaurant by how many ratings sit behind its two averages moves Google&rsquo;s share
+from 2% to about 3%, with a
+wide 95% interval of less than 1% to 18%. Agreement also rises a little in the restaurants with the most ratings:</p>
+<div class="scroll"><table><thead><tr><th>ratings behind the thinner average</th><th>restaurants</th><th>in New York</th><th>&rho;</th></tr></thead><tbody><tr><td class="lead">7&ndash;241</td><td>39</td><td>5</td><td>+0.17</td></tr><tr><td class="lead">249&ndash;923</td><td>38</td><td>20</td><td>+0.24</td></tr><tr><td class="lead">935&ndash;56,465</td><td>39</td><td>21</td><td>+0.27</td></tr></tbody></table></div>
+<p>But that trend isn&rsquo;t statistically reliable (p&nbsp;=&nbsp;0.19), and volume travels with New York: only 5 of the 39 thinnest are there. So it&rsquo;s a hint rather than a finding. Even at their closest, the two crowds only loosely agree.</p>
 </section><section>
 <h2>Volume, and where it comes from</h2>
 <p>Beli&rsquo;s founder claimed that Beli also has 10&ndash;100&times; more reviews to
